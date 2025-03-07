@@ -53,6 +53,8 @@ public class ProductPage extends BasePage {
 	By checkoutbtn=By.xpath("//span[normalize-space()='Go To Checkout']");
 	By innerframe=By.xpath("//iframe[@class='mfp-iframe']");
 	By continueshop=By.xpath("//span[normalize-space()='Continue Shopping']");
+	By wishlisterror=By.xpath("//div[@class='message-error error message']");
+	By wishlistsuccess=By.xpath("//div[@class='message-success success message']");
 	
 	
 	public WebElement IsCategoryDisplayed() {
@@ -265,6 +267,24 @@ public class ProductPage extends BasePage {
 		return new ProductDetailPage();
 	}
 	
+	public WebElement websites() {
+		WebElement website=driver.findElement(websites);
+		return website;
+	}
+	
+	public WebElement wishlisterror() {
+		driver.findElement(addwishlistbtn).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		WebElement errormsg=driver.findElement(wishlisterror);
+		return errormsg;
+	}
+	
+	public WebElement wishlistSuccess() {
+		driver.findElement(addwishlistbtn).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		WebElement successmsg=driver.findElement(wishlistsuccess);
+		return successmsg;
+	}
 	
 	
 	
