@@ -40,7 +40,7 @@ public class ProductPage extends BasePage {
 	By allproducts=By.xpath("//div[@id=\"layer-product-list\"]//strong[@class='product name product-item-name']//b");
 	By websites=By.xpath("//h5[normalize-space()='Websites']");
 	By wishlistbtn=By.xpath("//i[contains(@class,'far fa-heart')]");
-	By viewcartbtn=By.xpath("//a[@class='action showcart']");
+	By opencartbtn=By.xpath("//a[@class='action showcart']");
 	By allcategories=By.xpath("//div[contains(@class,'filter-options-item allow active')]//ol[contains(@class,'items')]/li");
 	By infusionproducts=By.xpath("//span[normalize-space()='Infusion & Low Temp Curing']");
 	By autoclaveproducts=By.xpath("//span[normalize-space()='Autoclave']");
@@ -55,7 +55,10 @@ public class ProductPage extends BasePage {
 	By continueshop=By.xpath("//span[normalize-space()='Continue Shopping']");
 	By wishlisterror=By.xpath("//div[@class='message-error error message']");
 	By wishlistsuccess=By.xpath("//div[@class='message-success success message']");
-	
+	By viewcartbtn=By.xpath("//span[normalize-space()='View Cart']");	
+	By noofitem=By.xpath("//div[@class='items-total']");
+	By closecart=By.xpath("//button[@id='btn-minicart-close']");
+	By search=By.xpath("//i[@class='fas fa-search']");
 	
 	public WebElement IsCategoryDisplayed() {
 	     WebElement category=driver.findElement(Category);
@@ -219,7 +222,7 @@ public class ProductPage extends BasePage {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.findElement(innerframe).isDisplayed();
 		driver.findElement(checkoutbtn).click();
-		return new CheckOutPage();	
+		return new CheckOutPage(driver);	
 		
 	}
 	
@@ -231,7 +234,7 @@ public class ProductPage extends BasePage {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.switchTo().frame(frame);
 		driver.findElement(quickproduct).click();
-		return new ProductDetailPage();
+		return new ProductDetailPage(driver);
 	}
 	
 	public ProductPage quickcontinueshopping() {
@@ -259,12 +262,12 @@ public class ProductPage extends BasePage {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.findElement(innerframe).isDisplayed();
 		driver.findElement(continueshop).click();
-		return new CheckOutPage();
+		return new CheckOutPage(driver);
 	}
 	
 	public ProductDetailPage openproductdetail() {
 		driver.findElement(productclick).click();
-		return new ProductDetailPage();
+		return new ProductDetailPage(driver);
 	}
 	
 	public WebElement websites() {
@@ -284,6 +287,23 @@ public class ProductPage extends BasePage {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		WebElement successmsg=driver.findElement(wishlistsuccess);
 		return successmsg;
+	}
+	
+	public CartPage cartdisplay() {
+		driver.findElement(opencartbtn).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		driver.findElement(viewcartbtn).click();
+		return new CartPage(driver);
+	}
+	
+	public WebElement itemno() {
+		driver.findElement(opencartbtn).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		return driver.findElement(noofitem);
+	}
+	
+	public void Closecart() {
+		driver.findElement(closecart).click();
 	}
 	
 	
