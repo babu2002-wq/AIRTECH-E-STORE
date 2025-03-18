@@ -56,7 +56,7 @@ public class LoginPage extends BasePage {
 	
 	public ForgotPasswordPage Clickforgetpassword() {
 		driver.findElement(forgotpasswordbtn).click();
-		return new ForgotPasswordPage();
+		return new ForgotPasswordPage(driver);
 	}
 
 }

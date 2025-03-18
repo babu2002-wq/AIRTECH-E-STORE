@@ -1,5 +1,7 @@
 package com.airtech.qa.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,7 +37,9 @@ public class CartPage extends BasePage {
 	By city=By.xpath("//div[@name='shippingAddress.city']//div[@class='control']");
 	By totalorder=By.xpath("//td[@data-bind=\"attr: {'data-th': title}\"]");
 	By checkoutbtn=By.xpath("//button[@title='Proceed to Checkout']");
-	
+	By uniqueitemidentify=By.xpath("//li[@class='item product']");
+	By itemtext=By.xpath("//td[@class='col item']//strong[@class='product-item-name']//a");
+	By allcartproducts=By.xpath("//tbody[@class='cart item']");
 	
 	public void Clickcartbtn() {
 		driver.findElement(cartbtn).click();
@@ -50,17 +54,24 @@ public class CartPage extends BasePage {
 		return driver.findElement(table);
 	}
 	
-	public ProductDetailPage Clickeditbtn() {
-		driver.findElement(editbtn);
-		return new ProductDetailPage(driver);
+	public void Clickeditbtn(int index) {
+		List<WebElement> editbtns=driver.findElements(editbtn);
+		WebElement editbtn=editbtns.get(index);
+		editbtn.click();
 	}
 	
-	public void clickremovebtn() {
-		driver.findElement(removebtn);
+	public WebElement uniqueElement() {
+		return driver.findElement(uniqueitemidentify);
+	}
+	
+	public void clickremovebtn(int index) {
+		List<WebElement> deletebtn=driver.findElements(removebtn);
+		WebElement removebtn=deletebtn.get(index);
+		removebtn.click();
 	}
 	
 	public void clickupdatebtn() {
-		driver.findElement(updatebtn);
+		driver.findElement(updatebtn).click();
 	}
 	
 	public WebElement IsDiscountDisplayed() {
@@ -75,14 +86,24 @@ public class CartPage extends BasePage {
 		driver.findElement(discountfield).click();
 	}
 	
-	public void Clickincreasequantity() {
-		driver.findElement(increasequantity);
+	public void Clickincreasequantity(int index) {
+		List<WebElement> Increasebtns=driver.findElements(increasequantity);
+		WebElement Increasebtn=Increasebtns.get(index);
+		Increasebtn.click();
 	}
 	
 	public void Clickdecreasequantity() {
 		driver.findElement(decreasequantity);
 	}
 	
+	public String getProductName() {
+		return driver.findElement(itemtext).getText();
+	}
+	
+	public List<WebElement> getProducts() {
+		 List<WebElement> products=driver.findElements(allcartproducts);
+		 return products;
+	}
 	
 	
 	 

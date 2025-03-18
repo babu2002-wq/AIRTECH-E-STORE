@@ -56,8 +56,10 @@ public class CheckOutPage extends BasePage {
 	By increasequantity=By.xpath("//a[@title='Plus']");
 	By decreasequantity=By.xpath("//a[@title='Minus']");
 	By quantity=By.xpath("//input[@name='item_qty']");
-	By subtotal=By.xpath("//span[@class='cart-price']");
+	By subtotal=By.xpath("//span[@data-th='Cart Subtotal']");
 	By ordertotal=By.xpath("//td[@class='amount']//strong");
+	By shippingprice=By.xpath("//span[@data-th='Shipping']");
+	By taxprice=By.xpath("td[data-th='Tax'] span[class='price']");
 	By otherpaymentmethod=By.xpath("//div[@id='payment-method-braintree-paypal']//div[@class='payment-method-title field choice']");
 	By otherpaycheck=By.xpath("//input[@id='braintree_paypal']");
 	
@@ -226,7 +228,21 @@ public class CheckOutPage extends BasePage {
 		driver.findElement(termcheckbox).click();
 	}
 	
+	public double gettotalprice() {
+		String tot=driver.findElement(ordertotal).getText().replace("£", "").trim();
+		double total=Double.parseDouble(tot);
+		return total;
+	}
 	
-	
+	public double getsumprices() {
+		String subtot=driver.findElement(subtotal).getText().replace("£", "").trim();
+		String tax=driver.findElement(taxprice).getText().replace("£", "").trim();
+		String ship=driver.findElement(shippingprice).getText().replace("£", "").trim();
+	    double subtotalValue = Double.parseDouble(subtot);
+	    double taxValue = Double.parseDouble(tax);
+	    double shippingValue = Double.parseDouble(ship);
+	    double totalSum = subtotalValue + taxValue + shippingValue;
+	    return totalSum;
+	}
 	
 }

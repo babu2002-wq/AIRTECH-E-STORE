@@ -31,6 +31,7 @@ public class ProductPage extends BasePage {
 	By showoptions=By.xpath("//div[contains(@class,'column main')]//div[1]//div[4]//div[1]//select[1]");
 	By listview=By.xpath("//body/div[@class='page-wrapper']/main[@id='maincontent']/div[@class='columns']/div[@class='column main']/div[@id='layer-product-list']/div[1]/div[2]/a[1]");
 	By gridview=By.xpath("//div[@class='column main']//div[1]//div[2]//strong[2]");
+	By elementcontainer=By.xpath("//body/div[@class='page-wrapper']/main[@id='maincontent']/div[@class='columns']/div[@class='column main']/div[@id='layer-product-list']/div[2]");
 	By addwishlistbtn=By.xpath("//li[@class='item product product-item nth-child-2np1 nth-child-3np1 nth-child-4np1 nth-child-5np1 nth-child-6np1 nth-child-7np1 nth-child-8np1']//a[@title='Add to Wish List']");
 	By addcartbtn=By.xpath("//li[contains(@class,'item product product-item nth-child-2np1 nth-child-3np1 nth-child-4np1 nth-child-5np1 nth-child-6np1 nth-child-7np1 nth-child-8np1')]//button[contains(@title,'Add to Cart')]");
 	By producthover=By.xpath("//li[@class='item product product-item nth-child-2np1 nth-child-3np1 nth-child-4np1 nth-child-5np1 nth-child-6np1 nth-child-7np1 nth-child-8np1']//div[@class='product-item-inner']");
@@ -59,6 +60,10 @@ public class ProductPage extends BasePage {
 	By noofitem=By.xpath("//div[@class='items-total']");
 	By closecart=By.xpath("//button[@id='btn-minicart-close']");
 	By search=By.xpath("//i[@class='fas fa-search']");
+	By uniqueitemidentify=By.xpath("//li[@class='item product']");	
+	
+	
+	
 	
 	public WebElement IsCategoryDisplayed() {
 	     WebElement category=driver.findElement(Category);
@@ -211,7 +216,7 @@ public class ProductPage extends BasePage {
 		driver.findElement(sortbtn);
 	}
 	
-	public CheckOutPage quickviewAddCart() {
+	public String quickviewAddCart() {
 		WebElement hover=driver.findElement(producthover);
 		WebElement frame=driver.findElement(iframe);
 		actions.moveToElement(hover).perform();
@@ -222,11 +227,10 @@ public class ProductPage extends BasePage {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.findElement(innerframe).isDisplayed();
 		driver.findElement(checkoutbtn).click();
-		return new CheckOutPage(driver);	
-		
+		return driver.getCurrentUrl();
 	}
 	
-	public ProductDetailPage quickgotoproduct() {
+	public WebElement quickgotoproduct() {
 		WebElement hover=driver.findElement(producthover);
 		WebElement frame=driver.findElement(iframe);
 		actions.moveToElement(hover).perform();
@@ -234,10 +238,10 @@ public class ProductPage extends BasePage {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.switchTo().frame(frame);
 		driver.findElement(quickproduct).click();
-		return new ProductDetailPage(driver);
+		return driver.findElement(uniqueitemidentify);
 	}
 	
-	public ProductPage quickcontinueshopping() {
+	public String quickcontinueshopping() {
 		WebElement hover=driver.findElement(producthover);
 		WebElement frame=driver.findElement(iframe);
 		actions.moveToElement(hover).perform();
@@ -248,26 +252,13 @@ public class ProductPage extends BasePage {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.findElement(innerframe).isDisplayed();
 		driver.findElement(continueshop).click();
-		return new ProductPage(driver);
+		return driver.getCurrentUrl();
 	}
 	
-	public CheckOutPage quickcheckout() {
-		WebElement hover=driver.findElement(producthover);
-		WebElement frame=driver.findElement(iframe);
-		actions.moveToElement(hover).perform();
-		driver.findElement(quickview).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-		driver.switchTo().frame(frame);
-		driver.findElement(quickcart).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-		driver.findElement(innerframe).isDisplayed();
-		driver.findElement(continueshop).click();
-		return new CheckOutPage(driver);
-	}
 	
-	public ProductDetailPage openproductdetail() {
+	public WebElement openproductdetail() {
 		driver.findElement(productclick).click();
-		return new ProductDetailPage(driver);
+		return driver.findElement(uniqueitemidentify);
 	}
 	
 	public WebElement websites() {
@@ -289,11 +280,11 @@ public class ProductPage extends BasePage {
 		return successmsg;
 	}
 	
-	public CartPage cartdisplay() {
+	public String cartdisplay() {
 		driver.findElement(opencartbtn).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.findElement(viewcartbtn).click();
-		return new CartPage(driver);
+		return driver.getCurrentUrl();
 	}
 	
 	public WebElement itemno() {
@@ -303,9 +294,14 @@ public class ProductPage extends BasePage {
 	}
 	
 	public void Closecart() {
+		driver.findElement(opencartbtn).click();
 		driver.findElement(closecart).click();
 	}
 	
+	public WebElement ItemDisplay() {
+		WebElement container=driver.findElement(elementcontainer);
+		return container;
+	}
 	
 	
 }
