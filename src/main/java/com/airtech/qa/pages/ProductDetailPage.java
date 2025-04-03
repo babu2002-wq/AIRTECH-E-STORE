@@ -3,6 +3,7 @@ package com.airtech.qa.pages;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -43,6 +44,8 @@ public class ProductDetailPage extends BasePage{
 	By availability=By.xpath("//div[@title='Availability']");
 	By wishlistsuccesstext=By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
 	By wishlistsuccessbtn=By.xpath("//a[normalize-space()='here']");
+	By uniqueitemidentify=By.xpath("//li[@class='item product']");	
+	By userbtn=By.xpath("//i[@class='fas fa-user']");
 	
 	
 	public WebElement Isdetaildisplayed() {
@@ -101,34 +104,49 @@ public class ProductDetailPage extends BasePage{
 	}
 	
 	public int getquantity() {
-		return Integer.parseInt(driver.findElement(quantity).getAttribute("value"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement quantityInput = driver.findElement(quantity);
+		int quantity = Integer.parseInt((String) js.executeScript("return arguments[0].value;", quantityInput));
+		return quantity;
 	}
 	
-	public void Clickincrementbtn() {
-		driver.findElement(quantityincrement).click();
+	public WebElement getQuantityElement() {
+		WebElement quantityInput = driver.findElement(quantity);
+		return quantityInput;
 	}
 	
-	public void Clickdecrementbtn() {
-		driver.findElement(quantitydecrement).click();
+	public void Clickincrementbtn(int times) {
+		for(int i=0;i<times;i++) {
+			driver.findElement(quantityincrement).click();
+		}
 	}
 	
-	public String AddtoCartbtn() {
+	public void Clickdecrementbtn(int times) {
+		for(int i=0;i<times;i++) {
+			driver.findElement(quantitydecrement).click();
+		}
+	}
+	
+	public CartPage AddtoCartbtn() {
 		driver.findElement(addtocartbtn).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-		WebElement successmsg=driver.findElement(cartsuccesstext);
-		String msgtext=successmsg.getText();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		WebElement successmsg=driver.findElement(cartsuccessbox);
 		driver.findElement(cartsuccessbtn).click();
-		return msgtext;
+		return new CartPage(driver);
 	}
 	
-	public String AddtoComparebtn() {
+	public ComparePage AddtoComparebtn() {
 		driver.findElement(addtocomparebtn).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-		WebElement successmsg=driver.findElement(comparesuccesstext);
-		String msgtext=successmsg.getText();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		WebElement successmsg=driver.findElement(comparesuccessbox);
 		driver.findElement(comparesuccessbtn).click();
-		return msgtext;
-		
+		return new ComparePage(driver);
+	}
+	
+	
+	public MyWishListPage ClickWishlistsuccessbtn() {
+		driver.findElement(wishlistsuccessbtn).click();
+		return new MyWishListPage(driver);
 	}
 	
 	public String AddtoWishlistfail() {
@@ -139,12 +157,35 @@ public class ProductDetailPage extends BasePage{
 		return msgtext;
 	}
 	
-	public String AddtoWishlistSuccess() {
+	public WebElement AddtoWishlistSuccess() {
 		driver.findElement(addtowishlistbtn).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		WebElement successmsg=driver.findElement(wishlistsuccesstext);
-		String msgtext=successmsg.getText();
-		return msgtext;
+		return successmsg;
 	}
+	
+	public WebElement ClickWishlistbtn() {
+		driver.findElement(wishlistsuccessbtn).click();
+		return driver.findElement(uniqueitemidentify);
+	}
+	
+	public String ProductName() {
+		String product=driver.findElement(uniqueitemidentify).getText();
+		return product;
+	}
+	
+	public void navigateback() {
+		driver.navigate().back();
+	}
+	
+	public String getUserIconColor() {
+        WebElement icon = driver.findElement(userbtn);
+        return icon.getCssValue("color"); 
+    }
+	
+	public boolean isUserLoggedIn() {
+	   String expectedColor = "rgba(98, 255, 132, 1)"; 
+	   return getUserIconColor().equals(expectedColor);
+    }
 	
 }

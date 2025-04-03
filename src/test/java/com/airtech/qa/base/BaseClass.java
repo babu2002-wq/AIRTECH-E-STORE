@@ -19,16 +19,18 @@ public class BaseClass {
 	public static WebDriver driver;
 	public static Properties prop;
 	
-	public BaseClass() throws IOException {
-		   prop = new Properties();
-		   FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/com/airtech/qa/config/config.properties");
-           prop.load(file);
-	}
 
-    @BeforeClass
+	public BaseClass() throws IOException {
+		prop = new Properties();
+	    FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/com/airtech/qa/config/config.properties");
+	    prop.load(file);
+	}
+	
+	
     //@Parameters({"os","browser"})
-    public void setup() throws IOException {
+    public static void initialization() {
   	  /*
+  	   *
   	  switch(bro.toLowerCase()) {
   	  case "chrome": driver=new ChromeDriver();break;
   	  case "edge":driver=new EdgeDriver();break;
@@ -36,18 +38,17 @@ public class BaseClass {
   	  default:System.out.println("Invalid browser");return;
   	  }
   	  */
+    	
+	   	
   	  driver=new ChromeDriver();
   	  driver.manage().deleteAllCookies();
   	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-  	  driver.get(prop.getProperty("url"));
+  	  driver.get("https://estore.airtech.lu/");
   	  driver.manage().window().maximize();
     }
     
     
-    @AfterClass
-    public void teardown() {
-  	  driver.quit();
-    }
+   
     
     
     
@@ -59,6 +60,11 @@ public class BaseClass {
   	  File targetFile=new File(targetFilePath);
   	  sourcefile.renameTo(targetFile);
   	  return targetFilePath;
+    }
+    
+    
+    public String getProperty(String key) {
+        return prop.getProperty(key);
     }
     
 

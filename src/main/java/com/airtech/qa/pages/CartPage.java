@@ -20,13 +20,13 @@ public class CartPage extends BasePage {
 	By table=By.xpath("//div[@class='cart table-wrapper']");
 	By editbtn=By.xpath("//a[@title='Edit item parameters']");
 	By removebtn=By.xpath("//a[@class='action action-delete']");
-	By updatebtn=By.xpath("//button[@title='Update Shopping Cart']");
+	By updatebtn=By.xpath("//button[@title='Update Cart']");
 	By discounttext=By.xpath("//strong[@id='block-discount-heading']");
 	By discountfield=By.xpath("//input[@id='coupon_code']");
 	By discountbtn=By.xpath("//span[normalize-space()='Apply Discount']");
 	By increasequantity=By.xpath("//i[@class='porto-icon-up-dir']");
 	By decreasequantity=By.xpath("//i[@class='porto-icon-down-dir']");
-	By quantity=By.xpath("//input[@id='cart-987-qty']");
+	By quantity=By.xpath("//input[@class='input-text qty']");
 	By unitprice=By.xpath("//td[@class='col price']//span[@class='cart-price']");
 	By subtotal=By.xpath("//td[@class='col subtotal']//span[@class='cart-price']");
 	By cartsummary=By.xpath("//div[@class='cart-summary']");
@@ -54,20 +54,21 @@ public class CartPage extends BasePage {
 		return driver.findElement(table);
 	}
 	
-	public void Clickeditbtn(int index) {
-		List<WebElement> editbtns=driver.findElements(editbtn);
-		WebElement editbtn=editbtns.get(index);
-		editbtn.click();
+	public ProductDetailPage Clickeditbtn() {
+		WebElement row = getProduct();
+	    WebElement editButton = row.findElement(editbtn);
+	    editButton.click(); 
+	    return new ProductDetailPage(driver);
 	}
 	
 	public WebElement uniqueElement() {
 		return driver.findElement(uniqueitemidentify);
 	}
 	
-	public void clickremovebtn(int index) {
-		List<WebElement> deletebtn=driver.findElements(removebtn);
-		WebElement removebtn=deletebtn.get(index);
-		removebtn.click();
+	public void clickremovebtn() {
+		 WebElement row = getProduct();
+	     WebElement removeButton = row.findElement(removebtn);
+	     removeButton.click();      
 	}
 	
 	public void clickupdatebtn() {
@@ -86,25 +87,56 @@ public class CartPage extends BasePage {
 		driver.findElement(discountfield).click();
 	}
 	
-	public void Clickincreasequantity(int index) {
-		List<WebElement> Increasebtns=driver.findElements(increasequantity);
-		WebElement Increasebtn=Increasebtns.get(index);
-		Increasebtn.click();
+	public void ClickIncreaseQuantity(int times) {
+	    WebElement row = getProduct();
+	    WebElement increaseBtn = row.findElement(increasequantity);
+	    for (int i = 0; i < times; i++) {
+	    	increaseBtn.click();
+	    }  
 	}
 	
-	public void Clickdecreasequantity() {
-		driver.findElement(decreasequantity);
+	public void Clickdecreasequantity(int times) {
+		WebElement row = getProduct();
+        WebElement decreaseBtn = row.findElement(decreasequantity);
+        for (int i = 0; i < times; i++) {
+        	decreaseBtn.click();
+        }
+        
 	}
 	
 	public String getProductName() {
 		return driver.findElement(itemtext).getText();
 	}
 	
-	public List<WebElement> getProducts() {
+	public WebElement getProduct() {
 		 List<WebElement> products=driver.findElements(allcartproducts);
-		 return products;
+		 return products.get(0);
 	}
 	
+	public WebElement getSubtotal() {
+        WebElement row = getProduct();
+        WebElement subtot = row.findElement(subtotal);
+        return subtot;
+    }
 	
-	 
+	public WebElement getUnittotal() {
+        WebElement row = getProduct();
+        WebElement unittot = row.findElement(unitprice);
+        return unittot;
+	}
+	
+	public List<WebElement> getallProducts(){
+		List<WebElement> products=driver.findElements(allcartproducts);
+		return products;
+	}
+	
+	public WebElement getquantity() {
+		WebElement row = getProduct();
+        WebElement quan = row.findElement(quantity);
+        return quan;
+	}
+	
+	public void navigateback() {
+		driver.navigate().back();
+	}
 }

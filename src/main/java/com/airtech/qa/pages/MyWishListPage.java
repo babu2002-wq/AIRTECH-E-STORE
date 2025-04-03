@@ -30,6 +30,7 @@ public class MyWishListPage extends BasePage{
 	By allprices=By.xpath("//span[@class='price']");
 	By allquantity=By.xpath("//input[contains(@id,'qty')]");
 	By allproduct=By.xpath("//li[@data-row='product-item']");
+	By uniqueitemidentify=By.xpath("//li[@class='item product']");	
 	
 	
 	public WebElement IswishlistDisplayed() {
@@ -51,9 +52,9 @@ public class MyWishListPage extends BasePage{
 		return driver.findElement(allimages);
 	}
 	
-	public ProductDetailPage ClickEditbtn() {
+	public WebElement ClickEditbtn() {
 		driver.findElement(editbtn).click();
-		return new ProductDetailPage(driver);
+		return driver.findElement(uniqueitemidentify);
 	}
 	
 	public void Clickremovebtn() {
@@ -77,16 +78,16 @@ public class MyWishListPage extends BasePage{
 		driver.findElement(sharewish).click();
 	}
 	
-	public ProductDetailPage clickprodname() {
+	public WebElement clickprodname() {
 		driver.findElement(prodname).click();
-		return new ProductDetailPage(driver);
+		return driver.findElement(uniqueitemidentify);
 	}
 	
 	public WebElement IsPricesDisplayed() {
 		return driver.findElement(allprices);
 	}
 	
-	public WebElement IsQuantityDisplayed() {
-		return driver.findElement(allquantity);
-	}
+	 
+	
+	
 }

@@ -45,18 +45,22 @@ public class LoginPage extends BasePage {
 		driver.findElement(signinbtn).click();
 	}
 	
-	public RegistrationPage register() {
+	public String register() {
 		driver.findElement(registerbtn).click();
-		return new RegistrationPage(driver);
+		return driver.getTitle();
 	}
 	
 	public void Clicktoggle() {
 		driver.findElement(togglebtn).click();
 	}
 	
-	public ForgotPasswordPage Clickforgetpassword() {
+	public String Clickforgetpassword() {
 		driver.findElement(forgotpasswordbtn).click();
-		return new ForgotPasswordPage(driver);
+		return driver.getTitle();
+	}
+	
+	public WebElement getPassword() {
+		return driver.findElement(password);
 	}
 
 }

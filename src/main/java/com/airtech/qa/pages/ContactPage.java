@@ -20,6 +20,9 @@ public class ContactPage extends BasePage {
 	By message=By.xpath("//textarea[@id='comment']");
 	By submitbtn=By.xpath("//span[normalize-space()='Submit']");
 	By addresses=By.xpath("//div[@class='contact-wrap']//div[1]//address[1]");
+	By nameerror=By.xpath("//div[@id='name-error']");
+	By emailerror=By.xpath("//div[@id='email-error']");
+	By messageerror=By.xpath("//div[@id='comment-error']");
 	
 	
 	public void ClickContact() {
@@ -53,4 +56,18 @@ public class ContactPage extends BasePage {
 	public WebElement IsadressesDisplayed() {
 		return driver.findElement(addresses);
 	}
+	
+	public WebElement NameValidationDisplayed() {
+		return driver.findElement(nameerror);
+	}
+	
+	public WebElement EmailValidationDisplayed() {
+		return driver.findElement(emailerror);
+	}
+	
+	public WebElement CommentValidationDisplayed() {
+		return driver.findElement(messageerror);
+	}
+	
+	
 }
