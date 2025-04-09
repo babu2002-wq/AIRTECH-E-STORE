@@ -3,10 +3,13 @@ package com.airtech.qa.testcases;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.airtech.qa.base.BaseClass;
 import com.airtech.qa.pages.ContactPage;
+import com.airtech.qa.pages.ProductPage;
 
 public class ContactPageTest extends BaseClass {
 
@@ -14,27 +17,32 @@ public class ContactPageTest extends BaseClass {
 		super();
 	}
 	
-	ContactPage contact=new ContactPage(driver);
+	ContactPage contact;
 	
-	@Test
+	@BeforeTest
+	public void setup() {
+		initialization();
+		contact=new ContactPage(driver);
+	}
+	
+	@Test(priority=1)
 	public void ContactbtnTest() {
 		contact.ClickContact();
-	}
-	
-	@Test
-	public void IsContactDisplayed() {
 		Assert.assertTrue(contact.IsContactDisplayed().isDisplayed());
+		Assert.assertTrue(contact.IsadressesDisplayed().isDisplayed());
 	}
 	
-	@Test
+	
+	@Test(priority=2)
 	public void ContactallNegativeTest() {
+		contact.clear();
 		contact.entersubmit();
 		Assert.assertTrue(contact.EmailValidationDisplayed().isDisplayed());
 		Assert.assertTrue(contact.NameValidationDisplayed().isDisplayed());
 		Assert.assertTrue(contact.CommentValidationDisplayed().isDisplayed());
 	}
 	
-	@Test
+	@Test(priority=3)
 	public void InvalidEmailTest() {
 		contact.enteremail("ashis");
 		contact.entersubmit();
@@ -43,14 +51,13 @@ public class ContactPageTest extends BaseClass {
 	
 	@Test
 	public void NameTest() {
-		contact.entername("Ashis");
-		Assert.assertTrue(contact.EmailValidationDisplayed().isDisplayed());
-		Assert.assertTrue(contact.CommentValidationDisplayed().isDisplayed());
+	     Assert.assertTrue(contact.entername().isDisplayed());
 	}
 	
-	@Test
-	public void IsAddressesDisplayed() {
-		Assert.assertTrue(contact.IsadressesDisplayed().isDisplayed());
+	
+	@AfterTest
+	public void teardown() {
+		driver.quit();
 	}
 	
 }

@@ -5,10 +5,10 @@
     <classes>
       <class name="com.airtech.qa.testcases.ProductPageTest">
         <methods>
-          <include name="SortToggleTest"/>
           <include name="setup"/>
           <include name="teardown"/>
-          <include name="SortByPriceTest"/>
+          <include name="checkAllPriceCategoriesTest"/>
+          <include name="checkAllCategoriesTest"/>
         </methods>
       </class> <!-- com.airtech.qa.testcases.ProductPageTest -->
     </classes>

@@ -119,7 +119,7 @@ public class ProductDetailPageTest extends BaseClass{
 		        detail.getQuantityElement(), "value", String.valueOf(originalquantity)
 		)));
 		int changedquantity=detail.getquantity();
-		Assert.assertEquals(originalquantity, changedquantity);
+		Assert.assertNotEquals(originalquantity, changedquantity);
 	}
 	
 	@Test(dependsOnMethods= {"QuantityIncrementTest"},priority=13)
@@ -131,7 +131,7 @@ public class ProductDetailPageTest extends BaseClass{
 	            detail.getQuantityElement(), "value", String.valueOf(originalquantity)
 	    )));
 		int changedquantity=detail.getquantity();
-		Assert.assertEquals(originalquantity, changedquantity);
+		Assert.assertNotEquals(originalquantity, changedquantity);
 	}
 	
 	
@@ -155,7 +155,7 @@ public class ProductDetailPageTest extends BaseClass{
 	}
 	
 	@Test(priority=30)
-	public void WishListSuccessTest() {
+	public void WishListFailureTest() {
 		if(!detail.isUserLoggedIn()) {
 			String wishlistfail=detail.AddtoWishlistfail();
 			Assert.assertEquals(wishlistfail, "You must login or register to add items to your wishlist.");
@@ -165,6 +165,17 @@ public class ProductDetailPageTest extends BaseClass{
 			wish=detail.ClickWishlistsuccessbtn();
 		}
 		
+	}
+	
+	@Test(priority=31)
+	public void WishListSuccessTest() {
+		login.Clickuserbtn();
+		login.enteremail(getProperty("username"));
+		login.enterpassword(getProperty("password"));
+		login.signIn();
+		detail.AddtoWishlistSuccess();
+		wish=detail.ClickWishlistsuccessbtn();
+		driver.navigate().back();
 	}
 	
 	@AfterTest

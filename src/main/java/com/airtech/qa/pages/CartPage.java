@@ -35,11 +35,13 @@ public class CartPage extends BasePage {
 	By state=By.xpath("//div[@name='shippingAddress.region_id']//div[@class='control']");
 	By postalcode=By.xpath("//div[@name='shippingAddress.postcode']//div[@class='control']");
 	By city=By.xpath("//div[@name='shippingAddress.city']//div[@class='control']");
-	By totalorder=By.xpath("//td[@data-bind=\"attr: {'data-th': title}\"]");
-	By checkoutbtn=By.xpath("//button[@title='Proceed to Checkout']");
+	By totalorder=By.xpath("//td[@data-th='Order Total']");
+	By checkoutbtn=By.xpath("//button[@data-role='proceed-to-checkout']");
 	By uniqueitemidentify=By.xpath("//li[@class='item product']");
 	By itemtext=By.xpath("//td[@class='col item']//strong[@class='product-item-name']//a");
 	By allcartproducts=By.xpath("//tbody[@class='cart item']");
+	By tax=By.xpath("//td[@data-th='Tax']");
+	By subtot=By.xpath("//tr[@class='totals sub']//td[@class='amount']");
 	
 	public void Clickcartbtn() {
 		driver.findElement(cartbtn).click();
@@ -138,5 +140,22 @@ public class CartPage extends BasePage {
 	
 	public void navigateback() {
 		driver.navigate().back();
+	}
+	
+	public WebElement IsSubtotalDisplayed() {
+		return driver.findElement(subtot);
+	}
+	
+	public WebElement IsTaxDisplayed() {
+		return driver.findElement(tax);
+	}
+	
+	public WebElement IsTotalDisplayed() {
+		return driver.findElement(totalorder);
+	}
+	
+	public CheckOutPage ClickCheckout() {
+		driver.findElement(checkoutbtn).click();
+		return new CheckOutPage(driver);
 	}
 }

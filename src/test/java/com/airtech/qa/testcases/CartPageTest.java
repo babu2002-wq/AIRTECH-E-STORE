@@ -70,7 +70,6 @@ public class CartPageTest extends BaseClass{
 	@Test(priority=4)
 	public void ProductQuantityTest() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
 	    cart.ClickIncreaseQuantity(5);
 	    cart.Clickdecreasequantity(2);
 	    cart.clickupdatebtn(); 
@@ -99,6 +98,21 @@ public class CartPageTest extends BaseClass{
 	    Assert.assertEquals(totalquantity, subtotal);
 	}
 	
+	
+	@Test
+	public void IsTaxDisplayed() {
+		Assert.assertTrue(cart.IsTaxDisplayed().isDisplayed());
+	}
+	
+	@Test
+	public void IsSubTotalDisplayed() {
+		Assert.assertTrue(cart.IsSubtotalDisplayed().isDisplayed());
+	}
+	
+	@Test
+	public void IsTotalPriceDisplayed() {
+		Assert.assertTrue(cart.IsTotalDisplayed().isDisplayed());
+	}
 	
 	@AfterTest
 	public void teardown() {

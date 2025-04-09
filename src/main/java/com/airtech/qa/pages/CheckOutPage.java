@@ -1,5 +1,7 @@
 package com.airtech.qa.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,9 +31,12 @@ public class CheckOutPage extends BasePage {
 	By state=By.xpath("(//input[@name='region'])[1]");
 	By company=By.xpath("(//input[@name='company'])[1]");
 	By industrytype=By.xpath("(//select[@name='custom_attributes[industrytype]'])[1]");
-	By createcheck=By.xpath("//input[@id='create-account-checkbox']");
+	By createtext=By.xpath("//span[normalize-space()='Create an account']");
+	By createcheck=By.xpath("//label[@for='create-account-checkbox']");
+	By passwordfield=By.xpath("//input[@id='osc-password']");
+	By forgotpassfield=By.xpath("//input[@id='osc-password-confirmation']");
 	By billshipsame=By.xpath("//input[@id='billing-address-same-as-shipping']");
-	By billingtext=By.xpath("//input[@id='billing-address-same-as-shipping']");
+	By billingtext=By.xpath("//span[normalize-space()='Billing Address']");
 	By firstname1=By.xpath("(//input[@name='firstname'])[2]");
 	By lastname1=By.xpath("(//input[@name='lastname'])[2]");
 	By streetaddress1=By.xpath("(//input[@name='street[0]'])[2]");
@@ -62,6 +67,9 @@ public class CheckOutPage extends BasePage {
 	By taxprice=By.xpath("td[data-th='Tax'] span[class='price']");
 	By otherpaymentmethod=By.xpath("//div[@id='payment-method-braintree-paypal']//div[@class='payment-method-title field choice']");
 	By otherpaycheck=By.xpath("//input[@id='braintree_paypal']");
+	By placeorder=By.xpath("//div[@class='place-order-primary']//button[@title='Place Order']");
+	By errormsg=By.xpath("//div[@class='mage-error']");
+	By requiredfields=By.xpath("//input[@aria-required='true'] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
 	
 	
 	public WebElement IsCheckoutDisplayed() {
@@ -86,52 +94,56 @@ public class CheckOutPage extends BasePage {
 		return login;
 	}
 	
-	public void enteremail(String em) {
-		driver.findElement(email).sendKeys(em);
+	public WebElement enteremail() {
+		return driver.findElement(email);
 	}
 	
-	public void enterfirstname(String fn) {
-		driver.findElement(firstname).sendKeys(fn);
+	public WebElement enterfirstname() {
+		return driver.findElement(firstname);
 	}
 	
-	public void enterlastname(String ln) {
-		driver.findElement(lastname).sendKeys(ln);
+	public WebElement enterlastname() {
+		return driver.findElement(lastname);
 	}
 	
-	public void enteraddress(String ad) {
-		driver.findElement(streetaddress).sendKeys(ad);
+	public WebElement enteraddress() {
+		return driver.findElement(streetaddress);
 	}
 	
-	public void entercity(String ci) {
-		driver.findElement(city).sendKeys(ci);
+	public WebElement entercity() {
+		return driver.findElement(city);
 	}
 	
-	public void enterpostalcode(String pc) {
-		driver.findElement(postalcode).sendKeys(pc);
+	public WebElement enterpostalcode() {
+		return driver.findElement(postalcode);
 	}
 	
-	public void enterstate(String st) {
-		driver.findElement(state).sendKeys(st);
+	public WebElement enterstate() {
+		return driver.findElement(state);
 	}
 	
-	public void entercompany(String com) {
-		driver.findElement(company).sendKeys(com);
+	public WebElement entercompany() {
+		return driver.findElement(company);
 	}
 	
-	public void entercountry(String con) {
-		WebElement dropdownElement = driver.findElement(country);
-        Select dropdown = new Select(dropdownElement);
-        dropdown.selectByVisibleText(con);
+	public WebElement entercountry() {
+		return driver.findElement(country);
 	}
 	
-	public void enterindustrytype(String ind) {
-		WebElement dropdownElement = driver.findElement(industrytype);
-        Select dropdown = new Select(dropdownElement);
-        dropdown.selectByVisibleText(ind);
+	public WebElement enterindustrytype() {
+		return driver.findElement(industrytype);
 	}
 	
 	public void ClickCreate() {
 		driver.findElement(createcheck).click();
+	}
+	
+	public WebElement IsPasswordDisplayed() {
+		return driver.findElement(passwordfield);
+	}
+	
+	public WebElement IsForgotPassDisplayed() {
+		return driver.findElement(forgotpassfield);
 	}
 	
 	public void IsBillShipSame() {
@@ -142,44 +154,40 @@ public class CheckOutPage extends BasePage {
 		return driver.findElement(billingtext);
 	}
 	
-	public void enterfn(String fn) {
-		driver.findElement(firstname1).sendKeys(fn);
+	public WebElement enterfn() {
+		return driver.findElement(firstname1);
 	}
 	
-	public void enterln(String ln) {
-		driver.findElement(lastname1).sendKeys(ln);
+	public WebElement enterln() {
+		return driver.findElement(lastname1);
 	}
 	
-	public void enteradd(String add) {
-		driver.findElement(streetaddress1).sendKeys(add);
+	public WebElement enteradd() {
+		return driver.findElement(streetaddress1);
 	}
 	
-	public void enterpc(String pc) {
-		driver.findElement(postalcode1).sendKeys(pc);
+	public WebElement enterpc() {
+		return driver.findElement(postalcode1);
 	}
 	
-	public void entercty(String city) {
-		driver.findElement(city1).sendKeys(city);
+	public WebElement entercty() {
+		return driver.findElement(city1);
 	}
 	
-	public void entercomp(String comp) {
-		driver.findElement(company1).sendKeys(comp);
+	public WebElement entercomp() {
+		return driver.findElement(company1);
 	}
 	
-	public void entercont(String cont) {
-		WebElement dropdownElement = driver.findElement(country1);
-        Select dropdown = new Select(dropdownElement);
-        dropdown.selectByVisibleText(cont);
+	public WebElement entercont() {
+		return driver.findElement(country1);
 	}
 	
-	public void enterst(String st) {
-		driver.findElement(state1).sendKeys(st);
+	public WebElement enterst() {
+		return driver.findElement(state1);
 	}
 	
-	public void enterindustry(String ind) {
-		WebElement dropdownElement = driver.findElement(industrytype1);
-        Select dropdown = new Select(dropdownElement);
-        dropdown.selectByVisibleText(ind);
+	public WebElement enterindustry() {
+		return driver.findElement(industrytype1);
 	}
 	
 	public WebElement Clickcreditbtn() {
@@ -200,25 +208,24 @@ public class CheckOutPage extends BasePage {
 		return driver.findElement(creditcardtypes);
 	}
 	
-	public void entercreditno(String cardno) {
-		driver.findElement(creditcardno).sendKeys(cardno);
+	public WebElement entercreditno() {
+		return driver.findElement(creditcardno);
 	}
 	
-	public void enterexpiredate(String date) {
-		driver.findElement(expiredate).sendKeys(date);
+	public WebElement enterexpiredate() {
+		return driver.findElement(expiredate);
 	}
 	
-	public void entercvv(String cvv) {
-		driver.findElement(cardverifyno).sendKeys(cvv);
+	public WebElement entercvv() {
+		return driver.findElement(cardverifyno);
 	}
 	
-	public void Clickdiscount(String code) {
-		driver.findElement(applydiscountbtn).click();
-		driver.findElement(entercode).sendKeys(code);
+	public WebElement Clickdiscount() {
+		return driver.findElement(entercode);
 	}
 	
-	public void Clickapplydiscount() {
-		driver.findElement(applycode).click();
+	public WebElement Clickapplydiscount() {
+		return driver.findElement(applycode);
 	}
 	
 	public void checkterm() {
@@ -245,4 +252,27 @@ public class CheckOutPage extends BasePage {
 	    return totalSum;
 	}
 	
+	public WebElement Isordertotaldisplayed() {
+		return driver.findElement(ordertotal);
+	}
+	
+	public WebElement IsSubtotalDisplayed() {
+		return driver.findElement(subtotal);
+	}
+	
+	public WebElement IsTaxDisplayed() {
+		return driver.findElement(taxprice);
+	}
+	
+	public void ClickPlaceOrder() {
+		driver.findElement(placeorder).click();
+	}
+	
+	public List<WebElement> errormsg(){
+		return driver.findElements(errormsg);
+	}
+	
+	public List<WebElement> requiredfields(){
+		return driver.findElements(requiredfields);
+	}
 }

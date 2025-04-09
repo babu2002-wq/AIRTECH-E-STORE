@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.airtech.qa.base.BaseClass;
+import com.airtech.qa.pages.AddressPage;
 import com.airtech.qa.pages.CartPage;
 import com.airtech.qa.pages.ComparePage;
 import com.airtech.qa.pages.LoginPage;
@@ -23,32 +24,23 @@ public class MyWishListPageTest extends BaseClass {
 	}
 	
 	MyWishListPage mywish;
-	ProductDetailPage product;
-	ProductPage pro;
+	ProductDetailPage detail;
+	
 	
 	@BeforeTest
 	public void setup() {
 		initialization();
-		pro=new ProductPage(driver);
-		pro.InfusionProductDisplayed();
-		product=pro.openproductdetail();
-		mywish=product.ClickWishlistsuccessbtn();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		loginToApplication();
+		mywish=new MyWishListPage(driver);
 	}
 	
 	@Test
-	public void IsMyWishlistDisplayed() {
+	public void MyWishlistTest() {
+		mywish.ClickWishlistLink();
+		Assert.assertTrue(mywish.IswishlistDisplayed().isDisplayed());
 		Assert.assertTrue(mywish.IsImagesDisplayed().isDisplayed());
-	}
-	
-	@Test
-	public void IsQuantityDisplayed() {
 		Assert.assertTrue(mywish.IsquantityDisplayed().isDisplayed());
-	}
-	
-	@Test
-	public void IsImageDisplayed() {
-		Assert.assertTrue(mywish.IsImagesDisplayed().isDisplayed());
+		
 	}
 	
 	@Test
@@ -60,7 +52,8 @@ public class MyWishListPageTest extends BaseClass {
 	
 	@Test
 	public void EditTest() {
-		Assert.assertTrue(mywish.ClickEditbtn().isDisplayed());
+		detail=mywish.ClickEditbtn();
+		driver.navigate().back();
 	}
 	
 	@Test

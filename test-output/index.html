@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Cybrain Software\AppData\Local\Temp\testng-eclipse-485728195\testng-customsuite.xml</span>
+                    <span>C:\Users\Cybrain Software\AppData\Local\Temp\testng-eclipse--1403782629\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">18 methods, 2 failed,   16 passed</span>
+                    <span class="method-stats">20 methods, 2 failed,   18 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,12 +103,12 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="SortByPriceTest">SortByPriceTest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="checkAllCategoriesTest">checkAllCategoriesTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="SortToggleTest">SortToggleTest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="checkAllPriceCategoriesTest">checkAllPriceCategoriesTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -200,6 +200,16 @@
                         <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="SortByNameTest">SortByNameTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="SortByPriceTest">SortByPriceTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="SortToggleTest">SortToggleTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
@@ -220,15 +230,18 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="SortByPriceTest">
-                  </a> <!-- SortByPriceTest -->
-                  <span class="method-name">SortByPriceTest</span>
-                  <div class="stack-trace">java.lang.NumberFormatException: For input string: &quot;€1096.90&quot;
-	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
-	at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
-	at java.base/java.lang.Double.parseDouble(Double.java:944)
-	at com.airtech.qa.pages.ProductPage.getProductPricesFromAllPages(ProductPage.java:175)
-	at com.airtech.qa.testcases.ProductPageTest.SortByPriceTest(ProductPageTest.java:76)
+                  <a name="checkAllCategoriesTest">
+                  </a> <!-- checkAllCategoriesTest -->
+                  <span class="method-name">checkAllCategoriesTest</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [0] but found [16]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at org.testng.Assert.assertEquals(Assert.java:1429)
+	at com.airtech.qa.testcases.ProductPageTest.checkAllCategoriesTest(ProductPageTest.java:193)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -261,34 +274,18 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="SortToggleTest">
-                  </a> <!-- SortToggleTest -->
-                  <span class="method-name">SortToggleTest</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//body/div[@class=&apos;page-wrapper&apos;]/main[@id=&apos;maincontent&apos;]/div[@class=&apos;columns&apos;]/div[@class=&apos;column main&apos;]/div[@id=&apos;layer-product-list&apos;]/div[1]/div[1]/a[1]&quot;}
-  (Session info: chrome=134.0.6998.178)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [2af28f970faa81c773bd81cca0aad865, findElement {using=xpath, value=//body/div[@class=&apos;page-wrapper&apos;]/main[@id=&apos;maincontent&apos;]/div[@class=&apos;columns&apos;]/div[@class=&apos;column main&apos;]/div[@id=&apos;layer-product-list&apos;]/div[1]/div[1]/a[1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 134.0.6998.178, chrome: {chromedriverVersion: 134.0.6998.165 (fd886e2cb29..., userDataDir: C:\Users\CYBRAI~2\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55271}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55271/devtoo..., se:cdpVersion: 134.0.6998.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 2af28f970faa81c773bd81cca0aad865
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
-	at com.airtech.qa.pages.ProductPage.SortOrderToggleTest(ProductPage.java:271)
-	at com.airtech.qa.testcases.ProductPageTest.SortToggleTest(ProductPageTest.java:125)
+                  <a name="checkAllPriceCategoriesTest">
+                  </a> <!-- checkAllPriceCategoriesTest -->
+                  <span class="method-name">checkAllPriceCategoriesTest</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [0] but found [16]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at org.testng.Assert.assertEquals(Assert.java:1429)
+	at com.airtech.qa.testcases.ProductPageTest.checkAllPriceCategoriesTest(ProductPageTest.java:212)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -439,12 +436,26 @@ Session ID: 2af28f970faa81c773bd81cca0aad865
                   <span class="method-name">SortByNameTest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SortByPriceTest">
+                  </a> <!-- SortByPriceTest -->
+                  <span class="method-name">SortByPriceTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SortToggleTest">
+                  </a> <!-- SortToggleTest -->
+                  <span class="method-name">SortToggleTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Cybrain Software\AppData\Local\Temp\testng-eclipse-485728195\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Cybrain Software\AppData\Local\Temp\testng-eclipse--1403782629\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -493,84 +504,92 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(18);
+data.addRows(20);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'QuickCheckoutTest')
 data.setCell(0, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(0, 3, 9395);
+data.setCell(0, 3, 10283);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'QuickgotoprodTest')
 data.setCell(1, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(1, 3, 6819);
+data.setCell(1, 3, 6460);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'ShowItemsTest')
+data.setCell(2, 1, 'QuickShopTest')
 data.setCell(2, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(2, 3, 5261);
+data.setCell(2, 3, 5786);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'QuickShopTest')
+data.setCell(3, 1, 'ShowItemsTest')
 data.setCell(3, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(3, 3, 5052);
+data.setCell(3, 3, 4529);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'CartPageTest')
 data.setCell(4, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(4, 3, 3584);
+data.setCell(4, 3, 4092);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'IsCategoryDisplayed')
+data.setCell(5, 1, 'ProductDetailPageTest')
 data.setCell(5, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(5, 3, 3350);
+data.setCell(5, 3, 2510);
 data.setCell(6, 0, 6)
 data.setCell(6, 1, 'SortToggleTest')
 data.setCell(6, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(6, 3, 3159);
+data.setCell(6, 3, 2120);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'ProductDetailPageTest')
+data.setCell(7, 1, 'SortByPriceTest')
 data.setCell(7, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(7, 3, 1999);
+data.setCell(7, 3, 1649);
 data.setCell(8, 0, 8)
 data.setCell(8, 1, 'SortByNameTest')
 data.setCell(8, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(8, 3, 1550);
+data.setCell(8, 3, 1487);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'CloseCartTest')
+data.setCell(9, 1, 'checkAllCategoriesTest')
 data.setCell(9, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(9, 3, 511);
+data.setCell(9, 3, 1190);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'SortByPriceTest')
+data.setCell(10, 1, 'checkAllPriceCategoriesTest')
 data.setCell(10, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(10, 3, 343);
+data.setCell(10, 3, 782);
 data.setCell(11, 0, 11)
-data.setCell(11, 1, 'Isnoofitemdisplayed')
+data.setCell(11, 1, 'CloseCartTest')
 data.setCell(11, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(11, 3, 166);
+data.setCell(11, 3, 392);
 data.setCell(12, 0, 12)
-data.setCell(12, 1, 'IsFeaturedDisplayed')
+data.setCell(12, 1, 'Isnoofitemdisplayed')
 data.setCell(12, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(12, 3, 94);
+data.setCell(12, 3, 238);
 data.setCell(13, 0, 13)
-data.setCell(13, 1, 'IsWebsitesDisplayed')
+data.setCell(13, 1, 'IsCategoryDisplayed')
 data.setCell(13, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(13, 3, 90);
+data.setCell(13, 3, 227);
 data.setCell(14, 0, 14)
-data.setCell(14, 1, 'IsSortDisplayed')
+data.setCell(14, 1, 'IsFeaturedDisplayed')
 data.setCell(14, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(14, 3, 57);
+data.setCell(14, 3, 149);
 data.setCell(15, 0, 15)
-data.setCell(15, 1, 'AreLinksDisplayed')
+data.setCell(15, 1, 'IsWebsitesDisplayed')
 data.setCell(15, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(15, 3, 51);
+data.setCell(15, 3, 94);
 data.setCell(16, 0, 16)
 data.setCell(16, 1, 'IsShowDisplayed')
 data.setCell(16, 2, 'com.airtech.qa.testcases.ProductPageTest')
 data.setCell(16, 3, 47);
 data.setCell(17, 0, 17)
-data.setCell(17, 1, 'IsPriceDisplayed')
+data.setCell(17, 1, 'AreLinksDisplayed')
 data.setCell(17, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(17, 3, 43);
+data.setCell(17, 3, 44);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'IsSortDisplayed')
+data.setCell(18, 2, 'com.airtech.qa.testcases.ProductPageTest')
+data.setCell(18, 3, 42);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'IsPriceDisplayed')
+data.setCell(19, 2, 'com.airtech.qa.testcases.ProductPageTest')
+data.setCell(19, 3, 41);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 41 seconds</span>
+              <span class="suite-total-time">Total running time: 42 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -603,83 +622,91 @@ return data;
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">CartPageTest</span>
-                <span class="method-start">9598 ms</span>
+                <span class="method-start">11134 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">CloseCartTest</span>
-                <span class="method-start">13435 ms</span>
+                <span class="method-start">15455 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">IsWebsitesDisplayed</span>
-                <span class="method-start">13951 ms</span>
+                <span class="method-start">15857 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">Isnoofitemdisplayed</span>
-                <span class="method-start">14048 ms</span>
+                <span class="method-start">15962 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ProductDetailPageTest</span>
-                <span class="method-start">14219 ms</span>
+                <span class="method-start">16210 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">SortToggleTest</span>
-                <span class="method-start">16233 ms</span>
+                <span class="method-start">18732 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">IsCategoryDisplayed</span>
-                <span class="method-start">19405 ms</span>
+                <span class="method-start">20861 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">IsFeaturedDisplayed</span>
-                <span class="method-start">22763 ms</span>
+                <span class="method-start">21088 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">IsPriceDisplayed</span>
-                <span class="method-start">22862 ms</span>
+                <span class="method-start">21249 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">AreLinksDisplayed</span>
-                <span class="method-start">22911 ms</span>
+                <span class="method-start">21307 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">IsSortDisplayed</span>
-                <span class="method-start">22967 ms</span>
+                <span class="method-start">21357 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">IsShowDisplayed</span>
-                <span class="method-start">23029 ms</span>
+                <span class="method-start">21407 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SortByPriceTest</span>
+                <span class="method-start">21465 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SortByNameTest</span>
+                <span class="method-start">23120 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">ShowItemsTest</span>
+                <span class="method-start">24612 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">QuickgotoprodTest</span>
+                <span class="method-start">29145 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">QuickShopTest</span>
+                <span class="method-start">35612 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">QuickCheckoutTest</span>
+                <span class="method-start">41410 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">SortByPriceTest</span>
-                <span class="method-start">23084 ms</span>
+                <span class="method-name">checkAllCategoriesTest</span>
+                <span class="method-start">51705 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">SortByNameTest</span>
-                <span class="method-start">23444 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">ShowItemsTest</span>
-                <span class="method-start">24999 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">QuickgotoprodTest</span>
-                <span class="method-start">30272 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">QuickShopTest</span>
-                <span class="method-start">37104 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">QuickCheckoutTest</span>
-                <span class="method-start">42179 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">checkAllPriceCategoriesTest</span>
+                <span class="method-start">52904 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">teardown</span>
-                <span class="method-start">51578 ms</span>
+                <span class="method-start">53692 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

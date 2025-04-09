@@ -1,5 +1,7 @@
 package com.airtech.qa.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,39 +29,47 @@ public class RegistrationPage extends BasePage {
 	By passwordtoggle=By.xpath("//input[@id='show-password']");
 	By createbtn=By.xpath("//button[@title='Create an Account']//span[contains(text(),'Create an Account')]");
 	By passstrengthtext=By.xpath("//div[@id='password-strength-meter']");
+	By userbtn=By.xpath("//i[@class='fas fa-user']");
+	By registerbtn=By.xpath("//span[normalize-space()='Register']");
+	By reqfields=By.xpath("//input[@aria-required='true'] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
+	By errormsg=By.xpath("//div[@class='mage-error']");
+	
+	
+	public void ClickRegister() {
+		driver.findElement(userbtn).click();
+		driver.findElement(registerbtn).click();
+	}
 	
 	public WebElement Ispersonaltxtdisplayed() {
 		return driver.findElement(createaccount);
 	}
 	
-	public void enterfirstname(String fname) {
-		driver.findElement(firstname).sendKeys(fname);
+	public WebElement enterfirstname() {
+		return driver.findElement(firstname);
 	}
 	
-	public void enterlastname(String lname) {
-		driver.findElement(lastname).sendKeys(lname);
+	public WebElement enterlastname() {
+		return driver.findElement(lastname);
 	}
 	
 	public WebElement Isadditionalinfodisplayed() {
 		return driver.findElement(additionalinfotxt);
 	}
 	
-	public void selectIndustry(String IndustryType) {
-		WebElement dropdownElement = driver.findElement(By.id("dropdown"));
-        Select dropdown = new Select(dropdownElement);
-        dropdown.selectByVisibleText(IndustryType);
+	public WebElement selectIndustry() {
+		return driver.findElement(industrytype);
 	}
 	
-	public void Clicknewsletter() {
-		driver.findElement(newslettercheck).click();
+	public WebElement Newsletter() {
+		return driver.findElement(newslettercheck);
 	}
 	
 	public WebElement IsSignInfoDisplayed() {
 		return driver.findElement(signininfotxt);
 	}
 	
-	public void enteremail(String em) {
-		driver.findElement(email).sendKeys(em);
+	public WebElement enteremail() {
+		return driver.findElement(email);
 	}
 	
 	public void enterpassword(String pass) {
@@ -81,5 +91,25 @@ public class RegistrationPage extends BasePage {
 	public String getPasswordStrength() {
 		WebElement Passwordstrength = driver.findElement(passstrengthtext);
         return Passwordstrength.getText().trim();
+	}
+	
+	public List<WebElement> required(){
+		return driver.findElements(reqfields);
+	}
+	
+	public List<WebElement> errors(){
+		return driver.findElements(errormsg);
+	}
+	
+	public void clear() {
+		driver.findElement(password).clear();
+	}
+	
+	public WebElement getPassword() {
+		return driver.findElement(password);
+	}
+	
+	public WebElement getcnfPassword() {
+		return driver.findElement(cnfpassword);
 	}
 }

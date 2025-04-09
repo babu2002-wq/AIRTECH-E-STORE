@@ -33,20 +33,20 @@ public class ContactPage extends BasePage {
 		return driver.findElement(contacttext);
 	}
 	
-	public void entername(String nm) {
-		driver.findElement(name).sendKeys(nm);
+	public WebElement entername() {
+		return driver.findElement(name);
 	}
 	
 	public void enteremail(String em) {
 		driver.findElement(email).sendKeys(em);
 	}
 	
-	public void enterphoneno(String phno) {
-		driver.findElement(phoneno).sendKeys(phno);
+	public WebElement enterphoneno() {
+		return driver.findElement(phoneno);
 	}
 	
-	public void entermsg(String msg) {
-		driver.findElement(message).sendKeys(msg);
+	public WebElement entermsg() {
+		return driver.findElement(message);
 	}
 	
 	public void entersubmit() {
@@ -67,6 +67,11 @@ public class ContactPage extends BasePage {
 	
 	public WebElement CommentValidationDisplayed() {
 		return driver.findElement(messageerror);
+	}
+	
+	public void clear() {
+		driver.findElement(name).clear();
+		driver.findElement(email).clear();
 	}
 	
 	

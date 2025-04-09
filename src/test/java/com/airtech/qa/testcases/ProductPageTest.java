@@ -177,6 +177,43 @@ public class ProductPageTest extends BaseClass{
 		detail=product.openproductdetail();
 	}
 	
+	@Test(priority=30)
+	public void checkAllCategoriesTest() {
+		product.clickCategoryButton();
+		List<WebElement> originalCategoryElements = product.getAllCategoryElements();
+		int totalCategories = originalCategoryElements.size();
+		for (int i = 0; i < totalCategories; i++) {
+			
+			//List<WebElement> categories = product.getAllCategoryElements();
+			WebElement category = originalCategoryElements.get(i);
+			String text = category.getText();
+			int expectedCount = product.getExpectedCountFromCategoryText(text);
+			product.clickCategory(category);
+			int displayedCount = product.getDisplayedProductCount();
+			Assert.assertEquals(displayedCount, expectedCount);
+			product.clickClearAll();
+			product.clickCategoryButton();
+		}
+	}
+	
+	@Test(priority=31)
+	public void checkAllPriceCategoriesTest() {
+		product.clickPriceFilter();
+		List<WebElement> originalCategories = product.getPriceCategories();
+		int totalCategories = originalCategories.size();
+		for (int i = 0; i < totalCategories; i++) {
+			product.clickPriceFilter();
+			List<WebElement> updatedCategories = product.getPriceCategories();
+			WebElement category = updatedCategories.get(i);
+			String text = category.getText();
+			int expectedCount = product.getExpectedProductCount(text);
+			product.clickCategory(category);
+			int displayedCount = product.getDisplayedProductCount();
+			Assert.assertEquals(displayedCount, expectedCount);
+			product.clickClearAll();
+		}
+	}
+	
 	@AfterTest
 	public void teardown() {
 		driver.quit();

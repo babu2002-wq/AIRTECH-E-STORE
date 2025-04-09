@@ -71,52 +71,59 @@ public class ProductPage extends BasePage {
 	
 	
 	
-	
 	public WebElement IsCategoryDisplayed() {
 	     WebElement category=driver.findElement(Category);
 	     return category;
 	}
 	
-	public void CheckAllCategories() {
+	public void clickCategoryButton() {
 		driver.findElement(Category).click();
-		List<WebElement> categories=driver.findElements(allcategories);
-		Pattern pattern = Pattern.compile("\\((\\d+)\\)");
-		for(WebElement category:categories) {
-			String text = category.getText();
-            Matcher matcher = pattern.matcher(text);
-            if (matcher.find()) {
-                int expectedCount = Integer.parseInt(matcher.group(1)); 
-                System.out.println("Checking Category: " + text + " | Expected Products: " + expectedCount);
-                category.click();
-                List<WebElement> displayedProducts=driver.findElements(allproducts);
-                int ProductsCount = displayedProducts.size();
-                   
-		}
-            driver.findElement(clearAllbtn).click();
-			
-
-		}
+		new WebDriverWait(driver, Duration.ofSeconds(10))
+        .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(allcategories));
 	}
 	
-	public void CheckPriceCategories() {
-		driver.findElement(Price).click();
-		List<WebElement> Pricecategories=driver.findElements(pricecategories);
+	public List<WebElement> getAllCategoryElements() {
+		return driver.findElements(allcategories);
+	}
+	
+	public int getExpectedCountFromCategoryText(String text) {
 		Pattern pattern = Pattern.compile("\\((\\d+)\\)");
-		for(WebElement pricecategory:Pricecategories) {
-			String text = pricecategory.getText();
-            Matcher matcher = pattern.matcher(text);
-            if (matcher.find()) {
-                int expectedCount = Integer.parseInt(matcher.group(1)); // Extracted number
-                System.out.println("Checking Category: " + text + " | Expected Products: " + expectedCount);
-                pricecategory.click();
-                List<WebElement> displayedProducts=driver.findElements(allproducts);
-                int ProductsCount = displayedProducts.size();
-                   
+		Matcher matcher = pattern.matcher(text);
+		if (matcher.find()) {
+			return Integer.parseInt(matcher.group(1));
 		}
-            driver.findElement(clearAllbtn).click();
-               
-	       } 
+		return 0;
+	}
+	
+	public void clickCategory(WebElement categoryElement) {
+		categoryElement.click();
+	}
+	
+	
+	public void clickClearAll() {
+		driver.findElement(clearAllbtn).click();
+	}
+	
+	
+	public void clickPriceFilter() {
+		driver.findElement(Price).click();
+		new WebDriverWait(driver, Duration.ofSeconds(10))
+        .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(pricecategories));
+	}
+	
+	public List<WebElement> getPriceCategories() {
+		return driver.findElements(pricecategories);
+	}
+	
+	public int getExpectedProductCount(String text) {
+		Pattern pattern = Pattern.compile("\\((\\d+)\\)");
+		Matcher matcher = pattern.matcher(text);
+		if (matcher.find()) {
+			return Integer.parseInt(matcher.group(1));
 		}
+		return 0;
+	}
+	
 	
 	public WebElement IsPriceDisplayed() {
 		WebElement price=driver.findElement(Price);
@@ -171,7 +178,7 @@ public class ProductPage extends BasePage {
 	                List<WebElement> priceElements = driver.findElements(allprices);
 	                prices.clear(); 
 	                for (WebElement priceElement : priceElements) {
-	                    String priceText = priceElement.getText().replace("£", "").replace(",", "").trim();
+	                    String priceText = priceElement.getText().replace("€", "").replace(",", "").trim();
 	                    prices.add(Double.parseDouble(priceText));
 	                }
 	                success = true; 

@@ -12,12 +12,16 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+
+import com.airtech.qa.pages.LoginPage;
 
 public class BaseClass {
 	public static WebDriver driver;
 	public static Properties prop;
+	public LoginPage login;
 	
 
 	public BaseClass() throws IOException {
@@ -66,6 +70,17 @@ public class BaseClass {
     public String getProperty(String key) {
         return prop.getProperty(key);
     }
+    
+    
+    public void loginToApplication() {
+    	login = new LoginPage(driver);
+	    login.Clickuserbtn();
+	    Assert.assertTrue(login.IsLoginTextDisplayed().isDisplayed());
+	    login.clear();
+	    login.enteremail(prop.getProperty("username"));
+	    login.enterpassword(prop.getProperty("password"));
+	    login.signIn();
+	}
     
 
 }
