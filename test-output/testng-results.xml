@@ -1,103 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="20" passed="18" failed="2" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-09T18:10:02 IST" name="Default suite" finished-at="2025-04-09T18:10:56 IST" duration-ms="54324">
+  <suite started-at="2025-04-10T17:44:54 IST" name="Default suite" finished-at="2025-04-10T17:47:06 IST" duration-ms="131996">
     <groups>
     </groups>
-    <test started-at="2025-04-09T18:10:02 IST" name="Default test" finished-at="2025-04-09T18:10:56 IST" duration-ms="54324">
+    <test started-at="2025-04-10T17:44:54 IST" name="Default test" finished-at="2025-04-10T17:47:06 IST" duration-ms="131996">
       <class name="com.airtech.qa.testcases.ProductPageTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:02 IST" name="setup" finished-at="2025-04-09T18:10:13 IST" duration-ms="11041" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@6aa8e115]" started-at="2025-04-10T17:44:54 IST" name="setup" finished-at="2025-04-10T17:45:07 IST" duration-ms="12782" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="CartPageTest()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:13 IST" name="CartPageTest" finished-at="2025-04-09T18:10:17 IST" duration-ms="4092" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CartPageTest -->
-        <test-method signature="CloseCartTest()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:17 IST" name="CloseCartTest" finished-at="2025-04-09T18:10:18 IST" duration-ms="392" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CloseCartTest -->
-        <test-method signature="IsWebsitesDisplayed()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:18 IST" name="IsWebsitesDisplayed" finished-at="2025-04-09T18:10:18 IST" duration-ms="94" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- IsWebsitesDisplayed -->
-        <test-method signature="Isnoofitemdisplayed()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:18 IST" name="Isnoofitemdisplayed" finished-at="2025-04-09T18:10:18 IST" duration-ms="238" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Isnoofitemdisplayed -->
-        <test-method signature="ProductDetailPageTest()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:18 IST" name="ProductDetailPageTest" finished-at="2025-04-09T18:10:20 IST" duration-ms="2510" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ProductDetailPageTest -->
-        <test-method signature="SortToggleTest()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:21 IST" name="SortToggleTest" finished-at="2025-04-09T18:10:23 IST" duration-ms="2120" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SortToggleTest -->
-        <test-method signature="IsCategoryDisplayed()[pri:1, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:23 IST" name="IsCategoryDisplayed" finished-at="2025-04-09T18:10:23 IST" duration-ms="227" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- IsCategoryDisplayed -->
-        <test-method signature="IsFeaturedDisplayed()[pri:2, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:23 IST" name="IsFeaturedDisplayed" finished-at="2025-04-09T18:10:23 IST" duration-ms="149" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- IsFeaturedDisplayed -->
-        <test-method signature="IsPriceDisplayed()[pri:3, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:23 IST" name="IsPriceDisplayed" finished-at="2025-04-09T18:10:23 IST" duration-ms="41" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- IsPriceDisplayed -->
-        <test-method signature="AreLinksDisplayed()[pri:4, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:23 IST" name="AreLinksDisplayed" finished-at="2025-04-09T18:10:23 IST" duration-ms="44" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AreLinksDisplayed -->
-        <test-method signature="IsSortDisplayed()[pri:5, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:23 IST" name="IsSortDisplayed" finished-at="2025-04-09T18:10:23 IST" duration-ms="42" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- IsSortDisplayed -->
-        <test-method signature="IsShowDisplayed()[pri:6, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:23 IST" name="IsShowDisplayed" finished-at="2025-04-09T18:10:23 IST" duration-ms="47" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- IsShowDisplayed -->
-        <test-method signature="SortByPriceTest()[pri:7, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:23 IST" name="SortByPriceTest" finished-at="2025-04-09T18:10:25 IST" duration-ms="1649" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SortByPriceTest -->
-        <test-method signature="SortByNameTest()[pri:8, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:25 IST" name="SortByNameTest" finished-at="2025-04-09T18:10:26 IST" duration-ms="1487" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SortByNameTest -->
-        <test-method signature="ShowItemsTest()[pri:9, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:26 IST" name="ShowItemsTest" finished-at="2025-04-09T18:10:31 IST" duration-ms="4529" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ShowItemsTest -->
-        <test-method signature="QuickgotoprodTest()[pri:10, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:31 IST" name="QuickgotoprodTest" finished-at="2025-04-09T18:10:37 IST" duration-ms="6460" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- QuickgotoprodTest -->
-        <test-method signature="QuickShopTest()[pri:11, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:37 IST" name="QuickShopTest" finished-at="2025-04-09T18:10:43 IST" duration-ms="5786" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- QuickShopTest -->
-        <test-method signature="QuickCheckoutTest()[pri:12, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:43 IST" name="QuickCheckoutTest" finished-at="2025-04-09T18:10:53 IST" duration-ms="10283" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- QuickCheckoutTest -->
-        <test-method signature="checkAllCategoriesTest()[pri:30, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:53 IST" name="checkAllCategoriesTest" finished-at="2025-04-09T18:10:55 IST" duration-ms="1190" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        <test-method signature="checkAllCategoriesTest()[pri:30, instance:com.airtech.qa.testcases.ProductPageTest@6aa8e115]" started-at="2025-04-10T17:45:07 IST" name="checkAllCategoriesTest" finished-at="2025-04-10T17:47:05 IST" duration-ms="118241" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[expected [0] but found [16]]]>
+              <![CDATA[Expected condition failed: waiting for com.airtech.qa.pages.ProductPage$$Lambda/0x000002e290302210@2c748a15 (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.43, chrome: {chromedriverVersion: 135.0.7049.84 (6c019e560019..., userDataDir: C:\Users\CYBRAI~2\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55583}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55583/devtoo..., se:cdpVersion: 135.0.7049.43, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6e1591876ce2fd388bf0527ac263783d]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [0] but found [16]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-at org.testng.Assert.assertEquals(Assert.java:132)
-at org.testng.Assert.assertEquals(Assert.java:1419)
-at org.testng.Assert.assertEquals(Assert.java:1383)
-at org.testng.Assert.assertEquals(Assert.java:1429)
-at com.airtech.qa.testcases.ProductPageTest.checkAllCategoriesTest(ProductPageTest.java:193)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.airtech.qa.pages.ProductPage$$Lambda/0x000002e290302210@2c748a15 (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.43, chrome: {chromedriverVersion: 135.0.7049.84 (6c019e560019..., userDataDir: C:\Users\CYBRAI~2\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55583}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55583/devtoo..., se:cdpVersion: 135.0.7049.43, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6e1591876ce2fd388bf0527ac263783d
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.airtech.qa.pages.ProductPage.clickCategory(ProductPage.java:104)
+at com.airtech.qa.testcases.ProductPageTest.checkAllCategoriesTest(ProductPageTest.java:200)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -126,58 +60,11 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkAllCategoriesTest -->
-        <test-method signature="checkAllPriceCategoriesTest()[pri:31, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:55 IST" name="checkAllPriceCategoriesTest" finished-at="2025-04-09T18:10:55 IST" duration-ms="782" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [0] but found [16]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [0] but found [16]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-at org.testng.Assert.assertEquals(Assert.java:132)
-at org.testng.Assert.assertEquals(Assert.java:1419)
-at org.testng.Assert.assertEquals(Assert.java:1383)
-at org.testng.Assert.assertEquals(Assert.java:1429)
-at com.airtech.qa.testcases.ProductPageTest.checkAllPriceCategoriesTest(ProductPageTest.java:212)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkAllPriceCategoriesTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@3fa247d1]" started-at="2025-04-09T18:10:55 IST" name="teardown" finished-at="2025-04-09T18:10:56 IST" duration-ms="606" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@6aa8e115]" started-at="2025-04-10T17:47:05 IST" name="teardown" finished-at="2025-04-10T17:47:06 IST" duration-ms="697" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

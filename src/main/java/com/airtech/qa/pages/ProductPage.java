@@ -68,6 +68,7 @@ public class ProductPage extends BasePage {
 	By closecart=By.xpath("//button[@id='btn-minicart-close']");
 	By search=By.xpath("//i[@class='fas fa-search']");
 	By uniqueitemidentify=By.xpath("//li[@class='item product']");	
+	By actionnext=By.xpath("//a[@class='action  next']");
 	
 	
 	
@@ -87,7 +88,7 @@ public class ProductPage extends BasePage {
 	}
 	
 	public int getExpectedCountFromCategoryText(String text) {
-		Pattern pattern = Pattern.compile("\\((\\d+)\\)");
+		Pattern pattern = Pattern.compile("\\(\\s*(\\d+)\\s*\\)");
 		Matcher matcher = pattern.matcher(text);
 		if (matcher.find()) {
 			return Integer.parseInt(matcher.group(1));
@@ -96,7 +97,12 @@ public class ProductPage extends BasePage {
 	}
 	
 	public void clickCategory(WebElement categoryElement) {
-		categoryElement.click();
+		int previousCount = getDisplayedProductCount();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	    WebElement clickableLink = categoryElement.findElement(By.tagName("a"));
+	    wait.until(ExpectedConditions.elementToBeClickable(clickableLink)).click();
+	    wait.until(driver -> getDisplayedProductCount() != previousCount);
+	    wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(allproducts));
 	}
 	
 	
@@ -375,6 +381,56 @@ public class ProductPage extends BasePage {
 	public void InfusionProductDisplayed() {
 		driver.findElement(infusionproducts).click();
 	}
+	
+	public boolean isPaginationPresent() {
+		 try {
+		        WebElement nextButton = driver.findElement(By.xpath("//div[contains(@class,'column main')]//div[1]//div[3]//ul[1]//li[4]//a[1]"));
+		        return nextButton.isDisplayed() && nextButton.isEnabled();
+		    } catch (NoSuchElementException e) {
+		        return false;
+		    }
+	}
+	
+	public boolean goNextPage() {
+	    try {
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	        // Wait for overlay or loading spinner to disappear if any
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("ln_overlay")));
+
+	        // Wait for next button to be present
+	        WebElement nextButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(@class,'column main')]//div[1]//div[3]//ul[1]//li[4]//a[1]")));
+
+	        // Check if the next button is visible and enabled
+	        if (nextButton.isDisplayed() && nextButton.isEnabled()) {
+	            try {
+	                nextButton.click();
+	                return true;
+	            } catch (ElementClickInterceptedException e) {
+	                System.out.println("Next button click intercepted, retrying using JavaScript...");
+	                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", nextButton);
+	                return true;
+	            }
+	        }
+	    } catch (NoSuchElementException e) {
+	        System.out.println("No next button found.");
+	    }
+	    return false;
+	}
+	
+	
+	public int getTotalProductCountWithPagination() {
+	    List<WebElement> products = new ArrayList<>(driver.findElements(allproducts));
+	    while (isPaginationPresent()) {
+	        if (!goNextPage()) break;
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("ln_overlay")));
+	        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(allproducts));
+	        products.addAll(driver.findElements(allproducts));
+	    }
+	    return products.size();
+	}
+
 	
 	
 }

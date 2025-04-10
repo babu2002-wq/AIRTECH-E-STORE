@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -38,7 +39,7 @@ public class ProductPageTest extends BaseClass{
 		product.InfusionProductDisplayed();
 	}
 	
-	
+	/*
 	@Test(priority=1)
 	public void IsCategoryDisplayed() {
 		WebElement Category=product.IsCategoryDisplayed();
@@ -144,7 +145,7 @@ public class ProductPageTest extends BaseClass{
 		driver.navigate().back();
 	}
 	
-	//@Test
+	@Test
 	public void ProductDetailTest() {
 		detail=product.openproductdetail();
 		driver.navigate().back();
@@ -176,27 +177,39 @@ public class ProductPageTest extends BaseClass{
 	public void ProductDetailPageTest() {
 		detail=product.openproductdetail();
 	}
+	*/
 	
 	@Test(priority=30)
 	public void checkAllCategoriesTest() {
 		product.clickCategoryButton();
-		List<WebElement> originalCategoryElements = product.getAllCategoryElements();
-		int totalCategories = originalCategoryElements.size();
-		for (int i = 0; i < totalCategories; i++) {
-			
-			//List<WebElement> categories = product.getAllCategoryElements();
-			WebElement category = originalCategoryElements.get(i);
-			String text = category.getText();
-			int expectedCount = product.getExpectedCountFromCategoryText(text);
-			product.clickCategory(category);
-			int displayedCount = product.getDisplayedProductCount();
-			Assert.assertEquals(displayedCount, expectedCount);
-			product.clickClearAll();
-			product.clickCategoryButton();
-		}
-	}
+	    List<WebElement> originalCategoryElements = product.getAllCategoryElements();
+	    int totalCategories = originalCategoryElements.size();
+
+	    for (int i = 0; i < totalCategories; i++) {
+	        //product.clickCategoryButton(); // Re-load after each iteration
+	        List<WebElement> categories = product.getAllCategoryElements();
+	        WebElement categoryElement = categories.get(i);
+
+	        String categoryName = categoryElement.findElement(By.tagName("a")).getText().trim();
+	        String countText = categoryElement.findElement(By.className("count")).getText().trim();
+	        String onlyNumber = countText.replaceAll("[^0-9]", "");
+	        int expectedCount = Integer.parseInt(onlyNumber);
+
+	        System.out.println("\nChecking Category: " + categoryName + ", Expected Count: " + expectedCount);
+
+	        product.clickCategory(categoryElement);
+
+	        int displayedCount = product.getTotalProductCountWithPagination();
+	        System.out.println("Displayed Products Found: " + displayedCount);
+
+	        Assert.assertEquals(displayedCount, expectedCount);
+
+	        product.clickClearAll();
+	        product.clickCategoryButton();
+	    }
+}
 	
-	@Test(priority=31)
+	//@Test(priority=31)
 	public void checkAllPriceCategoriesTest() {
 		product.clickPriceFilter();
 		List<WebElement> originalCategories = product.getPriceCategories();

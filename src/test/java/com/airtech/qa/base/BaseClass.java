@@ -47,7 +47,7 @@ public class BaseClass {
   	  driver=new ChromeDriver();
   	  driver.manage().deleteAllCookies();
   	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-  	  driver.get("https://estore.airtech.lu/");
+  	  driver.get("https://estoredev.airtech-amg.co.uk/");
   	  driver.manage().window().maximize();
     }
     
