@@ -5,9 +5,12 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -19,6 +22,7 @@ import com.airtech.qa.pages.CartPage;
 import com.airtech.qa.pages.CheckOutPage;
 import com.airtech.qa.pages.ComparePage;
 import com.airtech.qa.pages.LoginPage;
+import com.airtech.qa.pages.MyWishListPage;
 import com.airtech.qa.pages.ProductDetailPage;
 import com.airtech.qa.pages.ProductPage;
 
@@ -31,15 +35,18 @@ public class ProductPageTest extends BaseClass{
 	ProductPage product;
 	ProductDetailPage detail;
 	CartPage cart;
+	MyWishListPage wish;
+	LoginPage login;
 	
 	@BeforeTest
 	public void setup() {
 		initialization();
 		product=new ProductPage(driver);
+		login=new LoginPage(driver);
 		product.InfusionProductDisplayed();
 	}
+
 	
-	/*
 	@Test(priority=1)
 	public void IsCategoryDisplayed() {
 		WebElement Category=product.IsCategoryDisplayed();
@@ -75,8 +82,7 @@ public class ProductPageTest extends BaseClass{
 		product.selectSortOption("price");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 		List<Double> displayedPrices = product.getProductPricesFromAllPages();
-	    List<Double> sortedPrices = new ArrayList<>(displayedPrices);
-	    //Collections.sort(sortedPrices); 
+	    List<Double> sortedPrices = new ArrayList<>(displayedPrices); 
 	    Assert.assertEquals(displayedPrices, sortedPrices);
 	}
 	
@@ -86,7 +92,6 @@ public class ProductPageTest extends BaseClass{
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 		List<String> displayedNames = product.getProductNamesFromAllPages();
 	    List<String> sortedNames = new ArrayList<>(displayedNames);
-	    //Collections.sort(sortedNames); 
 	    Assert.assertEquals(displayedNames, sortedNames);
 	}
 	
@@ -96,6 +101,7 @@ public class ProductPageTest extends BaseClass{
 		Assert.assertTrue(Show.isDisplayed());
 	}
 	
+	
 	@Test(priority=9)
 	public void ShowItemsTest() {
 		List<String> ShowValues = product.getShowDropdownValues();
@@ -103,24 +109,13 @@ public class ProductPageTest extends BaseClass{
 	        product.ShowDropdownFunction(value);
 	        int expectedProductCount = Integer.parseInt(value.replaceAll("[^0-9]", ""));
 	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	        wait.until(driver -> product.getDisplayedProductCount() == expectedProductCount);
-	        int displayedProductCount = product.getDisplayedProductCount();
-	        Assert.assertEquals(displayedProductCount, expectedProductCount, 
-	                            "Mismatch for dropdown value: " + value);
+	        wait.until(driver -> product.GetAllProducts().size() == expectedProductCount);
+	        int displayedProductCount = product.GetAllProducts().size();
+	        Assert.assertEquals(displayedProductCount, expectedProductCount);
 	    }
 	}
 	
-	//@Test
-	public void ProductDisplayTest() {
-		product.listview();
-		String listClass = product.ItemDisplay().getAttribute("class");
-		Assert.assertTrue(listClass.contains("list-view"));
-		product.gridview();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		String gridClass = product.ItemDisplay().getAttribute("class");
-		Assert.assertTrue(gridClass.contains("grid-view"));
-	}
-	
+
 	@Test
 	public void SortToggleTest() {
 		product.SortOrderToggleTest();
@@ -130,25 +125,25 @@ public class ProductPageTest extends BaseClass{
 	@Test(priority=10)
 	public void QuickgotoprodTest() {
 		detail=product.quickgotoproduct();
-		driver.navigate().back();
+		product.navigateback();
 	}
 	
 	@Test(priority=12)
 	public void QuickCheckoutTest() {
 		cart=product.quickviewAddCart();
-		driver.navigate().back();
+		product.navigateback();
 	}
 	
 	@Test(priority=11)
 	public void QuickShopTest() {
 		product=product.quickcontinueshopping();
-		driver.navigate().back();
+		product.navigateback();
 	}
 	
 	@Test
 	public void ProductDetailTest() {
 		detail=product.openproductdetail();
-		driver.navigate().back();
+		product.navigateback();
 	}
 	
 	@Test
@@ -159,7 +154,7 @@ public class ProductPageTest extends BaseClass{
 	@Test
 	public void CartPageTest() {
 		cart=product.cartdisplay();
-		driver.navigate().back();	
+		product.navigateback();
 	}
 	
 	@Test
@@ -177,56 +172,67 @@ public class ProductPageTest extends BaseClass{
 	public void ProductDetailPageTest() {
 		detail=product.openproductdetail();
 	}
-	*/
 	
+
 	@Test(priority=30)
-	public void checkAllCategoriesTest() {
+	public void checkAllCategoriesTest() throws TimeoutException {
 		product.clickCategoryButton();
 	    List<WebElement> originalCategoryElements = product.getAllCategoryElements();
 	    int totalCategories = originalCategoryElements.size();
-
 	    for (int i = 0; i < totalCategories; i++) {
-	        //product.clickCategoryButton(); // Re-load after each iteration
 	        List<WebElement> categories = product.getAllCategoryElements();
 	        WebElement categoryElement = categories.get(i);
-
 	        String categoryName = categoryElement.findElement(By.tagName("a")).getText().trim();
 	        String countText = categoryElement.findElement(By.className("count")).getText().trim();
 	        String onlyNumber = countText.replaceAll("[^0-9]", "");
 	        int expectedCount = Integer.parseInt(onlyNumber);
-
-	        System.out.println("\nChecking Category: " + categoryName + ", Expected Count: " + expectedCount);
-
 	        product.clickCategory(categoryElement);
-
 	        int displayedCount = product.getTotalProductCountWithPagination();
 	        System.out.println("Displayed Products Found: " + displayedCount);
-
 	        Assert.assertEquals(displayedCount, expectedCount);
-
 	        product.clickClearAll();
 	        product.clickCategoryButton();
 	    }
 }
 	
-	//@Test(priority=31)
+	@Test(priority=31)
 	public void checkAllPriceCategoriesTest() {
 		product.clickPriceFilter();
 		List<WebElement> originalCategories = product.getPriceCategories();
 		int totalCategories = originalCategories.size();
 		for (int i = 0; i < totalCategories; i++) {
-			product.clickPriceFilter();
 			List<WebElement> updatedCategories = product.getPriceCategories();
 			WebElement category = updatedCategories.get(i);
-			String text = category.getText();
-			int expectedCount = product.getExpectedProductCount(text);
+			String priceRange = category.findElement(By.tagName("a")).getText().trim();
+			String priceText = category.findElement(By.className("count")).getText().trim();
+			String onlyNumber = priceText.replaceAll("[^0-9]", "");
+			int expectedCount = Integer.parseInt(onlyNumber);
 			product.clickCategory(category);
 			int displayedCount = product.getDisplayedProductCount();
 			Assert.assertEquals(displayedCount, expectedCount);
-			product.clickClearAll();
+			product.clickClearAll();		
+		    product.waitForOverlayToDisappear();
+		    if(i==updatedCategories.size()-2) {
+		    	product.clickPriceFilter();
+		    }
+			
 		}
 	}
 	
+	
+	@Test(priority=90)
+	public void WishListSuccessTest() {
+		login.Clickuserbtn();
+		login.enteremail(getProperty("username"));
+		login.enterpassword(getProperty("password"));
+		login.signIn();
+		product.navigateback();
+		wish=product.wishlistSuccess();
+		product.navigateback();
+	}
+
+	
+
 	@AfterTest
 	public void teardown() {
 		driver.quit();

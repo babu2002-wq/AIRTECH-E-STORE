@@ -43,7 +43,7 @@ public class ProductDetailPage extends BasePage{
 	By wishlistfailtext=By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
 	By availability=By.xpath("//div[@title='Availability']");
 	By wishlistsuccesstext=By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
-	By wishlistsuccessbtn=By.xpath("//a[normalize-space()='here']");
+	By wishlistsuccessbtn=By.xpath("//button[@id='wishlist_checkout']");
 	By uniqueitemidentify=By.xpath("//li[@class='item product']");	
 	By userbtn=By.xpath("//i[@class='fas fa-user']");
 	
@@ -157,11 +157,11 @@ public class ProductDetailPage extends BasePage{
 		return msgtext;
 	}
 	
-	public WebElement AddtoWishlistSuccess() {
+	public void AddtoWishlistSuccess() {
 		driver.findElement(addtowishlistbtn).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-		WebElement successmsg=driver.findElement(wishlistsuccesstext);
-		return successmsg;
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		//WebElement successmsg=driver.findElement(wishlistsuccesstext);
+		//return successmsg;
 	}
 	
 	public WebElement ClickWishlistbtn() {

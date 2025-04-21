@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -70,5 +71,10 @@ public class RegistrationPageTest extends BaseClass{
 		register.Togglepassword();
 		Assert.assertEquals(register.getPassword().getAttribute("type"), "password" );
 		Assert.assertEquals(register.getcnfPassword().getAttribute("type"), "password");
+	}
+	
+	@AfterTest
+	public void teardown() {
+		driver.quit();
 	}
 }

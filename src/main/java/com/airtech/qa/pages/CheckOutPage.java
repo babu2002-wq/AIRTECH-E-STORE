@@ -48,8 +48,8 @@ public class CheckOutPage extends BasePage {
 	By industrytype1=By.xpath("(//select[@name='custom_attributes[industrytype]'])[2]");
 	By creditcardbtn=By.xpath("//input[@id='braintree']");
 	By creditcardtypes=By.xpath("//ul[@class='credit-card-types braintree-credit-card-types']");
-	By creditcardno=By.xpath("//input[@id='credit-card-number']");
-	By expiredate=By.xpath("//input[@id='expiration']");
+	By creditcardno=By.xpath("//div[@id='braintree_cc_number']");
+	By expiredate=By.xpath("//div[@id='braintree_expirationDate']");
 	By cardverifyno=By.xpath("//div[@id='braintree_cc_cid']");
 	By applydiscountbtn=By.xpath("//span[contains(text(),'Apply Discount Code')]");
 	By entercode=By.xpath("//input[@id='discount-code']");
@@ -64,11 +64,11 @@ public class CheckOutPage extends BasePage {
 	By subtotal=By.xpath("//span[@data-th='Cart Subtotal']");
 	By ordertotal=By.xpath("//td[@class='amount']//strong");
 	By shippingprice=By.xpath("//span[@data-th='Shipping']");
-	By taxprice=By.xpath("td[data-th='Tax'] span[class='price']");
+	By taxprice=By.xpath("//td[@data-th='Tax']");
 	By otherpaymentmethod=By.xpath("//div[@id='payment-method-braintree-paypal']//div[@class='payment-method-title field choice']");
 	By otherpaycheck=By.xpath("//input[@id='braintree_paypal']");
 	By placeorder=By.xpath("//div[@class='place-order-primary']//button[@title='Place Order']");
-	By errormsg=By.xpath("//div[@class='mage-error']");
+	By errormsg=By.xpath("//div[@class='mage-error'] | //div[@class='field-error']");
 	By requiredfields=By.xpath("//input[@aria-required='true'] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
 	
 	

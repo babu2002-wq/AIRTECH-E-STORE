@@ -2,7 +2,9 @@ package com.airtech.qa.pages;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeoutException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,13 +39,13 @@ public class ProductPage extends BasePage {
 	By show=By.xpath("//div[@class='column main']//div[1]//div[4]//label[1]//span[1]");
 	By showoptions=By.xpath("//div[contains(@class,'column main')]//div[1]//div[4]//div[1]//select[1]");
 	By listview=By.xpath("//body/div[@class='page-wrapper']/main[@id='maincontent']/div[@class='columns']/div[@class='column main']/div[@id='layer-product-list']/div[1]/div[2]/a[1]");
-	By gridview=By.xpath("//div[@class='column main']//div[1]//div[2]//strong[2]");
+	By gridview=By.xpath("(//a[@title='Grid'])[1]");
 	By elementcontainer=By.xpath("//body/div[@class='page-wrapper']/main[@id='maincontent']/div[@class='columns']/div[@class='column main']/div[@id='layer-product-list']/div[2]");
 	By addwishlistbtn=By.xpath("(//li[contains(@class, 'product-item')])[1]//a[contains(@class, 'wishlist')]");
 	By addcartbtn=By.xpath("(//li[contains(@class, 'product-item')])[1]//button[contains(@class, 'tocart')]");
 	By producthover=By.xpath("(//li[contains(@class, 'product-item')])[1]");
 	By quickview=By.xpath("(//li[contains(@class, 'product-item')])[1]//a[contains(@class, 'quickview')]");
-	By productclick=By.xpath("//b[normalize-space()='Wrightlon® 3700']");
+	By productclick=By.xpath("//b[normalize-space()='Airflow 65R']");
 	By allprices=By.xpath("//div[@id=\"layer-product-list\"]//div[contains(@class,'product-item-info')]//span[@class='price']");
 	By allproducts=By.xpath("//div[@id=\"layer-product-list\"]//strong[@class='product name product-item-name']//b");
 	By websites=By.xpath("//h5[normalize-space()='Websites']");
@@ -54,7 +56,7 @@ public class ProductPage extends BasePage {
 	By autoclaveproducts=By.xpath("//span[normalize-space()='Autoclave']");
 	By nextbtn=By.xpath("//div[contains(@class,'columns')]//div[3]//div[3]//ul[1]//li[6]//a[1]");
 	By clearAllbtn=By.xpath("//span[normalize-space()='Clear All']");
-	By pricecategories=By.xpath("//div[@class='filter-options-item allow active']//div[@role='tabpanel']//li");
+	By pricecategories=By.xpath("//div[@aria-hidden='false']//ol[@class='items']//li");
 	By iframe=By.xpath("//iframe[@class='mfp-iframe']");
 	By quickcart=By.xpath("//span[normalize-space()='Add to Cart']");
 	By quickproduct=By.xpath("//span[normalize-space()='Go To Product']");
@@ -69,6 +71,7 @@ public class ProductPage extends BasePage {
 	By search=By.xpath("//i[@class='fas fa-search']");
 	By uniqueitemidentify=By.xpath("//li[@class='item product']");	
 	By actionnext=By.xpath("//a[@class='action  next']");
+	By wishlistsuccessbtn=By.xpath("//button[@id='wishlist_checkout']");
 	
 	
 	
@@ -97,11 +100,14 @@ public class ProductPage extends BasePage {
 	}
 	
 	public void clickCategory(WebElement categoryElement) {
-		int previousCount = getDisplayedProductCount();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		List<WebElement> oldProducts = driver.findElements(allproducts);
+	    WebElement oldFirstProduct = oldProducts.size() > 0 ? oldProducts.get(0) : null;
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	    WebElement clickableLink = categoryElement.findElement(By.tagName("a"));
 	    wait.until(ExpectedConditions.elementToBeClickable(clickableLink)).click();
-	    wait.until(driver -> getDisplayedProductCount() != previousCount);
+	    if (oldFirstProduct != null) {
+	        wait.until(ExpectedConditions.stalenessOf(oldFirstProduct));
+	    }
 	    wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(allproducts));
 	}
 	
@@ -184,7 +190,7 @@ public class ProductPage extends BasePage {
 	                List<WebElement> priceElements = driver.findElements(allprices);
 	                prices.clear(); 
 	                for (WebElement priceElement : priceElements) {
-	                    String priceText = priceElement.getText().replace("€", "").replace(",", "").trim();
+	                    String priceText = priceElement.getText().replace("£", "").replace(",", "").trim();
 	                    prices.add(Double.parseDouble(priceText));
 	                }
 	                success = true; 
@@ -266,18 +272,54 @@ public class ProductPage extends BasePage {
 	}
 	
 	public int getDisplayedProductCount() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	    wait.until(ExpectedConditions.visibilityOfElementLocated(allproducts));
-	    List<WebElement> products = driver.findElements(allproducts);
-	    return products.size();
+	    Set<WebElement> uniqueProducts = new HashSet<>();
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("ln_overlay")));
+	    uniqueProducts.addAll(driver.findElements(allproducts));
+
+	    while (isPaginationPresent()) {
+	        try {
+	            WebElement nextButton = driver.findElement(By.xpath("(//a[contains(@title,'Next')])[2]"));
+
+	            if (nextButton.isDisplayed() && nextButton.isEnabled()) {
+	                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", nextButton);
+
+	                try {
+	                    wait.until(ExpectedConditions.elementToBeClickable(nextButton)).click();
+	                } catch (ElementClickInterceptedException e) {
+	                    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", nextButton);
+	                }
+
+	                
+	                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("ln_overlay")));
+	                wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfAllElementsLocatedBy(allproducts)));
+
+	                uniqueProducts.addAll(driver.findElements(allproducts));
+	            } else {
+	                break;
+	            }
+	        } catch (NoSuchElementException e) {
+	            break;
+	        }
+	    }
+
+	    return uniqueProducts.size();
 	}
+
+	
 	
 	public void listview() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		driver.findElement(listview).click();
+		wait.until(ExpectedConditions.attributeContains(ItemDisplay(), "class", "list-view"));
 	}
 	
 	public void gridview() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		driver.findElement(gridview).click();
+		wait.until(ExpectedConditions.attributeContains(ItemDisplay(), "class", "grid-view"));
 	}
 	
 	public void SortOrderToggleTest() {
@@ -332,7 +374,8 @@ public class ProductPage extends BasePage {
 	
 	
 	public ProductDetailPage openproductdetail() {
-		driver.findElement(productclick).click();
+		List<WebElement> product=GetAllProducts();
+		product.getFirst().click();
 		return new ProductDetailPage(driver);
 	}
 	
@@ -348,11 +391,11 @@ public class ProductPage extends BasePage {
 		return errormsg;
 	}
 	
-	public WebElement wishlistSuccess() {
+	public MyWishListPage wishlistSuccess() {
 		driver.findElement(addwishlistbtn).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-		WebElement successmsg=driver.findElement(wishlistsuccess);
-		return successmsg;
+		driver.findElement(wishlistsuccessbtn).click();
+		return new MyWishListPage(driver);
 	}
 	
 	public CartPage cartdisplay() {
@@ -384,51 +427,52 @@ public class ProductPage extends BasePage {
 	
 	public boolean isPaginationPresent() {
 		 try {
-		        WebElement nextButton = driver.findElement(By.xpath("//div[contains(@class,'column main')]//div[1]//div[3]//ul[1]//li[4]//a[1]"));
+		        WebElement nextButton = driver.findElement(By.xpath("(//a[contains(@title,'Next')])[2]"));
 		        return nextButton.isDisplayed() && nextButton.isEnabled();
 		    } catch (NoSuchElementException e) {
 		        return false;
 		    }
 	}
 	
-	public boolean goNextPage() {
-	    try {
-	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-	        // Wait for overlay or loading spinner to disappear if any
-	        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("ln_overlay")));
-
-	        // Wait for next button to be present
-	        WebElement nextButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(@class,'column main')]//div[1]//div[3]//ul[1]//li[4]//a[1]")));
-
-	        // Check if the next button is visible and enabled
-	        if (nextButton.isDisplayed() && nextButton.isEnabled()) {
-	            try {
-	                nextButton.click();
-	                return true;
-	            } catch (ElementClickInterceptedException e) {
-	                System.out.println("Next button click intercepted, retrying using JavaScript...");
-	                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", nextButton);
-	                return true;
-	            }
-	        }
-	    } catch (NoSuchElementException e) {
-	        System.out.println("No next button found.");
-	    }
-	    return false;
-	}
 	
-	
-	public int getTotalProductCountWithPagination() {
+	public int getTotalProductCountWithPagination() throws TimeoutException {
 	    List<WebElement> products = new ArrayList<>(driver.findElements(allproducts));
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    while (isPaginationPresent()) {
-	        if (!goNextPage()) break;
-	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("ln_overlay")));
-	        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(allproducts));
-	        products.addAll(driver.findElements(allproducts));
+	        try {
+	            WebElement nextButton = driver.findElement(By.xpath("(//a[contains(@title,'Next')])[2]"));
+	            if (nextButton.isDisplayed() && nextButton.isEnabled()) {
+	                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", nextButton);
+	                try {
+	                    wait.until(ExpectedConditions.elementToBeClickable(nextButton)).click();
+	                } catch (ElementClickInterceptedException e) { 
+	                    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", nextButton);
+	                }
+	                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("ln_overlay")));
+	                wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfAllElementsLocatedBy(allproducts)));
+	                products.addAll(driver.findElements(allproducts));
+	            } else { 
+	                break;
+	            }
+	        } catch (NoSuchElementException e) {  
+	            break;
+	        }
 	    }
 	    return products.size();
+	}
+	
+	public void waitForOverlayToDisappear() {
+	    new WebDriverWait(driver, Duration.ofSeconds(10))
+	        .until(ExpectedConditions.invisibilityOfElementLocated(By.id("ln_overlay")));
+	}
+
+	public void navigateback() {
+		driver.navigate().back();
+	}
+	
+	public List<WebElement> GetAllProducts() {
+		List<WebElement> allproduct=driver.findElements(allproducts);
+		return allproduct;	
 	}
 
 	

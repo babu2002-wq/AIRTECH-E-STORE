@@ -22,24 +22,25 @@ public class MyWishListPage extends BasePage{
 	By updatewish=By.xpath("//span[normalize-space()='Update Wish List']");
 	By sharewish=By.xpath("//span[normalize-space()='Share Wish List']");
 	By addallcart=By.xpath("//span[normalize-space()='Add All to Cart']");
-	By prodcomment=By.xpath("//textarea[@id='product-item-comment-49']");
-	By addtocartbtn=By.xpath("//li[@id='item_49']//span[contains(text(),'Add to Cart')]");
-	By editbtn=By.xpath("//li[@id='item_49']//span[contains(text(),'Edit')]");
-	By removebtn=By.xpath("//li[@id='item_49']//span[contains(text(),'Remove item')]");
+	By prodcomment = By.xpath("//textarea[contains(@id, 'product-item-comment-')]");
+	By addtocartbtn=By.xpath("//li[contains(@id, 'item_')]//span[contains(text(),'Add to Cart')]");
+	By editbtn=By.xpath("//li[contains(@id, 'item_')]//span[contains(text(),'Edit')]");
+	By removebtn=By.xpath("//li[contains(@id, 'item_')]//span[contains(text(),'Remove item')]");
 	By prodname=By.xpath("//a[@title='AIRSEAL-2-TACKY-3MM-12MM-15M 20-ROLLS-PER-CASE'][normalize-space()='AIRSEAL-2-TACKY-3MM-12MM-15M 20-ROLLS-PER-CASE']");
 	By allprices=By.xpath("//span[@class='price']");
 	By allquantity=By.xpath("//input[contains(@id,'qty')]");
 	By allproduct=By.xpath("//li[@data-row='product-item']");
 	By uniqueitemidentify=By.xpath("//li[@class='item product']");	
 	By wishlistlink=By.xpath("//div[@id='block-collapsible-nav']//a[normalize-space()='My Wish List']");
-	
-	
+	By qtyInput = By.xpath("//li[contains(@id,'item_')]//input[contains(@id,'qty')]");
+	By qtySuccess=By.xpath("//div[@class='message-success success message']");
+	By sharewishreal=By.xpath("//button[@title='Share Wish List']");
+	By emailerror=By.xpath("//div[@id='email_address-error']");
 	
 	
 	public void ClickWishlistLink() {
 		driver.findElement(wishlistlink).click();
 	}
-	
 	
 	public WebElement IswishlistDisplayed() {
 		return driver.findElement(wishlisttxt);
@@ -82,8 +83,9 @@ public class MyWishListPage extends BasePage{
 		return driver.findElement(allproduct);
 	}
 	
-	public void clicksharewish() {
+	public String clicksharewish() {
 		driver.findElement(sharewish).click();
+		return driver.getTitle();
 	}
 	
 	public ProductDetailPage clickprodname() {
@@ -93,6 +95,23 @@ public class MyWishListPage extends BasePage{
 	
 	public WebElement IsPricesDisplayed() {
 		return driver.findElement(allprices);
+	}
+	
+	public WebElement ChangeQuantity(String quantity) {
+		driver.findElement(qtyInput).clear();
+		driver.findElement(qtyInput).sendKeys(quantity);
+		driver.findElement(updatewish).click();
+		return driver.findElement(qtySuccess);
+	}
+	
+	public WebElement ValidationTest() {
+		driver.findElement(sharewish).click();
+		driver.findElement(sharewishreal).click();
+		return driver.findElement(emailerror);
+	}
+	
+	public void navigateback() {
+		driver.navigate().back();
 	}
 	
 }

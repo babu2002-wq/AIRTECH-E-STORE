@@ -32,58 +32,35 @@ public class AddressPageTest extends BaseClass{
 	@Test(priority=1)
 	public void Addressbookclick() {
 		address.addressbookclick();
-	}
-	
-	@Test(priority=2)
-	public void IsAddressbookDisplayed() {
 		Assert.assertTrue(address.IsaddressbooktextDisplayed().isDisplayed());
-	}
-	
-	@Test(priority=3)
-	public void IsdefaddressDisplayed() {
 		Assert.assertTrue(address.IsdefaultaddtextDisplayed().isDisplayed());
-	}
-	
-	@Test(priority=4)
-	public void IsdefbillDisplayed() {
 		Assert.assertTrue(address.IsdefbilltextDisplayed().isDisplayed());
-	}
-	
-	@Test(priority=5)
-	public void IsbillboxDisplayed() {
 		Assert.assertTrue(address.IsbilladdboxDisplayed().isDisplayed());
-	}
-	
-	@Test(priority=6)
-	public void IsdefshipDisplayed() {
 		Assert.assertTrue(address.IsdefshipaddDisplayed().isDisplayed());
-	}
-	
-	@Test(priority=7)
-	public void IsshipboxDisplayed() {
 		Assert.assertTrue(address.IsShipaddboxDisplayed().isDisplayed());
 	}
 	
-	@Test(priority=8)
+	
+	@Test(priority=2)
 	public void ChangeshipTest() {
 		address.Changeshipbtnclick();
-		Assert.assertEquals(address.Changeshipbtn(), "Vacuum Bagging and Composite Tooling - Edit Address");
+		Assert.assertEquals(address.Changeshipbtn(), "Edit Address");
 		driver.navigate().back();
 	}
 	
-	@Test(priority=9)
+	@Test(priority=3)
 	public void ChangebillTest() {
 		address.Changebillbtnclick();
-		Assert.assertEquals(address.Changebillbtn(), "Vacuum Bagging and Composite Tooling - Edit Address");
+		Assert.assertEquals(address.Changebillbtn(), "Edit Address");
 		driver.navigate().back();
 	}
 	
-	@Test(priority=10)
+	@Test(priority=4)
 	public void IsadditionaladdDisplayed() {
 		Assert.assertTrue(address.IsaddionaladdDisplayed().isDisplayed());
 	}
 	
-	@Test(priority=11)
+	@Test(priority=5)
 	public void NewAddbtnClick() {
 		address.ClicknewAddressbtn();
 		Assert.assertTrue(address.IsNewaddtextDisplayed().isDisplayed());
@@ -98,14 +75,16 @@ public class AddressPageTest extends BaseClass{
 		Assert.assertTrue(address.enterzip().isDisplayed());
 		Assert.assertTrue(address.Clickbillcheck().isDisplayed());
 		Assert.assertTrue(address.Clickshipcheck().isDisplayed());
+		
 	}
 	
-	@Test(priority=12)
+	@Test(priority=6)
 	public void AddnewAddressTest() {
+		address.clear();
 		List<WebElement> required=address.reqfields();
 		address.Clicksavebtn();
 		List<WebElement> errormsgs=address.errormsgs();
-		Assert.assertEquals(errormsgs,required);
+		Assert.assertEquals(errormsgs.size(),required.size());
 	}
 	
 	@AfterTest

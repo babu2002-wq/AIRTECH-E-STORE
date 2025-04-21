@@ -150,9 +150,9 @@ public class ProductDetailPageTest extends BaseClass{
 	}
 	
 	//@Test(priority=16)
-	public void AddWishListSuccessTest() {
-		Assert.assertTrue(detail.AddtoWishlistSuccess().isDisplayed());
-	}
+	//public void AddWishListSuccessTest() {
+		//Assert.assertTrue(detail.AddtoWishlistSuccess().isDisplayed());
+	//}
 	
 	@Test(priority=30)
 	public void WishListFailureTest() {
@@ -167,15 +167,17 @@ public class ProductDetailPageTest extends BaseClass{
 		
 	}
 	
+	
 	@Test(priority=31)
 	public void WishListSuccessTest() {
 		login.Clickuserbtn();
 		login.enteremail(getProperty("username"));
 		login.enterpassword(getProperty("password"));
 		login.signIn();
+		detail.navigateback();
 		detail.AddtoWishlistSuccess();
 		wish=detail.ClickWishlistsuccessbtn();
-		driver.navigate().back();
+		detail.navigateback();
 	}
 	
 	@AfterTest

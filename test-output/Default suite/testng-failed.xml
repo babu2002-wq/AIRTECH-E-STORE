@@ -5,9 +5,9 @@
     <classes>
       <class name="com.airtech.qa.testcases.ProductPageTest">
         <methods>
+          <include name="ProductDisplayTest"/>
           <include name="setup"/>
           <include name="teardown"/>
-          <include name="checkAllCategoriesTest"/>
         </methods>
       </class> <!-- com.airtech.qa.testcases.ProductPageTest -->
     </classes>

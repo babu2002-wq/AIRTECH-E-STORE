@@ -15,7 +15,7 @@ public class RegistrationPage extends BasePage {
 		super(driver);
 	}
 	
-	By createaccount=By.xpath("//span[@class='base']");
+	By createaccount=By.xpath("//button[@title='Create an Account']//span[contains(text(),'Create an Account')]");
 	By personalinfotxt=By.xpath("//span[normalize-space()='Personal Information']");
 	By firstname=By.xpath("//input[@id='firstname']");
 	By lastname=By.xpath("//input[@id='lastname']");

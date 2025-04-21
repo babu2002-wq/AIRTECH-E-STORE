@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -44,15 +45,6 @@ public class AccountInfoPageTest extends BaseClass{
 		Assert.assertTrue(info.IsEmailDisplayed().isDisplayed());
 		Assert.assertTrue(info.IsCurrentPassDisplayed().isDisplayed());
 		info.clear();
-		List<WebElement> required=info.requiredfields();
-		info.SavebtnClick();
-		List<WebElement> errormsg=info.errors();
-		Assert.assertEquals(errormsg, required);
-	}
-	
-	@Test(priority=3)
-	public void ChangePasswordTest() {
-		info.CngEmailClick();
 		info.CngPassClick();
 		Assert.assertTrue(info.IsCngPassTextDisplayed().isDisplayed());
 		Assert.assertTrue(info.IsCurrentPassDisplayed().isDisplayed());
@@ -61,8 +53,10 @@ public class AccountInfoPageTest extends BaseClass{
 		List<WebElement> required=info.requiredfields();
 		info.SavebtnClick();
 		List<WebElement> errormsg=info.errors();
-		Assert.assertEquals(errormsg, required);
+		Assert.assertEquals(errormsg.size(), required.size());
+		
 	}
+	
 	
 	@Test(priority=4)
 	public void PasswordMeterTest() {
@@ -71,5 +65,10 @@ public class AccountInfoPageTest extends BaseClass{
 		String FinalStrength=info.getPasswordStrength();
 		Assert.assertNotEquals(InitialStrength, FinalStrength);
 		info.passclear();
+	}
+	
+	@AfterTest
+	public void teardown() {
+		driver.quit();
 	}
 }

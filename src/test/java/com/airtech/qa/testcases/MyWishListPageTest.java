@@ -3,6 +3,9 @@ package com.airtech.qa.testcases;
 import java.io.IOException;
 import java.time.Duration;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -32,9 +35,10 @@ public class MyWishListPageTest extends BaseClass {
 		initialization();
 		loginToApplication();
 		mywish=new MyWishListPage(driver);
+		
 	}
 	
-	@Test
+	@Test(priority=1)
 	public void MyWishlistTest() {
 		mywish.ClickWishlistLink();
 		Assert.assertTrue(mywish.IswishlistDisplayed().isDisplayed());
@@ -43,20 +47,22 @@ public class MyWishListPageTest extends BaseClass {
 		
 	}
 	
-	@Test
+	@Test(priority=2)
 	public void ShowTest() {
 		mywish.Changewishno("20");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		mywish.Changewishno("50");
 	}
 	
-	@Test
+	@Test(priority=3)
 	public void EditTest() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("ln_overlay")));
 		detail=mywish.ClickEditbtn();
 		driver.navigate().back();
 	}
 	
-	@Test
+	@Test(priority=4)
 	public void commenttest() {
 		mywish.entercomment("Great Product");
 	}
@@ -66,11 +72,27 @@ public class MyWishListPageTest extends BaseClass {
 		mywish.Clickremovebtn();
 	}
 	
+	@Test(priority=5)
+	public void quantityTest() {
+		mywish.ChangeQuantity("2");
+	}
+	
+	@Test(priority=6)
+	public void ShareWishTest() {
+		Assert.assertEquals(mywish.clicksharewish(),"Wish List Sharing");
+		mywish.navigateback();
+	}
+	
+	@Test(priority=7)
+	public void ValidationTest() {
+		Assert.assertTrue(mywish.ValidationTest().isDisplayed());
+		mywish.navigateback();
+	}
+	
 	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}
-	
 	
 	
 }

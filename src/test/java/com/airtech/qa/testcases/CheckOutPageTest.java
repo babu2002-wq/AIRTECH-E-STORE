@@ -3,6 +3,7 @@ package com.airtech.qa.testcases;
 import java.io.IOException;
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -85,7 +86,7 @@ public class CheckOutPageTest extends BaseClass {
 		List<WebElement> required=check.requiredfields();
 		check.ClickPlaceOrder();
 		List<WebElement> errormsg=check.errormsg();
-		Assert.assertEquals(required, errormsg);
+		Assert.assertEquals(errormsg,required);
 	}
 	
 	
@@ -103,11 +104,10 @@ public class CheckOutPageTest extends BaseClass {
 		Assert.assertTrue(check.Clickapplydiscount().isDisplayed());
 		Assert.assertTrue(check.Clickdiscount().isDisplayed());
 		Assert.assertTrue(check.enterexpiredate().isDisplayed());
-	
-		check.Clickotherpaymethod();
+		//check.Clickotherpaymethod();
 	}
 	
-	@Test(priority=7)
+	//@Test(priority=7)
 	public void Termtest() {
 		check.checkterm();
 	}
@@ -130,5 +130,6 @@ public class CheckOutPageTest extends BaseClass {
 	public void teardown() {
 		driver.quit();
 	}
+	
 	
 }

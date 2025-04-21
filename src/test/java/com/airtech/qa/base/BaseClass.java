@@ -5,13 +5,16 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Properties;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -42,9 +45,12 @@ public class BaseClass {
   	  default:System.out.println("Invalid browser");return;
   	  }
   	  */
-    	
-	   	
-  	  driver=new ChromeDriver();
+    	ChromeOptions options = new ChromeOptions();
+    	 
+    	 //options.setExperimentalOption("debuggerAddress", "127.0.0.1:9222");
+
+         // Start Selenium and attach to it
+      driver = new ChromeDriver(options);
   	  driver.manage().deleteAllCookies();
   	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
   	  driver.get("https://estoredev.airtech-amg.co.uk/");

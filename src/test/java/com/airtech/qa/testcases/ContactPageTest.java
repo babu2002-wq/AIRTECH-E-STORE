@@ -23,11 +23,11 @@ public class ContactPageTest extends BaseClass {
 	public void setup() {
 		initialization();
 		contact=new ContactPage(driver);
+		contact.ClickContact();
 	}
 	
 	@Test(priority=1)
 	public void ContactbtnTest() {
-		contact.ClickContact();
 		Assert.assertTrue(contact.IsContactDisplayed().isDisplayed());
 		Assert.assertTrue(contact.IsadressesDisplayed().isDisplayed());
 	}
