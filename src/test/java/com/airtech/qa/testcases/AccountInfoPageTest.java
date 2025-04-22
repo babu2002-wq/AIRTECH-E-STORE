@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -21,16 +23,17 @@ public class AccountInfoPageTest extends BaseClass{
 	
 	AccountInfoPage info;
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		loginToApplication();
 		info=new AccountInfoPage(driver);
+		info.AccountInfoClick();
 	}
 	
 	@Test(priority=1)
 	public void AccountInfoTest() {
-		info.AccountInfoClick();
+		
 		Assert.assertTrue(info.IsEditInfoDisplayed().isDisplayed());
 		Assert.assertTrue(info.IsAccountInfoDisplayed().isDisplayed());
 		Assert.assertTrue(info.IsFirstNameDisplayed().isDisplayed());
@@ -67,7 +70,7 @@ public class AccountInfoPageTest extends BaseClass{
 		info.passclear();
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

@@ -6,7 +6,9 @@ import java.time.Duration;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -31,7 +33,7 @@ public class ProductDetailPageTest extends BaseClass{
 	MyWishListPage wish;
 	CartPage cart;
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		product=new ProductPage(driver);
@@ -180,7 +182,7 @@ public class ProductDetailPageTest extends BaseClass{
 		detail.navigateback();
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

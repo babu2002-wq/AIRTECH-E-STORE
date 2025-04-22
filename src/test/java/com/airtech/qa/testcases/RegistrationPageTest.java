@@ -6,7 +6,9 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -22,16 +24,16 @@ public class RegistrationPageTest extends BaseClass{
 	
 	RegistrationPage register;
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		register=new RegistrationPage(driver);
+		register.ClickRegister();
 	}
 	
 	
 	@Test(priority=1)
 	public void RegistrationTest() {
-		register.ClickRegister();
 		Assert.assertTrue(register.Ispersonaltxtdisplayed().isDisplayed());
 		Assert.assertTrue(register.enterfirstname().isDisplayed());
 		Assert.assertTrue(register.enteremail().isDisplayed());
@@ -73,7 +75,7 @@ public class RegistrationPageTest extends BaseClass{
 		Assert.assertEquals(register.getcnfPassword().getAttribute("type"), "password");
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

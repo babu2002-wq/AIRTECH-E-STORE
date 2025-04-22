@@ -3,13 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.airtech.qa.testcases.ProductPageTest">
+      <class name="com.airtech.qa.testcases.MyWishListPageTest">
         <methods>
-          <include name="ProductDisplayTest"/>
           <include name="setup"/>
+          <include name="quantityTest"/>
           <include name="teardown"/>
+          <include name="ShareWishTest"/>
+          <include name="ValidationTest"/>
+          <include name="removebtntest"/>
         </methods>
-      </class> <!-- com.airtech.qa.testcases.ProductPageTest -->
+      </class> <!-- com.airtech.qa.testcases.MyWishListPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

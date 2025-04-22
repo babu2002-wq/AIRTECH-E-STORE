@@ -10,7 +10,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -31,7 +33,7 @@ public class CartPageTest extends BaseClass{
 	ProductDetailPage detail;
 	ProductPage pro;
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		pro=new ProductPage(driver);
@@ -114,7 +116,7 @@ public class CartPageTest extends BaseClass{
 		Assert.assertTrue(cart.IsTotalDisplayed().isDisplayed());
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

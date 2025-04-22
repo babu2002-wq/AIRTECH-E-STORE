@@ -8,7 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -34,46 +36,43 @@ public class LoginPageTest extends BaseClass{
 	RegistrationPage register;
 	
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		product=new ProductPage(driver);
 		product.InfusionProductDisplayed();
 		login=new LoginPage(driver);
-	}
-	
-	@Test(priority = 1)
-	public void ClickUserTest() {
 		login.Clickuserbtn();
 	}
 	
-	@Test(dependsOnMethods= {"ClickUserTest"},priority = 2)
+	
+	@Test(priority = 2)
 	public void LoginTextTest() {
 		Assert.assertTrue(login.IsLoginTextDisplayed().isDisplayed());
 	}
 	
-	@Test(dependsOnMethods= {"ClickUserTest"},priority = 7)
+	@Test(priority = 7)
 	public void logintest() {
 		login.clear();
 		login.enteremail(getProperty("username"));
 		login.enterpassword(getProperty("password"));
 		login.signIn();
-		Assert.assertEquals(driver.getTitle(), "Vacuum Bagging and Composite Tooling - My Account");
+		Assert.assertEquals(driver.getTitle(), "My Account");
 	}
 	
-	@Test(dependsOnMethods= {"ClickUserTest"},priority = 4)
+	@Test(priority = 4)
 	public void registertest() {
 	   register=login.register();
 	   login.Clickuserbtn();
 	}
 	
-	@Test(dependsOnMethods= {"ClickUserTest"},priority = 5)
+	@Test(priority = 5)
 	public void ForgotPasswordTest() {
 		forgot=login.Clickforgetpassword();
 		login.Clickuserbtn();
 	}
 	
-	@Test(dependsOnMethods= {"ClickUserTest"},priority = 6)
+	@Test(priority = 6)
 	public void ToggleTest() {
 		login.enterpassword(getProperty("password"));
 		Assert.assertEquals(login.getPassword().getAttribute("type"), "password");
@@ -96,8 +95,7 @@ public class LoginPageTest extends BaseClass{
 	}
 	
 	
-	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -22,16 +24,16 @@ public class AddressPageTest extends BaseClass{
 	AddressPage address;
 	
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		loginToApplication();
 		address=new AddressPage(driver);
+		address.addressbookclick();
 	}
 	
 	@Test(priority=1)
 	public void Addressbookclick() {
-		address.addressbookclick();
 		Assert.assertTrue(address.IsaddressbooktextDisplayed().isDisplayed());
 		Assert.assertTrue(address.IsdefaultaddtextDisplayed().isDisplayed());
 		Assert.assertTrue(address.IsdefbilltextDisplayed().isDisplayed());
@@ -87,7 +89,7 @@ public class AddressPageTest extends BaseClass{
 		Assert.assertEquals(errormsgs.size(),required.size());
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

@@ -7,7 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -30,17 +32,16 @@ public class MyWishListPageTest extends BaseClass {
 	ProductDetailPage detail;
 	
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		loginToApplication();
 		mywish=new MyWishListPage(driver);
-		
+		mywish.ClickWishlistLink();
 	}
 	
 	@Test(priority=1)
 	public void MyWishlistTest() {
-		mywish.ClickWishlistLink();
 		Assert.assertTrue(mywish.IswishlistDisplayed().isDisplayed());
 		Assert.assertTrue(mywish.IsImagesDisplayed().isDisplayed());
 		Assert.assertTrue(mywish.IsquantityDisplayed().isDisplayed());
@@ -89,7 +90,7 @@ public class MyWishListPageTest extends BaseClass {
 		mywish.navigateback();
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

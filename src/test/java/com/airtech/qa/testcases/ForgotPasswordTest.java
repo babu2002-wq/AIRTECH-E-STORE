@@ -3,7 +3,9 @@ package com.airtech.qa.testcases;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -19,16 +21,16 @@ public class ForgotPasswordTest extends BaseClass{
 	
 	ForgotPasswordPage forgot;
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		forgot=new ForgotPasswordPage(driver);
+		forgot.Clickuserbtn();
+		forgot.Clickforgotbtn();
 	}
 	
 	@Test(priority=1)
 	public void ForgotTest() {
-		forgot.Clickuserbtn();
-		forgot.Clickforgotbtn();
 		Assert.assertTrue(forgot.IsForgotDisplayed().isDisplayed());
 		Assert.assertTrue(forgot.IsResetDisplayed().isDisplayed());
 	}
@@ -41,7 +43,7 @@ public class ForgotPasswordTest extends BaseClass{
 		forgot.Clickproductlink();
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

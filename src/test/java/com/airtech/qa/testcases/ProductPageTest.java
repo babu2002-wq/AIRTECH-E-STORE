@@ -13,7 +13,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -38,7 +40,7 @@ public class ProductPageTest extends BaseClass{
 	MyWishListPage wish;
 	LoginPage login;
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		product=new ProductPage(driver);
@@ -49,33 +51,15 @@ public class ProductPageTest extends BaseClass{
 	
 	@Test(priority=1)
 	public void IsCategoryDisplayed() {
-		WebElement Category=product.IsCategoryDisplayed();
-		Assert.assertTrue(Category.isDisplayed());
+		Assert.assertTrue(product.IsCategoryDisplayed().isDisplayed());
+		Assert.assertTrue(product.IsPriceDisplayed().isDisplayed());
+		Assert.assertTrue(product.IsFeaturedDisplayed().isDisplayed());
+		Assert.assertTrue(product.IsOtherLinksDisplayed().isDisplayed());
+		Assert.assertTrue(product.IsSortDisplayed().isDisplayed());
+		Assert.assertTrue(product.websites().isDisplayed());
+		Assert.assertTrue(product.itemno().isDisplayed());
 	}
 	
-	@Test(priority=3)
-	public void IsPriceDisplayed() {
-		WebElement Price=product.IsPriceDisplayed();
-		Assert.assertTrue(Price.isDisplayed());
-	}
-	
-	@Test(priority=2)
-	public void IsFeaturedDisplayed() {
-		WebElement Featured=product.IsFeaturedDisplayed();
-		Assert.assertTrue(Featured.isDisplayed());
-	}
-	
-	@Test(priority=4)
-	public void AreLinksDisplayed() {
-		WebElement Links=product.IsOtherLinksDisplayed();
-		Assert.assertTrue(Links.isDisplayed());
-	}
-	
-	@Test(priority=5)
-	public void IsSortDisplayed() {
-		WebElement sort=product.IsSortDisplayed();
-		Assert.assertTrue(sort.isDisplayed());
-	}
 	
 	@Test(priority=7)
 	public void SortByPriceTest() {
@@ -146,10 +130,6 @@ public class ProductPageTest extends BaseClass{
 		product.navigateback();
 	}
 	
-	@Test
-	public void IsWebsitesDisplayed() {
-		Assert.assertTrue(product.websites().isDisplayed());
-	}
 	
 	@Test
 	public void CartPageTest() {
@@ -157,12 +137,7 @@ public class ProductPageTest extends BaseClass{
 		product.navigateback();
 	}
 	
-	@Test
-	public void Isnoofitemdisplayed() {
-		Assert.assertTrue(product.itemno().isDisplayed());
-		
-	}
-	
+
 	@Test
 	public void CloseCartTest() {
 		product.Closecart();
@@ -233,7 +208,7 @@ public class ProductPageTest extends BaseClass{
 
 	
 
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

@@ -3,7 +3,9 @@ package com.airtech.qa.testcases;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -19,7 +21,7 @@ public class ContactPageTest extends BaseClass {
 	
 	ContactPage contact;
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		contact=new ContactPage(driver);
@@ -34,7 +36,7 @@ public class ContactPageTest extends BaseClass {
 	
 	
 	@Test(priority=2)
-	public void ContactallNegativeTest() {
+	public void ContactAllNegativeTest() {
 		contact.clear();
 		contact.entersubmit();
 		Assert.assertTrue(contact.EmailValidationDisplayed().isDisplayed());
@@ -55,7 +57,7 @@ public class ContactPageTest extends BaseClass {
 	}
 	
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

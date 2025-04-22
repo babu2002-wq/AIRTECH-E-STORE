@@ -5,7 +5,9 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -28,7 +30,7 @@ public class ComparePageTest extends BaseClass{
 		super();
 	}
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		pro=new ProductPage(driver);
@@ -40,24 +42,13 @@ public class ComparePageTest extends BaseClass{
 	}
 
 	@Test
-	public void IsComparetextDisplayed() {
+	public void IsContentsDisplayed() {
 		Assert.assertTrue(comp.IsCompareDisplayed().isDisplayed());
-	}
-	
-	@Test
-	public void IsPricesDisplayed() {
 		Assert.assertTrue(comp.IsPricesDisplayed().isDisplayed());
-	}
-	
-	@Test
-	public void IsDescriptionDisplayed() {
 		Assert.assertTrue(comp.IsTableDisplayed().isDisplayed());
-	}
-	
-	@Test
-	public void IsProductsDisplayed() {
 		Assert.assertTrue(comp.IsProductsDisplayed().isDisplayed());
 	}
+	
 	
 	@Test
 	public void addtoCartTest() {
@@ -93,7 +84,7 @@ public class ComparePageTest extends BaseClass{
 		comp.Clickremovebtn();
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}
