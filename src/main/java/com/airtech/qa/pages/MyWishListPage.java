@@ -5,7 +5,9 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.airtech.qa.base.BasePage;
 
@@ -98,10 +100,13 @@ public class MyWishListPage extends BasePage{
 	}
 	
 	public WebElement ChangeQuantity(String quantity) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		driver.findElement(qtyInput).clear();
 		driver.findElement(qtyInput).sendKeys(quantity);
 		driver.findElement(updatewish).click();
-		return driver.findElement(qtySuccess);
+		WebElement qtysuccess=driver.findElement(qtySuccess);
+		WebElement successmsg = wait.until(ExpectedConditions.visibilityOf(qtysuccess));
+		return successmsg;
 	}
 	
 	public WebElement ValidationTest() {

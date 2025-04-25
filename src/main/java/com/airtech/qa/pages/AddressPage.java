@@ -1,10 +1,13 @@
 package com.airtech.qa.pages;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.airtech.qa.base.BasePage;
 
@@ -25,7 +28,7 @@ public class AddressPage extends BasePage{
 	By shipaddbox=By.xpath("//div[@class='box box-address-shipping']//address");
 	By additionaladdtext=By.xpath("//div[@class='box box-address-shipping']//address");
 	By newaddressbtn=By.xpath("//button[@title='Add New Address']");
-	By addnewtext=By.xpath("//button[@title='Add New Address']");
+	By addnewtext=By.xpath("//span[contains(text(), 'Add New Address')]");
 	By contactinfotext=By.xpath("//span[normalize-space()='Contact Information']");
 	By addresstext=By.xpath("//span[normalize-space()='Address']");
 	By firstname=By.xpath("//input[@id='firstname']");
@@ -39,12 +42,9 @@ public class AddressPage extends BasePage{
 	By defaultbillcheck=By.xpath("//input[@id='primary_billing']");
 	By defaultshipcheck=By.xpath("//input[@id='primary_shipping']");
 	By saveaddressbtn=By.xpath("//button[@title='Save Address']");
-	By errormsg=By.xpath("//div[@class='mage-error']");
+	By errormsg=By.xpath("//div[@class='mage-error'] | //div[@class='field-error']");
 	By editaddtext=By.xpath("//span[.='Vacuum Bagging and Composite Tooling - Edit Address']");
-	By requiredfields=By.xpath("(//input[@aria-required='true' and not(contains(@style,'display: none')) and not(@type='hidden')])\r\n"
-			+ "| (//textarea[@aria-required='true' and not(contains(@style,'display: none'))])\r\n"
-			+ "| (//select[@aria-required='true' and not(contains(@style,'display: none'))])\r\n"
-			+ "");
+	By requiredfields=By.xpath("//input[@required and not(@placeholder) ] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
 	
 	
 	public void addressbookclick() {
@@ -96,7 +96,9 @@ public class AddressPage extends BasePage{
 	}
 	
 	public void ClicknewAddressbtn() {
-		driver.findElement(newaddressbtn).click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement addButton = wait.until(ExpectedConditions.elementToBeClickable(newaddressbtn));
+		addButton.click();
 	}
 	
 	public WebElement IsNewaddtextDisplayed() {

@@ -48,7 +48,7 @@ public class RegistrationPageTest extends BaseClass{
 		List<WebElement> required=register.required();
 		register.ClickCreatebtn();
 		List<WebElement> error=register.errors();
-		Assert.assertEquals(error, required);
+		Assert.assertEquals(error.size(),required.size());
 	}
 	
 	@Test(priority=3)

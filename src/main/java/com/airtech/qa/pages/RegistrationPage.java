@@ -31,7 +31,7 @@ public class RegistrationPage extends BasePage {
 	By passstrengthtext=By.xpath("//div[@id='password-strength-meter']");
 	By userbtn=By.xpath("//i[@class='fas fa-user']");
 	By registerbtn=By.xpath("//span[normalize-space()='Register']");
-	By reqfields=By.xpath("//input[@aria-required='true'] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
+	By reqfields=By.xpath("//input[@aria-required='true' and not(@placeholder)]");
 	By errormsg=By.xpath("//div[@class='mage-error']");
 	
 	

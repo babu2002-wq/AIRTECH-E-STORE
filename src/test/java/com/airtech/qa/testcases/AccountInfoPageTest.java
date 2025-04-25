@@ -33,7 +33,6 @@ public class AccountInfoPageTest extends BaseClass{
 	
 	@Test(priority=1)
 	public void AccountInfoTest() {
-		
 		Assert.assertTrue(info.IsEditInfoDisplayed().isDisplayed());
 		Assert.assertTrue(info.IsAccountInfoDisplayed().isDisplayed());
 		Assert.assertTrue(info.IsFirstNameDisplayed().isDisplayed());
