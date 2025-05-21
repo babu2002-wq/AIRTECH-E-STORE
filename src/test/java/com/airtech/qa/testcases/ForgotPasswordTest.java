@@ -21,7 +21,7 @@ public class ForgotPasswordTest extends BaseClass{
 	
 	ForgotPasswordPage forgot;
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 		initialization();
 		forgot=new ForgotPasswordPage(driver);
@@ -43,7 +43,7 @@ public class ForgotPasswordTest extends BaseClass{
 		forgot.Clickproductlink();
 	}
 	
-	@AfterMethod
+	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}

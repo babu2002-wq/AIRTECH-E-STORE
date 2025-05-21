@@ -33,7 +33,7 @@ public class ProductDetailPageTest extends BaseClass{
 	MyWishListPage wish;
 	CartPage cart;
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 		initialization();
 		product=new ProductPage(driver);
@@ -182,7 +182,7 @@ public class ProductDetailPageTest extends BaseClass{
 		detail.navigateback();
 	}
 	
-	@AfterMethod
+	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}

@@ -21,7 +21,7 @@ public class ContactPageTest extends BaseClass {
 	
 	ContactPage contact;
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 		initialization();
 		contact=new ContactPage(driver);
@@ -57,7 +57,7 @@ public class ContactPageTest extends BaseClass {
 	}
 	
 	
-	@AfterMethod
+	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}

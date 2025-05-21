@@ -158,4 +158,6 @@ public class CartPage extends BasePage {
 		driver.findElement(checkoutbtn).click();
 		return new CheckOutPage(driver);
 	}
+	
+	
 }

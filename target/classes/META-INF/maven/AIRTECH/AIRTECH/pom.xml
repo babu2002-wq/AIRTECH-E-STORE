@@ -100,5 +100,8 @@
     <version>7.10.2</version>
     <scope>test</scope>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+
 </dependencies>
 </project>

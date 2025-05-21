@@ -51,12 +51,12 @@ public class ProductPage extends BasePage {
 	By websites=By.xpath("//h5[normalize-space()='Websites']");
 	By wishlistbtn=By.xpath("//i[contains(@class,'far fa-heart')]");
 	By opencartbtn=By.xpath("//a[@class='action showcart']");
-	By allcategories=By.xpath("//div[contains(@class,'filter-options-item allow active')]//ol[contains(@class,'items')]/li");
+	By allcategories=By.xpath("//div[@attribute='cat']//div[@data-role='ln_content']//li");
 	By infusionproducts=By.xpath("//span[normalize-space()='Infusion & Low Temp Curing']");
 	By autoclaveproducts=By.xpath("//span[normalize-space()='Autoclave']");
 	By nextbtn=By.xpath("//div[contains(@class,'columns')]//div[3]//div[3]//ul[1]//li[6]//a[1]");
 	By clearAllbtn=By.xpath("//span[normalize-space()='Clear All']");
-	By pricecategories=By.xpath("//div[@aria-hidden='false']//ol[@class='items']//li");
+	By pricecategories=By.xpath("//div[@attribute='price']//div[@data-role='ln_content']//li");
 	By iframe=By.xpath("//iframe[@class='mfp-iframe']");
 	By quickcart=By.xpath("//span[normalize-space()='Add to Cart']");
 	By quickproduct=By.xpath("//span[normalize-space()='Go To Product']");
@@ -136,11 +136,9 @@ public class ProductPage extends BasePage {
 		return 0;
 	}
 	
-	
 	public WebElement IsPriceDisplayed() {
 		WebElement price=driver.findElement(Price);
 		return price;
-		
 	}
 	
 	public WebElement IsFeaturedDisplayed() {
@@ -190,7 +188,7 @@ public class ProductPage extends BasePage {
 	                List<WebElement> priceElements = driver.findElements(allprices);
 	                prices.clear(); 
 	                for (WebElement priceElement : priceElements) {
-	                    String priceText = priceElement.getText().replace("£", "").replace(",", "").trim();
+	                    String priceText = priceElement.getText().replaceAll("[£$€₹,]", "").trim();
 	                    prices.add(Double.parseDouble(priceText));
 	                }
 	                success = true; 
@@ -392,9 +390,10 @@ public class ProductPage extends BasePage {
 	}
 	
 	public MyWishListPage wishlistSuccess() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		driver.findElement(addwishlistbtn).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-		driver.findElement(wishlistsuccessbtn).click();
+		WebElement wishlistsuccess = wait.until(ExpectedConditions.elementToBeClickable(wishlistsuccessbtn));
+		wishlistsuccess.click();
 		return new MyWishListPage(driver);
 	}
 	

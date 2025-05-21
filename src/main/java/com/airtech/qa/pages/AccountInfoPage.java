@@ -32,6 +32,7 @@ public class AccountInfoPage extends BasePage{
 	By reqfields=By.xpath("//input[@aria-required='true'] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
 	By errormsg=By.xpath("//div[@class='mage-error']");
 	By passstrengthtext=By.xpath("//span[@id='password-strength-meter-label']");
+	By successmsg=By.xpath("//div[@class='message-success success message']");
 	
 	
 	
@@ -120,5 +121,27 @@ public class AccountInfoPage extends BasePage{
 	public void passclear() {
 		driver.findElement(newpass).clear();
 	}
+	
+	public void EnterConfirmPass(String pass) {
+		driver.findElement(confirmpass).sendKeys(pass);
+		driver.findElement(currentpass).sendKeys(pass);
+	}
+	
+	public WebElement getCurrentPassword() {
+		return driver.findElement(currentpass);
+	}
+	
+	public WebElement getNewPassword() {
+		return driver.findElement(newpass);
+	}
+	
+	public WebElement getConfirmPassword() {
+		return driver.findElement(confirmpass);
+	}
+	
+	public WebElement getSuccessMsg() {
+		return driver.findElement(successmsg);
+	}
+	
 	
 }

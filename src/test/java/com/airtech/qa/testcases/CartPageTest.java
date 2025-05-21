@@ -33,7 +33,7 @@ public class CartPageTest extends BaseClass{
 	ProductDetailPage detail;
 	ProductPage pro;
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 		initialization();
 		pro=new ProductPage(driver);
@@ -42,7 +42,7 @@ public class CartPageTest extends BaseClass{
 		cart=detail.AddtoCartbtn();
 	}
 	
-	//@Test(priority=1)
+	@Test(priority=1)
 	public void CartTextTest() {
 		cart.Clickcartbtn();
 		Assert.assertTrue(cart.IsCartTextDisplayed().isDisplayed());
@@ -116,7 +116,7 @@ public class CartPageTest extends BaseClass{
 		Assert.assertTrue(cart.IsTotalDisplayed().isDisplayed());
 	}
 	
-	@AfterMethod
+	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}

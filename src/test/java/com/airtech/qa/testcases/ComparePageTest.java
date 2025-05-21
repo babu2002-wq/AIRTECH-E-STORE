@@ -30,7 +30,7 @@ public class ComparePageTest extends BaseClass{
 		super();
 	}
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 		initialization();
 		pro=new ProductPage(driver);
@@ -84,7 +84,7 @@ public class ComparePageTest extends BaseClass{
 		comp.Clickremovebtn();
 	}
 	
-	@AfterMethod
+	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}

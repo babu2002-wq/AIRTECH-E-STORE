@@ -1,6 +1,7 @@
 package com.airtech.qa.testcases;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
@@ -23,7 +24,7 @@ public class AccountInfoPageTest extends BaseClass{
 	
 	AccountInfoPage info;
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 		initialization();
 		loginToApplication();
@@ -69,7 +70,35 @@ public class AccountInfoPageTest extends BaseClass{
 		info.passclear();
 	}
 	
-	@AfterMethod
+	
+	@Test(priority=5)
+	public void ShowPasswordTest() {
+		info.EnterPass(getProperty("password"));
+		info.EnterConfirmPass(getProperty("password"));
+	    Assert.assertEquals(info.getCurrentPassword().getAttribute("type"), "password");
+		Assert.assertEquals(info.getNewPassword().getAttribute("type"), "password");
+		Assert.assertEquals(info.getConfirmPassword().getAttribute("type"), "password");
+		info.ShowpassClick();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		Assert.assertEquals(info.getCurrentPassword().getAttribute("type"), "text");
+		Assert.assertEquals(info.getNewPassword().getAttribute("type"), "text");
+		Assert.assertEquals(info.getConfirmPassword().getAttribute("type"), "text");
+		info.ShowpassClick();
+		Assert.assertEquals(info.getCurrentPassword().getAttribute("type"), "password");
+		Assert.assertEquals(info.getNewPassword().getAttribute("type"), "password");
+		Assert.assertEquals(info.getConfirmPassword().getAttribute("type"), "password");
+		
+	}
+	
+	@Test(priority=6)
+	public void SaveInfoTest() {
+		info.SavebtnClick();
+		Assert.assertTrue(info.getSuccessMsg().isDisplayed());
+	}
+	
+	
+	
+	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}

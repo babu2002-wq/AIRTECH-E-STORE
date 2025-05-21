@@ -9,12 +9,16 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -53,7 +57,7 @@ public class BaseClass {
       driver = new ChromeDriver(options);
   	  driver.manage().deleteAllCookies();
   	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-  	  driver.get("https://estoredev.airtech-amg.co.uk/");
+  	  driver.get("https://estoredev.airtech.lu/");
   	  driver.manage().window().maximize();
     }
     
@@ -79,14 +83,39 @@ public class BaseClass {
     
     
     public void loginToApplication() {
-    	login = new LoginPage(driver);
-	    login.Clickuserbtn();
-	    Assert.assertTrue(login.IsLoginTextDisplayed().isDisplayed());
-	    login.clear();
-	    login.enteremail(prop.getProperty("username"));
-	    login.enterpassword(prop.getProperty("password"));
-	    login.signIn();
-	}
+        int attempt = 0;
+        boolean loggedIn = false;
+
+        while (attempt < 3) {
+            LoginPage login = new LoginPage(driver);
+            login.Clickuserbtn();
+            login.clear();
+            login.enteremail(prop.getProperty("username"));
+            login.enterpassword(prop.getProperty("password"));
+            login.signIn();
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+                WebElement accountHeading = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='base' and contains(text(),'My Account')]"))
+                );
+                if (accountHeading.isDisplayed()) {
+                    loggedIn = true;
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Login attempt " + (attempt + 1) + " failed. Retrying...");
+            }
+
+            attempt++;
+        }
+
+        if (!loggedIn) {
+            throw new RuntimeException("Login failed after " + '3' + " attempts.");
+        }
+    }
+}
+
+    
     
 
-}
+

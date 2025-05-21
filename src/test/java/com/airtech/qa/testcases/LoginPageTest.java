@@ -36,7 +36,7 @@ public class LoginPageTest extends BaseClass{
 	RegistrationPage register;
 	
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 		initialization();
 		product=new ProductPage(driver);
@@ -88,14 +88,11 @@ public class LoginPageTest extends BaseClass{
 		List<WebElement> fields=login.requiredfields();
 		login.SignInClick();
 		List<WebElement> errormsg=login.errormsgs();
-		for(int i=0;i<fields.size();i++) {
-			System.out.println(fields);
-		}
 		Assert.assertEquals(errormsg.size(),fields.size());
 	}
 	
 	
-	@AfterMethod
+	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}

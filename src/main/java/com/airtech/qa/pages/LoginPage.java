@@ -24,6 +24,8 @@ public class LoginPage extends BasePage {
 	By togglebtn=By.xpath("//i[@class='porto-icon-eye toggle-password']");
 	By reqfields=By.xpath("//input[@aria-required='true'] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
 	By errormsg=By.xpath("//div[@class='mage-error']");
+	By customerlog=By.xpath("//span[@class='base' and contains(text(),'Customer')]");
+	
 	
 	public void Clickuserbtn() {
 		driver.findElement(userbtn).click();
@@ -83,6 +85,10 @@ public class LoginPage extends BasePage {
 	
 	public void SignInClick() {
 		driver.findElement(signinbtn).click();
+	}
+	
+	public WebElement Customerlogin() {
+		return driver.findElement(customerlog);
 	}
 
 }

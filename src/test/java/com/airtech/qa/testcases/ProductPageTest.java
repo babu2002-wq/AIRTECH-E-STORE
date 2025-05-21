@@ -40,7 +40,7 @@ public class ProductPageTest extends BaseClass{
 	MyWishListPage wish;
 	LoginPage login;
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 		initialization();
 		product=new ProductPage(driver);
@@ -48,7 +48,7 @@ public class ProductPageTest extends BaseClass{
 		product.InfusionProductDisplayed();
 	}
 
-	
+
 	@Test(priority=1)
 	public void IsCategoryDisplayed() {
 		Assert.assertTrue(product.IsCategoryDisplayed().isDisplayed());
@@ -187,9 +187,9 @@ public class ProductPageTest extends BaseClass{
 			Assert.assertEquals(displayedCount, expectedCount);
 			product.clickClearAll();		
 		    product.waitForOverlayToDisappear();
-		    if(i==updatedCategories.size()-2) {
-		    	product.clickPriceFilter();
-		    }
+		    //if(i==updatedCategories.size()-2) {
+		    	//product.clickPriceFilter();
+		    //}
 			
 		}
 	}
@@ -208,7 +208,7 @@ public class ProductPageTest extends BaseClass{
 
 	
 
-	@AfterMethod
+	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}

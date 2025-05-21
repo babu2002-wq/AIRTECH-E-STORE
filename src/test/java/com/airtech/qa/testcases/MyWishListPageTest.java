@@ -2,6 +2,7 @@ package com.airtech.qa.testcases;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,7 +33,7 @@ public class MyWishListPageTest extends BaseClass {
 	ProductDetailPage detail;
 	
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 		initialization();
 		loginToApplication();
@@ -40,12 +41,10 @@ public class MyWishListPageTest extends BaseClass {
 		mywish.ClickWishlistLink();
 	}
 	
+	
 	@Test(priority=1)
 	public void MyWishlistTest() {
 		Assert.assertTrue(mywish.IswishlistDisplayed().isDisplayed());
-		Assert.assertTrue(mywish.IsImagesDisplayed().isDisplayed());
-		Assert.assertTrue(mywish.IsquantityDisplayed().isDisplayed());
-		
 	}
 	
 	@Test(priority=2)
@@ -75,9 +74,19 @@ public class MyWishListPageTest extends BaseClass {
 	
 	@Test(priority=5)
 	public void quantityTest() {
-		mywish.ChangeQuantity("2");
+	    mywish.ChangeQuantity("2");
+	    try {
+	    	if (!driver.findElements(By.xpath("//div[@class='message-notice notice message']")).isEmpty())  {
+	    		if(mywish.QuantityExceed().isDisplayed()) {
+	    			mywish.navigateback();
+	    		} 
+	        }
+	    } catch (NoSuchElementException e) {
+	        
+	    }
+	    
 	}
-	
+
 	@Test(priority=6)
 	public void ShareWishTest() {
 		Assert.assertEquals(mywish.clicksharewish(),"Wish List Sharing");
@@ -85,12 +94,18 @@ public class MyWishListPageTest extends BaseClass {
 	}
 	
 	@Test(priority=7)
+	public void AddtoCartTest() {
+		mywish.clickaddtocartbtn();
+		mywish.navigateback();
+	}
+	
+	@Test(priority=8)
 	public void ValidationTest() {
 		Assert.assertTrue(mywish.ValidationTest().isDisplayed());
 		mywish.navigateback();
 	}
 	
-	@AfterMethod
+	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}

@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.airtech.qa.testcases.AddressPageTest">
+      <class name="com.airtech.qa.testcases.CartPageTest">
         <methods>
           <include name="setup"/>
-          <include name="NewAddbtnClick"/>
+          <include name="IsTaxDisplayed"/>
           <include name="teardown"/>
         </methods>
-      </class> <!-- com.airtech.qa.testcases.AddressPageTest -->
+      </class> <!-- com.airtech.qa.testcases.CartPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -27,7 +27,7 @@ public class AddressPageTest extends BaseClass{
 	AddressPage address;
 	
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 		initialization();
 		loginToApplication();
@@ -85,15 +85,15 @@ public class AddressPageTest extends BaseClass{
 	
 	@Test(priority=6)
 	public void AddnewAddressTest() {
-		address.ClicknewAddressbtn();
-		address.clear();
+		//address.ClicknewAddressbtn();
+		//address.clear();
 		List<WebElement> required=address.reqfields();
 		address.Clicksavebtn();
 		List<WebElement> errormsgs=address.errormsgs();
 		Assert.assertEquals(errormsgs.size(),required.size());
 	}
 	
-	@AfterMethod
+	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}

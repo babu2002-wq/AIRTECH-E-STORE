@@ -24,7 +24,7 @@ public class RegistrationPageTest extends BaseClass{
 	
 	RegistrationPage register;
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 		initialization();
 		register=new RegistrationPage(driver);
@@ -75,7 +75,7 @@ public class RegistrationPageTest extends BaseClass{
 		Assert.assertEquals(register.getcnfPassword().getAttribute("type"), "password");
 	}
 	
-	@AfterMethod
+	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}

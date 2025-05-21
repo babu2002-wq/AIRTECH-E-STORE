@@ -17,7 +17,7 @@ public class AddressPage extends BasePage{
 		super(driver);
 	}
 	
-	By addressbooktext=By.xpath("//span[@class='base']");
+	By addressbooktext=By.xpath("//span[@class='base' and contains(text(),'Address Book')]");
 	By defaultaddtext=By.xpath("//strong[normalize-space()='Default Addresses']");
 	By defaultbilladd=By.xpath("//span[normalize-space()='Default Billing Address']");
 	By billaddbox=By.xpath("//div[@class='box box-address-billing']//address");
@@ -44,7 +44,7 @@ public class AddressPage extends BasePage{
 	By saveaddressbtn=By.xpath("//button[@title='Save Address']");
 	By errormsg=By.xpath("//div[@class='mage-error'] | //div[@class='field-error']");
 	By editaddtext=By.xpath("//span[.='Vacuum Bagging and Composite Tooling - Edit Address']");
-	By requiredfields=By.xpath("//input[@required and not(@placeholder) ] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
+	By requiredfields=By.xpath("//input[@aria-required='true'] | //select[@aria-required='true' and not(@id='country_id')]");
 	
 	
 	public void addressbookclick() {
@@ -96,9 +96,7 @@ public class AddressPage extends BasePage{
 	}
 	
 	public void ClicknewAddressbtn() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		WebElement addButton = wait.until(ExpectedConditions.elementToBeClickable(newaddressbtn));
-		addButton.click();
+		driver.findElement(newaddressbtn).click();
 	}
 	
 	public WebElement IsNewaddtextDisplayed() {

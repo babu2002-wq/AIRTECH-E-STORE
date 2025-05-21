@@ -69,7 +69,7 @@ public class CheckOutPage extends BasePage {
 	By otherpaycheck=By.xpath("//input[@id='braintree_paypal']");
 	By placeorder=By.xpath("//div[@class='place-order-primary']//button[@title='Place Order']");
 	By errormsg=By.xpath("//div[@class='mage-error'] | //div[@class='field-error']");
-	By requiredfields=By.xpath("//input[@aria-required='true'] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
+	By requiredfields=By.xpath("//input[@required and not(placeholder)] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
 	
 	
 	public WebElement IsCheckoutDisplayed() {
