@@ -6,8 +6,8 @@
       <class name="com.airtech.qa.testcases.CartPageTest">
         <methods>
           <include name="setup"/>
-          <include name="IsTaxDisplayed"/>
           <include name="teardown"/>
+          <include name="UpdateCartTest"/>
         </methods>
       </class> <!-- com.airtech.qa.testcases.CartPageTest -->
     </classes>

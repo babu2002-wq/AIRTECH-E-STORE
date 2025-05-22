@@ -45,6 +45,7 @@ public class AddressPage extends BasePage{
 	By errormsg=By.xpath("//div[@class='mage-error'] | //div[@class='field-error']");
 	By editaddtext=By.xpath("//span[.='Vacuum Bagging and Composite Tooling - Edit Address']");
 	By requiredfields=By.xpath("//input[@aria-required='true'] | //select[@aria-required='true' and not(@id='country_id')]");
+	By successmsg=By.xpath("//div[@class='message-success success message']");
 	
 	
 	public void addressbookclick() {
@@ -166,6 +167,10 @@ public class AddressPage extends BasePage{
 	public void clear() {
 		driver.findElement(firstname).clear();
 		driver.findElement(lastname).clear();
+	}
+	
+	public WebElement IsSuccessmsgDisplayed() {
+		return driver.findElement(successmsg);
 	}
 }
 

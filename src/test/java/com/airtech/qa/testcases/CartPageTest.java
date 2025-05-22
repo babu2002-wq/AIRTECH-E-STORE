@@ -116,6 +116,13 @@ public class CartPageTest extends BaseClass{
 		Assert.assertTrue(cart.IsTotalDisplayed().isDisplayed());
 	}
 	
+	@Test
+	public void UpdateCartTest() {
+		int originalquant=cart.UpdateCart();
+		int newquant=cart.getnewquantity();
+		Assert.assertEquals(originalquant, newquant);
+	}
+	
 	@AfterTest
 	public void teardown() {
 		driver.quit();

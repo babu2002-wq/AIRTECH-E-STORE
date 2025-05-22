@@ -50,14 +50,16 @@ public class AddressPageTest extends BaseClass{
 	public void ChangeshipTest() {
 		address.Changeshipbtnclick();
 		Assert.assertEquals(address.Changeshipbtn(), "Edit Address");
-		driver.navigate().back();
+		address.Clicksavebtn();
+		Assert.assertTrue(address.IsSuccessmsgDisplayed().isDisplayed());
 	}
 	
 	@Test(priority=3)
 	public void ChangebillTest() {
 		address.Changebillbtnclick();
 		Assert.assertEquals(address.Changebillbtn(), "Edit Address");
-		driver.navigate().back();
+		address.Clicksavebtn();
+		Assert.assertTrue(address.IsSuccessmsgDisplayed().isDisplayed());
 	}
 	
 	@Test(priority=4)

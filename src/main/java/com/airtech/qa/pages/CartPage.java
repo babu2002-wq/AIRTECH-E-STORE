@@ -1,10 +1,13 @@
 package com.airtech.qa.pages;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.airtech.qa.base.BasePage;
 
@@ -42,6 +45,8 @@ public class CartPage extends BasePage {
 	By allcartproducts=By.xpath("//tbody[@class='cart item']");
 	By tax=By.xpath("//td[@data-th='Tax']");
 	By subtot=By.xpath("//tr[@class='totals sub']//td[@class='amount']");
+	By editproduct=By.xpath("(//a[@title='Edit item'])[1]");
+	By updatecart=By.xpath("//span[normalize-space()='Update Cart']");
 	
 	public void Clickcartbtn() {
 		driver.findElement(cartbtn).click();
@@ -157,6 +162,25 @@ public class CartPage extends BasePage {
 	public CheckOutPage ClickCheckout() {
 		driver.findElement(checkoutbtn).click();
 		return new CheckOutPage(driver);
+	}
+	
+	public int UpdateCart() {
+	    ProductPage product=new ProductPage(driver);
+	    ProductDetailPage detail=new ProductDetailPage(driver);
+	    driver.findElement(product.opencartbtn).click();
+	    driver.findElement(editbtn).click();
+	    detail.Clickincrementbtn(3);
+	    int quant=detail.getquantity();
+	    return quant;
+	    
+	}
+	
+	public int getnewquantity() {
+		driver.findElement(updatecart).click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    WebElement newquantity = wait.until(ExpectedConditions.presenceOfElementLocated(quantity));
+	    int newquant=Integer.parseInt(getquantity().getAttribute("value").trim());
+	    return newquant;  
 	}
 	
 	
