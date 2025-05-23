@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.airtech.qa.testcases.CartPageTest">
+      <class name="com.airtech.qa.testcases.LoginPageTest">
         <methods>
+          <include name="ForgotPasswordTest"/>
           <include name="setup"/>
           <include name="teardown"/>
-          <include name="UpdateCartTest"/>
         </methods>
-      </class> <!-- com.airtech.qa.testcases.CartPageTest -->
+      </class> <!-- com.airtech.qa.testcases.LoginPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

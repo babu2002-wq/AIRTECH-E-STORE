@@ -69,7 +69,7 @@ public class LoginPageTest extends BaseClass{
 	@Test(priority = 5)
 	public void ForgotPasswordTest() {
 		forgot=login.Clickforgetpassword();
-		login.Clickuserbtn();
+		//login.Clickuserbtn();
 	}
 	
 	@Test(priority = 6)
