@@ -36,7 +36,7 @@ public class LoginPageTest extends BaseClass{
 	RegistrationPage register;
 	
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		product=new ProductPage(driver);
@@ -92,7 +92,7 @@ public class LoginPageTest extends BaseClass{
 	}
 	
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}
