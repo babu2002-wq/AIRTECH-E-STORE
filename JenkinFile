@@ -1,0 +1,41 @@
+pipeline{
+agent any
+stages
+{
+stage('Build'){
+steps
+{
+echo "Building code"
+bat "mvn -version"
+bat "mvn clean"
+}
+}
+
+stage('Compile'){
+steps
+{
+echo "Compile code"
+bat "mvn compile"
+}
+}
+
+
+stage('Test'){
+steps
+{
+echo "Testing code"
+bat "mvn test -DsuiteXmlFile=testng.xml"
+}
+}
+
+
+
+stage('Deploy'){
+steps
+{
+echo "Deploying code"
+}
+}
+}
+
+}
