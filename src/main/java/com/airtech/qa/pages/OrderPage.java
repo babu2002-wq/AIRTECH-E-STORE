@@ -14,7 +14,7 @@ public class OrderPage extends BasePage{
 	
 	By MyOrdersLink=By.xpath("//div[@id='block-collapsible-nav']//a[normalize-space()='My Orders']");
 	By MyOrdersText=By.xpath("//span[.='My Orders']");
-	By ViewOrderlink=By.xpath("(//span[contains(text(),'View Order')])[1]");
+	By ViewOrderlink=By.xpath("(//span[normalize-space()='View'])[1]");
 	By ReorderLink=By.xpath("(//span[contains(text(),'Reorder')])[1]");
 	By orderhead=By.xpath("//span[@class='base' and contains(text(),'Order #')]");
 	By orderdate=By.xpath("//div[@class='order-date']//span[@class='label']/following-sibling::span");

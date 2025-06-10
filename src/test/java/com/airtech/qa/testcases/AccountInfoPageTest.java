@@ -61,7 +61,7 @@ public class AccountInfoPageTest extends BaseClass{
 	}
 	
 	
-	@Test(priority=4)
+	@Test(priority=3)
 	public void PasswordMeterTest() {
 		String InitialStrength=info.getPasswordStrength();
 		info.EnterPass(getProperty("password"));
@@ -71,7 +71,7 @@ public class AccountInfoPageTest extends BaseClass{
 	}
 	
 	
-	@Test(priority=5)
+	@Test(priority=4)
 	public void ShowPasswordTest() {
 		info.EnterPass(getProperty("password"));
 		info.EnterConfirmPass(getProperty("password"));
@@ -90,8 +90,10 @@ public class AccountInfoPageTest extends BaseClass{
 		
 	}
 	
-	@Test(priority=6)
+	@Test(priority=5)
 	public void SaveInfoTest() {
+		info.CngEmailClick();
+		info.CngPassClick();
 		info.SavebtnClick();
 		Assert.assertTrue(info.getSuccessMsg().isDisplayed());
 	}

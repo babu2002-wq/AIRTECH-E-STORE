@@ -36,7 +36,7 @@ public class ComparePageTest extends BaseClass{
 		pro=new ProductPage(driver);
 		pro.InfusionProductDisplayed();
 		login=new LoginPage(driver);
-		product=pro.openproductdetail();
+		product=pro.clickProduct();
 		comp=product.AddtoComparebtn();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}

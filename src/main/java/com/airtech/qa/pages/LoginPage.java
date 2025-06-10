@@ -16,11 +16,11 @@ public class LoginPage extends BasePage {
 	By userbtn=By.xpath("//i[@class='fas fa-user']");
 	By logintext=By.xpath("//h3[normalize-space()='User Login']");
 	By loginclose=By.xpath("//div[@class='icon-close']//i[@class='porto-icon-cancel']");
-	By email=By.xpath("//input[@id='email']");
+	By email=By.xpath("//fieldset[@class='fieldset']//input[@id='email']");
 	By password=By.xpath("//input[@id='passwordtoggle']");
 	By signinbtn=By.xpath("//button[@id='sendlogin']");
 	By registerbtn=By.xpath("//span[normalize-space()='Register']");
-	By forgotpasswordbtn=By.xpath("//a[@class='action remind']//span[contains(text(),'Forgot Your Password?')]");
+	By forgotpasswordbtn=By.xpath("//fieldset[@class='fieldset']//span[contains(text(),'Forgot Your Password?')]");
 	By togglebtn=By.xpath("//i[@class='porto-icon-eye toggle-password']");
 	By reqfields=By.xpath("//input[@aria-required='true'] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
 	By errormsg=By.xpath("//div[@class='mage-error']");

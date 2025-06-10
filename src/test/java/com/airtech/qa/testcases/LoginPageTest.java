@@ -36,7 +36,7 @@ public class LoginPageTest extends BaseClass{
 	RegistrationPage register;
 	
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 		initialization();
 		product=new ProductPage(driver);
@@ -69,7 +69,7 @@ public class LoginPageTest extends BaseClass{
 	@Test(priority = 5)
 	public void ForgotPasswordTest() {
 		forgot=login.Clickforgetpassword();
-		//login.Clickuserbtn();
+		login.Clickuserbtn();
 	}
 	
 	@Test(priority = 6)
@@ -92,7 +92,7 @@ public class LoginPageTest extends BaseClass{
 	}
 	
 	
-	@AfterMethod
+	@AfterTest
 	public void teardown() {
 		driver.quit();
 	}

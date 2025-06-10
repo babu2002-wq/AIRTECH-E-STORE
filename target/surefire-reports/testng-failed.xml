@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Surefire suite]" verbose="0">
+  <test thread-count="5" name="Surefire test(failed)" verbose="0">
+    <classes>
+      <class name="com.airtech.qa.testcases.ComparePageTest">
+        <methods>
+          <include name="ClickProductTest"/>
+          <include name="setup"/>
+          <include name="removeProductTest"/>
+          <include name="IsContentsDisplayed"/>
+          <include name="teardown"/>
+          <include name="ClickWishlistTest"/>
+          <include name="addtoCartTest"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.ComparePageTest -->
+      <class name="com.airtech.qa.testcases.RegistrationPageTest">
+        <methods>
+          <include name="RegistrationTest"/>
+          <include name="ValidationTest"/>
+          <include name="PasswordToggleTest"/>
+          <include name="setup"/>
+          <include name="PasswordMeterTest"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.RegistrationPageTest -->
+      <class name="com.airtech.qa.testcases.CartPageTest">
+        <methods>
+          <include name="ProductQuantityTest"/>
+          <include name="IsTotalPriceDisplayed"/>
+          <include name="setup"/>
+          <include name="IsTaxDisplayed"/>
+          <include name="teardown"/>
+          <include name="EditTest"/>
+          <include name="CartTextTest"/>
+          <include name="IsSubTotalDisplayed"/>
+          <include name="ProdremoveTest"/>
+          <include name="UpdateCartTest"/>
+          <include name="IsDiscountDisplayed"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.CartPageTest -->
+      <class name="com.airtech.qa.testcases.LoginPageTest">
+        <methods>
+          <include name="ToggleTest"/>
+          <include name="ValidationTest"/>
+          <include name="registertest"/>
+          <include name="LoginTextTest"/>
+          <include name="ForgotPasswordTest"/>
+          <include name="setup"/>
+          <include name="logintest"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.LoginPageTest -->
+      <class name="com.airtech.qa.testcases.AccountInfoPageTest">
+        <methods>
+          <include name="SaveInfoTest"/>
+          <include name="teardown"/>
+          <include name="ShowPasswordTest"/>
+          <include name="AccountInfoTest"/>
+          <include name="setup"/>
+          <include name="ChangeEmailTest"/>
+          <include name="PasswordMeterTest"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.AccountInfoPageTest -->
+      <class name="com.airtech.qa.testcases.NewsLetterTest">
+        <methods>
+          <include name="NewsLetterVisibleTest"/>
+          <include name="teardown"/>
+          <include name="setup"/>
+          <include name="SaveNewsTest"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.NewsLetterTest -->
+      <class name="com.airtech.qa.testcases.OrderPageTest">
+        <methods>
+          <include name="setup"/>
+          <include name="TrackShipmentTest"/>
+          <include name="OrderShipmentTest"/>
+          <include name="OrdersheadTest"/>
+          <include name="CartPageTest"/>
+          <include name="PriceTest"/>
+          <include name="Teardown"/>
+          <include name="ViewOrderTest"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.OrderPageTest -->
+      <class name="com.airtech.qa.testcases.MyWishListPageTest">
+        <methods>
+          <include name="AddtoCartTest"/>
+          <include name="quantityTest"/>
+          <include name="setup"/>
+          <include name="EditTest"/>
+          <include name="commenttest"/>
+          <include name="ShareWishTest"/>
+          <include name="teardown"/>
+          <include name="MyWishlistTest"/>
+          <include name="ValidationTest"/>
+          <include name="removebtntest"/>
+          <include name="ShowTest"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.MyWishListPageTest -->
+      <class name="com.airtech.qa.testcases.ForgotPasswordTest">
+        <methods>
+          <include name="teardown"/>
+          <include name="ForgotTest"/>
+          <include name="setup"/>
+          <include name="ResetTest"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.ForgotPasswordTest -->
+      <class name="com.airtech.qa.testcases.ContactPageTest">
+        <methods>
+          <include name="teardown"/>
+          <include name="setup"/>
+          <include name="NameTest"/>
+          <include name="ContactAllNegativeTest"/>
+          <include name="ContactbtnTest"/>
+          <include name="InvalidEmailTest"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.ContactPageTest -->
+      <class name="com.airtech.qa.testcases.ProductDetailPageTest">
+        <methods>
+          <include name="nextproductTest"/>
+          <include name="WishListSuccessTest"/>
+          <include name="QuantityIncrementTest"/>
+          <include name="IsReviewDisplayed"/>
+          <include name="IsPriceDisplayed"/>
+          <include name="CartSuccessTest"/>
+          <include name="CompareSuccessTest"/>
+          <include name="IsDescDisplayed"/>
+          <include name="IsStockSKUDisplayed"/>
+          <include name="setup"/>
+          <include name="IsdetailDisplayed"/>
+          <include name="teardown"/>
+          <include name="IsStockDisplayed"/>
+          <include name="QuantityDecrementTest"/>
+          <include name="IsMoreInfoDisplayed"/>
+          <include name="WishListFailureTest"/>
+          <include name="IsProductNameDisplayed"/>
+          <include name="IsReviewGivenDisplayed"/>
+          <include name="IsIncrementDisplayed"/>
+          <include name="previousproductTest"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.ProductDetailPageTest -->
+      <class name="com.airtech.qa.testcases.ProductPageTest">
+        <methods>
+          <include name="ProductDetailTest"/>
+          <include name="IsShowDisplayed"/>
+          <include name="ShowItemsTest"/>
+          <include name="CloseCartTest"/>
+          <include name="SortByPriceTest"/>
+          <include name="checkAllPriceCategoriesTest"/>
+          <include name="QuickShopTest"/>
+          <include name="QuickCheckoutTest"/>
+          <include name="CartPageTest"/>
+          <include name="SortToggleTest"/>
+          <include name="setup"/>
+          <include name="teardown"/>
+          <include name="SortByNameTest"/>
+          <include name="WishListSuccessTest"/>
+          <include name="QuickgotoprodTest"/>
+          <include name="checkAllCategoriesTest"/>
+          <include name="IsCategoryDisplayed"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.ProductPageTest -->
+      <class name="com.airtech.qa.testcases.AddressPageTest">
+        <methods>
+          <include name="setup"/>
+          <include name="Addressbookclick"/>
+          <include name="IsadditionaladdDisplayed"/>
+          <include name="NewAddbtnClick"/>
+          <include name="AddnewAddressTest"/>
+          <include name="ChangebillTest"/>
+          <include name="teardown"/>
+          <include name="ChangeshipTest"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.AddressPageTest -->
+      <class name="com.airtech.qa.testcases.ProfilePageTest">
+        <methods>
+          <include name="IsEditPassDisplayed"/>
+          <include name="ManageAdressTest"/>
+          <include name="teardown"/>
+          <include name="MenusDisplayed"/>
+          <include name="AllOrdersTest"/>
+          <include name="ViewOrdersTest"/>
+          <include name="setup"/>
+          <include name="ChangePassTest"/>
+          <include name="ReOrderTest"/>
+          <include name="NewsletterTest"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.ProfilePageTest -->
+      <class name="com.airtech.qa.testcases.CheckOutPageTest">
+        <methods>
+          <include name="PlaceOrderTest"/>
+          <include name="BillingAddressFields"/>
+          <include name="ShippingAddressFieldsTest"/>
+          <include name="ShippingBillingSameTest"/>
+          <include name="ProductPricingTest"/>
+          <include name="setup"/>
+          <include name="ProductSummaryTest"/>
+          <include name="PaymentMethodsTest"/>
+          <include name="Createaccounttest"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- com.airtech.qa.testcases.CheckOutPageTest -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->

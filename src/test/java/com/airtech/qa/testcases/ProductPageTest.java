@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -28,6 +30,7 @@ import com.airtech.qa.pages.MyWishListPage;
 import com.airtech.qa.pages.ProductDetailPage;
 import com.airtech.qa.pages.ProductPage;
 
+
 public class ProductPageTest extends BaseClass{
 
 	public ProductPageTest() throws IOException {
@@ -48,7 +51,8 @@ public class ProductPageTest extends BaseClass{
 		product.InfusionProductDisplayed();
 	}
 
-
+	
+ 
 	@Test(priority=1)
 	public void IsCategoryDisplayed() {
 		Assert.assertTrue(product.IsCategoryDisplayed().isDisplayed());
@@ -143,11 +147,6 @@ public class ProductPageTest extends BaseClass{
 		product.Closecart();
 	}
 	
-	@Test
-	public void ProductDetailPageTest() {
-		detail=product.openproductdetail();
-	}
-	
 
 	@Test(priority=30)
 	public void checkAllCategoriesTest() throws TimeoutException {
@@ -163,37 +162,45 @@ public class ProductPageTest extends BaseClass{
 	        int expectedCount = Integer.parseInt(onlyNumber);
 	        product.clickCategory(categoryElement);
 	        int displayedCount = product.getTotalProductCountWithPagination();
-	        System.out.println("Displayed Products Found: " + displayedCount);
 	        Assert.assertEquals(displayedCount, expectedCount);
 	        product.clickClearAll();
 	        product.clickCategoryButton();
 	    }
-}
+   }
 	
-	@Test(priority=31)
+	@Test(priority = 31)
 	public void checkAllPriceCategoriesTest() {
-		product.clickPriceFilter();
-		List<WebElement> originalCategories = product.getPriceCategories();
-		int totalCategories = originalCategories.size();
-		for (int i = 0; i < totalCategories; i++) {
-			List<WebElement> updatedCategories = product.getPriceCategories();
-			WebElement category = updatedCategories.get(i);
-			String priceRange = category.findElement(By.tagName("a")).getText().trim();
-			String priceText = category.findElement(By.className("count")).getText().trim();
-			String onlyNumber = priceText.replaceAll("[^0-9]", "");
-			int expectedCount = Integer.parseInt(onlyNumber);
-			product.clickCategory(category);
-			int displayedCount = product.getDisplayedProductCount();
-			Assert.assertEquals(displayedCount, expectedCount);
-			product.clickClearAll();		
-		    product.waitForOverlayToDisappear();
-		    //if(i==updatedCategories.size()-2) {
-		    	//product.clickPriceFilter();
-		    //}
-			
-		}
+		product.waitForOverlayToDisappear();
+	    product.clickPriceFilter();
+	    List<WebElement> originalCategories = product.getPriceCategories();
+	    int totalCategories = originalCategories.size();
+	    for (int i = 0; i < totalCategories; i++) {
+	        List<WebElement> updatedCategories = product.getPriceCategories();
+	        WebElement category = updatedCategories.get(i);
+	        String categoryText = category.getText().trim();
+	        Pattern pattern = Pattern.compile("\\d+");
+	        Matcher matcher = pattern.matcher(categoryText);
+	        List<Integer> allNumbers = new ArrayList<>();
+	        while (matcher.find()) {
+	            allNumbers.add(Integer.parseInt(matcher.group()));
+	        }
+
+	        if (allNumbers.isEmpty()) {
+	            throw new RuntimeException("No valid number found in category text: " + categoryText);
+	        }
+	        int expectedCount = allNumbers.get(allNumbers.size() - 1);
+	        product.clickCategory(category);
+	        int displayedCount = product.getDisplayedProductCount();
+	        Assert.assertEquals(displayedCount, expectedCount, "Mismatch in product count for category: " + categoryText);
+	        product.clickClearAll();		
+	        product.waitForOverlayToDisappear();
+	        //if(i==updatedCategories.size()-2) {
+	    	   //  product.clickPriceFilter();
+	        //}
+	    }
 	}
-	
+
+
 	
 	@Test(priority=90)
 	public void WishListSuccessTest() {

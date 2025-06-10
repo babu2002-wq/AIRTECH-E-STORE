@@ -72,8 +72,8 @@ public class ProductPage extends BasePage {
 	By uniqueitemidentify=By.xpath("//li[@class='item product']");	
 	By actionnext=By.xpath("//a[@class='action  next']");
 	By wishlistsuccessbtn=By.xpath("//button[@id='wishlist_checkout']");
-	
-	
+	By count=By.xpath("//span[@class='count']");	
+	By product=By.xpath("//li[@class='item product product-item nth-child-2n']//b[contains(text(),'Airflow 65R')]");	
 	
 	public WebElement IsCategoryDisplayed() {
 	     WebElement category=driver.findElement(Category);
@@ -474,6 +474,12 @@ public class ProductPage extends BasePage {
 		return allproduct;	
 	}
 
+	public WebElement returncount() {
+		return driver.findElement(count);
+	}
 	
-	
+	public ProductDetailPage clickProduct() {
+		driver.findElement(product).click();
+		return new ProductDetailPage(driver);
+	}
 }

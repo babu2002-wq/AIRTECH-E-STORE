@@ -19,13 +19,13 @@ public class ProfilePage extends BasePage {
 	By addressbook=By.xpath("//strong[normalize-space()='Address Book']");
 	By defaultbilladd=By.xpath("//span[normalize-space()='Default Billing Address']");
 	By defaultshipadd=By.xpath("//span[normalize-space()='Default Shipping Address']");
-	By editcontact=By.xpath("//a[@href='https://estoredev.airtech-amg.co.uk/customer/account/edit/']//span[contains(text(),'Edit')]");
+	By editcontact=By.xpath("//div[@class='box box-information']//span[contains(text(),'Edit')]");
 	By changepass=By.xpath("//a[normalize-space()='Change Password']");
 	By newsletteredit=By.xpath("//div[@class='box box-newsletter']//a[@class='action edit']");
 	By recentordertxt=By.xpath("//strong[normalize-space()='Recent Orders']");
 	By vieworderlink=By.xpath("(//span[contains(text(),'View Order')])[1]");
 	By reorderlink=By.xpath("(//span[contains(text(),'Reorder')])[1]");
-	By allorderlink=By.xpath("//a[@href='https://estoredev.airtech-amg.co.uk/sales/order/history/']//span[contains(text(),'View All')]");
+	By allorderlink=By.xpath("//div[@class='block-title order']//span[contains(text(),'View All')]");
 	By myoderstxt=By.xpath("//span[contains(text(),'My Orders')]");
 	By editaccountinfo=By.xpath("//span[contains(text(),'Edit Account')]");
 	By changepasstext=By.xpath("//legend/span[contains(text(),'Change Password')]");

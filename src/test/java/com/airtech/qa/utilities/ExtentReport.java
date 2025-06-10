@@ -28,7 +28,6 @@ public class ExtentReport implements ITestListener{
 
     @Override
     public void onStart(ITestContext context) {
-        // Initialize ExtentReports in onStart (not onTestStart)
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
         repname = "Test-Report-" + timeStamp + ".html";
 
@@ -43,7 +42,7 @@ public class ExtentReport implements ITestListener{
 
         extent.setSystemInfo("Computer Name", "localhost");
         extent.setSystemInfo("Environment", "QA");
-        extent.setSystemInfo("Tester Name", "ash");
+        extent.setSystemInfo("Tester Name", "Ashisranjan Dash");
         extent.setSystemInfo("OS", "Windows 10");
         extent.setSystemInfo("Browser Name", "Chrome");
     }
@@ -76,7 +75,7 @@ public class ExtentReport implements ITestListener{
     @Override
     public void onFinish(ITestContext context) {
         if (extent != null) {
-            extent.flush(); // Ensure extent is initialized before flushing
+            extent.flush(); 
         }
 
         String pathOfReport = System.getProperty("user.dir") + "/reports/" + repname;

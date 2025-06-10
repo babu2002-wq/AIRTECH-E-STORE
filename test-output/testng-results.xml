@@ -1,85 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+<testng-results ignored="0" total="15" passed="15" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-23T17:06:20 IST" name="Default suite" finished-at="2025-05-23T17:07:43 IST" duration-ms="83212">
+  <suite started-at="2025-06-09T16:33:08 IST" name="Default suite" finished-at="2025-06-09T16:36:09 IST" duration-ms="180939">
     <groups>
     </groups>
-    <test started-at="2025-05-23T17:06:20 IST" name="Default test" finished-at="2025-05-23T17:07:43 IST" duration-ms="83212">
-      <class name="com.airtech.qa.testcases.LoginPageTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:06:20 IST" name="setup" finished-at="2025-05-23T17:06:39 IST" duration-ms="18768" status="PASS">
+    <test started-at="2025-06-09T16:33:08 IST" name="Default test" finished-at="2025-06-09T16:36:09 IST" duration-ms="180939">
+      <class name="com.airtech.qa.testcases.ProductPageTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:08 IST" name="setup" finished-at="2025-06-09T16:33:19 IST" duration-ms="11162" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="LoginTextTest()[pri:2, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:06:39 IST" name="LoginTextTest" finished-at="2025-05-23T17:06:39 IST" duration-ms="173" status="PASS">
+        <test-method signature="CartPageTest()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:20 IST" name="CartPageTest" finished-at="2025-06-09T16:33:24 IST" duration-ms="4194" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- LoginTextTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:06:39 IST" name="teardown" finished-at="2025-05-23T17:06:40 IST" duration-ms="498" status="PASS">
+        </test-method> <!-- CartPageTest -->
+        <test-method signature="CloseCartTest()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:24 IST" name="CloseCartTest" finished-at="2025-06-09T16:33:24 IST" duration-ms="277" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:06:40 IST" name="setup" finished-at="2025-05-23T17:06:51 IST" duration-ms="11170" status="PASS">
+        </test-method> <!-- CloseCartTest -->
+        <test-method signature="ProductDetailTest()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:24 IST" name="ProductDetailTest" finished-at="2025-06-09T16:33:29 IST" duration-ms="4762" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ValidationTest()[pri:3, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:06:51 IST" name="ValidationTest" finished-at="2025-05-23T17:06:51 IST" duration-ms="282" status="PASS">
+        </test-method> <!-- ProductDetailTest -->
+        <test-method signature="SortToggleTest()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:29 IST" name="SortToggleTest" finished-at="2025-06-09T16:33:29 IST" duration-ms="196" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ValidationTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:06:51 IST" name="teardown" finished-at="2025-05-23T17:06:52 IST" duration-ms="360" status="PASS">
+        </test-method> <!-- SortToggleTest -->
+        <test-method signature="IsCategoryDisplayed()[pri:1, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:29 IST" name="IsCategoryDisplayed" finished-at="2025-06-09T16:33:30 IST" duration-ms="985" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:06:52 IST" name="setup" finished-at="2025-05-23T17:07:00 IST" duration-ms="8933" status="PASS">
+        </test-method> <!-- IsCategoryDisplayed -->
+        <test-method signature="IsShowDisplayed()[pri:6, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:30 IST" name="IsShowDisplayed" finished-at="2025-06-09T16:33:30 IST" duration-ms="66" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="registertest()[pri:4, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:07:00 IST" name="registertest" finished-at="2025-05-23T17:07:04 IST" duration-ms="3876" status="PASS">
+        </test-method> <!-- IsShowDisplayed -->
+        <test-method signature="SortByPriceTest()[pri:7, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:30 IST" name="SortByPriceTest" finished-at="2025-06-09T16:33:32 IST" duration-ms="2113" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- registertest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:07:04 IST" name="teardown" finished-at="2025-05-23T17:07:05 IST" duration-ms="435" status="PASS">
+        </test-method> <!-- SortByPriceTest -->
+        <test-method signature="SortByNameTest()[pri:8, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:32 IST" name="SortByNameTest" finished-at="2025-06-09T16:33:35 IST" duration-ms="2083" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:07:05 IST" name="setup" finished-at="2025-05-23T17:07:15 IST" duration-ms="10312" status="PASS">
+        </test-method> <!-- SortByNameTest -->
+        <test-method signature="ShowItemsTest()[pri:9, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:35 IST" name="ShowItemsTest" finished-at="2025-06-09T16:33:40 IST" duration-ms="5439" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ForgotPasswordTest()[pri:5, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:07:15 IST" name="ForgotPasswordTest" finished-at="2025-05-23T17:07:17 IST" duration-ms="2390" status="PASS">
+        </test-method> <!-- ShowItemsTest -->
+        <test-method signature="QuickgotoprodTest()[pri:10, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:40 IST" name="QuickgotoprodTest" finished-at="2025-06-09T16:33:48 IST" duration-ms="8005" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ForgotPasswordTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:07:17 IST" name="teardown" finished-at="2025-05-23T17:07:18 IST" duration-ms="786" status="PASS">
+        </test-method> <!-- QuickgotoprodTest -->
+        <test-method signature="QuickShopTest()[pri:11, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:48 IST" name="QuickShopTest" finished-at="2025-06-09T16:33:54 IST" duration-ms="6415" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:07:18 IST" name="setup" finished-at="2025-05-23T17:07:28 IST" duration-ms="9867" status="PASS">
+        </test-method> <!-- QuickShopTest -->
+        <test-method signature="QuickCheckoutTest()[pri:12, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:54 IST" name="QuickCheckoutTest" finished-at="2025-06-09T16:34:06 IST" duration-ms="11485" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="ToggleTest()[pri:6, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:07:28 IST" name="ToggleTest" finished-at="2025-05-23T17:07:29 IST" duration-ms="848" status="PASS">
+        </test-method> <!-- QuickCheckoutTest -->
+        <test-method signature="checkAllCategoriesTest()[pri:30, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:34:06 IST" name="checkAllCategoriesTest" finished-at="2025-06-09T16:35:34 IST" duration-ms="87901" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ToggleTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:07:29 IST" name="teardown" finished-at="2025-05-23T17:07:29 IST" duration-ms="408" status="PASS">
+        </test-method> <!-- checkAllCategoriesTest -->
+        <test-method signature="checkAllPriceCategoriesTest()[pri:31, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:35:34 IST" name="checkAllPriceCategoriesTest" finished-at="2025-06-09T16:35:55 IST" duration-ms="21224" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:07:29 IST" name="setup" finished-at="2025-05-23T17:07:39 IST" duration-ms="9680" status="PASS">
+        </test-method> <!-- checkAllPriceCategoriesTest -->
+        <test-method signature="WishListSuccessTest()[pri:90, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:35:55 IST" name="WishListSuccessTest" finished-at="2025-06-09T16:36:09 IST" duration-ms="13492" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="logintest()[pri:7, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:07:39 IST" name="logintest" finished-at="2025-05-23T17:07:43 IST" duration-ms="3720" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logintest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.airtech.qa.testcases.LoginPageTest@6b0d80ed]" started-at="2025-05-23T17:07:43 IST" name="teardown" finished-at="2025-05-23T17:07:43 IST" duration-ms="354" status="PASS">
+        </test-method> <!-- WishListSuccessTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:36:09 IST" name="teardown" finished-at="2025-06-09T16:36:09 IST" duration-ms="625" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- com.airtech.qa.testcases.LoginPageTest -->
+      </class> <!-- com.airtech.qa.testcases.ProductPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
