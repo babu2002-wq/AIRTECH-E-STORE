@@ -35,7 +35,7 @@ public class ForgotPasswordTest extends BaseClass{
 		Assert.assertTrue(forgot.IsResetDisplayed().isDisplayed());
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2,description = "Verify that forgot functionality is working fine")
 	public void ResetTest() {
 		Assert.assertTrue(forgot.enteremail().isDisplayed());
 		forgot.Clickresetbtn();

@@ -51,7 +51,7 @@ public class LoginPageTest extends BaseClass{
 		Assert.assertTrue(login.IsLoginTextDisplayed().isDisplayed());
 	}
 	
-	@Test(priority = 7)
+	@Test(priority = 7,description = "Verify that the login functionality is working fine")
 	public void logintest() {
 		login.clear();
 		login.enteremail(getProperty("username"));
@@ -72,7 +72,7 @@ public class LoginPageTest extends BaseClass{
 		login.Clickuserbtn();
 	}
 	
-	@Test(priority = 6)
+	@Test(priority = 6,description = "Verify that the password toggle functionality is working fine")
 	public void ToggleTest() {
 		login.enterpassword(getProperty("password"));
 		Assert.assertEquals(login.getPassword().getAttribute("type"), "password");
@@ -83,7 +83,7 @@ public class LoginPageTest extends BaseClass{
 		Assert.assertEquals(login.getPassword().getAttribute("type"), "password" );
 	}
 	
-	@Test(priority = 3)
+	@Test(priority = 3,description = "Verify that the field validations are working fine")
 	public void ValidationTest() {
 		List<WebElement> fields=login.requiredfields();
 		login.SignInClick();

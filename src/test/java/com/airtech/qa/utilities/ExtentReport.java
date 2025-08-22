@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -25,6 +27,7 @@ public class ExtentReport implements ITestListener{
     public ExtentTest test;
 
     String repname;
+    
 
     @Override
     public void onStart(ITestContext context) {
@@ -49,14 +52,35 @@ public class ExtentReport implements ITestListener{
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        test = extent.createTest(result.getName());
-        test.log(Status.PASS, "Test Passed: " + result.getName());
+    	test = extent.createTest(result.getName());
+
+        // Fetch description from @Test annotation
+        String description = result.getMethod().getDescription();
+        if (description != null && !description.isEmpty()) {
+            test.log(Status.INFO, "💡 Review: " + description);
+        }
+
+        test.log(Status.PASS, "✅ Test Passed: " + result.getName());
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         test = extent.createTest(result.getName());
+        String description = result.getMethod().getDescription();
+        if (description != null && !description.isEmpty()) {
+            test.log(Status.INFO, "💡 Review: " + description);
+        }
         test.log(Status.FAIL, "Test Failed: " + result.getName());
+
+        // Get only the exception message (not full stack trace)
+        String errorMessage = result.getThrowable().getMessage();
+
+        // Trim to avoid very large error dumps
+        if (errorMessage.length() > 200) {  
+            errorMessage = errorMessage.substring(0, 200) + "...";  
+        }
+
+        test.log(Status.FAIL, "Reason: " + errorMessage);
 
         try {
             String imgPath = new BaseClass().captureScreen(result.getName());
@@ -65,6 +89,7 @@ public class ExtentReport implements ITestListener{
             e.printStackTrace();
         }
     }
+
 
     @Override
     public void onTestSkipped(ITestResult result) {

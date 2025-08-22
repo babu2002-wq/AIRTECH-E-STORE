@@ -99,6 +99,9 @@ public class AccountInfoPage extends BasePage{
 		driver.findElement(firstname).clear();
 		driver.findElement(lastname).clear();
 		driver.findElement(email).clear();
+		driver.findElement(currentpass).clear();
+		driver.findElement(confirmpass).clear();
+		driver.findElement(newpass).clear();
 	}
 	
 	public List<WebElement> requiredfields(){

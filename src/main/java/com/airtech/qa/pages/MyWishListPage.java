@@ -26,7 +26,7 @@ public class MyWishListPage extends BasePage{
 	By prodcomment = By.xpath("//textarea[contains(@id, 'product-item-comment-')]");
 	By addtocartbtn=By.xpath("(//button[@data-role='tocart'])[1]");
 	By editbtn=By.xpath("//li[contains(@id, 'item_')]//span[contains(text(),'Edit')]");
-	By removebtn=By.xpath("//li[contains(@id, 'item_')]//span[contains(text(),'Remove item')]");
+	By removebtn=By.xpath("//li[contains(@id, 'item_')]//span[contains(text(),'Remove')]");
 	By prodname=By.xpath("//a[@title='AIRSEAL-2-TACKY-3MM-12MM-15M 20-ROLLS-PER-CASE'][normalize-space()='AIRSEAL-2-TACKY-3MM-12MM-15M 20-ROLLS-PER-CASE']");
 	By allprices=By.xpath("//span[@class='price']");
 	By allproduct=By.xpath("//li[@data-row='product-item']");

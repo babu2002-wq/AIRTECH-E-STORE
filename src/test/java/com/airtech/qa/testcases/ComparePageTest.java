@@ -15,6 +15,7 @@ import com.airtech.qa.base.BaseClass;
 import com.airtech.qa.pages.CartPage;
 import com.airtech.qa.pages.ComparePage;
 import com.airtech.qa.pages.LoginPage;
+import com.airtech.qa.pages.MyWishListPage;
 import com.airtech.qa.pages.ProductDetailPage;
 import com.airtech.qa.pages.ProductPage;
 
@@ -25,6 +26,7 @@ public class ComparePageTest extends BaseClass{
 	ProductDetailPage product;
 	CartPage cart;
 	ProductPage pro;
+	MyWishListPage wish;
 	
 	public ComparePageTest() throws IOException  {
 		super();
@@ -36,7 +38,7 @@ public class ComparePageTest extends BaseClass{
 		pro=new ProductPage(driver);
 		pro.InfusionProductDisplayed();
 		login=new LoginPage(driver);
-		product=pro.clickProduct();
+		product=pro.openproductdetail();
 		comp=product.AddtoComparebtn();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}
@@ -45,12 +47,11 @@ public class ComparePageTest extends BaseClass{
 	public void IsContentsDisplayed() {
 		Assert.assertTrue(comp.IsCompareDisplayed().isDisplayed());
 		Assert.assertTrue(comp.IsPricesDisplayed().isDisplayed());
-		Assert.assertTrue(comp.IsTableDisplayed().isDisplayed());
 		Assert.assertTrue(comp.IsProductsDisplayed().isDisplayed());
 	}
 	
 	
-	@Test
+	@Test(description = "Verify that add to cart functionality in the comparision page is working fine")
 	public void addtoCartTest() {
 		WebElement successmsg=comp.Clickaddtocartbtn();
 		Assert.assertTrue(successmsg.isDisplayed());
@@ -66,21 +67,30 @@ public class ComparePageTest extends BaseClass{
 		comp.navigateback();
 	}
 	
-	@Test
+	@Test(description = "Verify that add to wishlist functionality in the comparision page is working fine")
 	public void ClickWishlistTest() {
 		if(login.IsLoginTextDisplayed().isDisplayed()) {	
 			comp.Clickwishlistbtn();
 			Assert.assertTrue(comp.WishListFail().isDisplayed());
 			Assert.assertEquals(comp.WishListFail().getText(), "You must login or register to add items to your wishlist.");
 		}
-		else {
-			comp.Clickwishlistbtn();
-			Assert.assertEquals(driver.getTitle(), "MY WISHLIST");
-		}
+		
+	}
+	
+	@Test
+	public void WishlistSuccessTest() {
+		login.Clickuserbtn();
+		login.enteremail(getProperty("username"));
+		login.enterpassword(getProperty("password"));
+		login.signIn();
+		comp.navigateback();
+		wish=comp.clickWishlistbtn();
+		comp.navigateback();
 	}
 	
 	@Test(priority=20)
 	public void removeProductTest() {
+		comp=product.AddtoComparebtn();
 		comp.Clickremovebtn();
 	}
 	

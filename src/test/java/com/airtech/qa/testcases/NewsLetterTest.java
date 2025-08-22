@@ -3,7 +3,9 @@ package com.airtech.qa.testcases;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -18,7 +20,7 @@ public class NewsLetterTest extends BaseClass {
 	
 	NewsLetter news;
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		loginToApplication();
@@ -33,14 +35,15 @@ public class NewsLetterTest extends BaseClass {
 		Assert.assertTrue(news.IsSubscriptiontextDisplayed().isDisplayed());
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2,description = "Verify that the newsletter status update functionality is working fine")
 	public void SaveNewsTest() {
+		//news.newsletterclick();
 		news.ClickNewsletterCheck();
 		news.ClickSave();
 		Assert.assertTrue(news.Successmsg().isDisplayed());
 	}
 	
-	@AfterTest
+	@AfterMethod
 		public void teardown() {
 			driver.quit();
 		}

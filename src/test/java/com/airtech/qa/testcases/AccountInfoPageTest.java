@@ -24,7 +24,7 @@ public class AccountInfoPageTest extends BaseClass{
 	
 	AccountInfoPage info;
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		loginToApplication();
@@ -40,15 +40,16 @@ public class AccountInfoPageTest extends BaseClass{
 		Assert.assertTrue(info.IsLastNameDisplayed().isDisplayed());
 	}
 	
-	@Test(priority=2)
+	@Test(priority=5)
 	public void ChangeEmailTest() {
+		//info.AccountInfoClick();
 		info.CngEmailClick();
+		info.CngPassClick();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		Assert.assertTrue(info.CngEmailDisplayed().isDisplayed());
-		Assert.assertTrue(info.IsEmailDisplayed().isDisplayed());
 		Assert.assertTrue(info.IsEmailDisplayed().isDisplayed());
 		Assert.assertTrue(info.IsCurrentPassDisplayed().isDisplayed());
 		info.clear();
-		info.CngPassClick();
 		Assert.assertTrue(info.IsCngPassTextDisplayed().isDisplayed());
 		Assert.assertTrue(info.IsCurrentPassDisplayed().isDisplayed());
 		Assert.assertTrue(info.IsNewPassDisplayed().isDisplayed());
@@ -63,6 +64,8 @@ public class AccountInfoPageTest extends BaseClass{
 	
 	@Test(priority=3)
 	public void PasswordMeterTest() {
+		info.AccountInfoClick();
+		info.CngPassClick();
 		String InitialStrength=info.getPasswordStrength();
 		info.EnterPass(getProperty("password"));
 		String FinalStrength=info.getPasswordStrength();
@@ -73,6 +76,8 @@ public class AccountInfoPageTest extends BaseClass{
 	
 	@Test(priority=4)
 	public void ShowPasswordTest() {
+		info.CngEmailClick();
+		info.CngPassClick();
 		info.EnterPass(getProperty("password"));
 		info.EnterConfirmPass(getProperty("password"));
 	    Assert.assertEquals(info.getCurrentPassword().getAttribute("type"), "password");
@@ -90,17 +95,18 @@ public class AccountInfoPageTest extends BaseClass{
 		
 	}
 	
-	@Test(priority=5)
+	@Test(priority=2)
 	public void SaveInfoTest() {
-		info.CngEmailClick();
-		info.CngPassClick();
+		//info.CngEmailClick();
+		//info.CngPassClick();
 		info.SavebtnClick();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		Assert.assertTrue(info.getSuccessMsg().isDisplayed());
 	}
 	
 	
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

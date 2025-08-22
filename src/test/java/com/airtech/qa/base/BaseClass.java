@@ -22,8 +22,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-
+import org.apache.commons.io.FileUtils;
 import com.airtech.qa.pages.LoginPage;
+
 
 public class BaseClass {
 	public static WebDriver driver;
@@ -57,7 +58,7 @@ public class BaseClass {
       driver = new ChromeDriver(options);
   	  driver.manage().deleteAllCookies();
   	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-  	  driver.get("https://estore.airtech.lu/");
+  	  driver.get("https://estore.airtechintl.com/");
   	  driver.manage().window().maximize();
     }
     
@@ -67,13 +68,21 @@ public class BaseClass {
     
     
     public String captureScreen(String tname) throws IOException {
-  	  String time=new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-  	  TakesScreenshot takescreen=(TakesScreenshot) driver;
-  	  File sourcefile=takescreen.getScreenshotAs(OutputType.FILE);
-  	  String targetFilePath=System.getProperty("user.dir")+"\\screenshots\\" + tname + "_"+ time + ".png";
-  	  File targetFile=new File(targetFilePath);
-  	  sourcefile.renameTo(targetFile);
-  	  return targetFilePath;
+        String time = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        TakesScreenshot takescreen = (TakesScreenshot) driver;
+        File sourceFile = takescreen.getScreenshotAs(OutputType.FILE);
+
+        // Save under reports/screenshots (better organization)
+        String targetFilePath = System.getProperty("user.dir") + "\\reports\\screenshots\\" + tname + "_" + time + ".png";
+        File targetFile = new File(targetFilePath);
+
+        // Ensure directory exists
+        targetFile.getParentFile().mkdirs();
+
+        // Copy screenshot properly
+        FileUtils.copyFile(sourceFile, targetFile);
+
+        return targetFilePath;
     }
     
     

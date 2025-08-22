@@ -41,7 +41,7 @@ public class ProfilePageTest extends BaseClass {
 		Assert.assertTrue(profile.IsDefaultBillDisplayed().isDisplayed());
 		Assert.assertTrue(profile.IsDefaultShipDisplayed().isDisplayed());
 		Assert.assertTrue(profile.IsnewsletterDisplayed().isDisplayed());
-		Assert.assertTrue(profile.IsRecentDisplayed().isDisplayed());
+		//Assert.assertTrue(profile.IsRecentDisplayed().isDisplayed());
 	}
 	
 	@Test
@@ -63,18 +63,23 @@ public class ProfilePageTest extends BaseClass {
 	}
 	
 	@Test
+	public void IsRecentOrdersDisplayed() {
+		Assert.assertTrue(profile.IsRecentDisplayed().isDisplayed());
+	}
+	
+	@Test(dependsOnMethods = "IsRecentOrdersDisplayed")
 	public void ViewOrdersTest() {
 		Assert.assertTrue(profile.ClickViewOrders().isDisplayed());
 		profile.navigateBack();
 	}
 	
-	@Test
+	@Test(dependsOnMethods = "IsRecentOrdersDisplayed")
 	public void ReOrderTest() {
 		cart=profile.ClickReOrders();
 		profile.navigateBack();
 	}
 	
-	@Test
+	@Test(dependsOnMethods = "IsRecentOrdersDisplayed")
 	public void AllOrdersTest() {
 		Assert.assertTrue(profile.ClickAllOrders().isDisplayed());
 		profile.navigateBack();

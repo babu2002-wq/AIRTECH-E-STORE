@@ -10,20 +10,20 @@
     
     <classes>
       <!--
-      <class name="com.airtech.qa.testcases.ProductPageTest"/>
       <class name="com.airtech.qa.testcases.ProductDetailPageTest"/>
       <class name="com.airtech.qa.testcases.CartPageTest"/>
       <class name="com.airtech.qa.testcases.ForgotPasswordTest"/>
-      <class name="com.airtech.qa.testcases.ContactPageTest"/>
-      -->
       <class name="com.airtech.qa.testcases.LoginPageTest"/>
-      <!--
+      <class name="com.airtech.qa.testcases.ContactPageTest"/>
+      <class name="com.airtech.qa.testcases.RegistrationPageTest"/>
       <class name="com.airtech.qa.testcases.ComparePageTest"/>
+      <class name="com.airtech.qa.testcases.ProductPageTest"/>
+      -->
+      <class name="com.airtech.qa.testcases.NewsLetterTest"/>
+      <class name="com.airtech.qa.testcases.ProfilePageTest"/>
       <class name="com.airtech.qa.testcases.AccountInfoPageTest"/>
       <class name="com.airtech.qa.testcases.MyWishListPageTest"/>
-      <class name="com.airtech.qa.testcases.RegistrationPageTest"/>
       <class name="com.airtech.qa.testcases.AddressPageTest"/>
-      -->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

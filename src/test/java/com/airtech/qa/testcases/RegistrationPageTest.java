@@ -32,7 +32,7 @@ public class RegistrationPageTest extends BaseClass{
 	}
 	
 	
-	@Test(priority=1)
+	@Test(priority=1,description = "Verify all the fields and sections are displayed properly")
 	public void RegistrationTest() {
 		Assert.assertTrue(register.Ispersonaltxtdisplayed().isDisplayed());
 		Assert.assertTrue(register.enterfirstname().isDisplayed());
@@ -43,7 +43,7 @@ public class RegistrationPageTest extends BaseClass{
 		Assert.assertTrue(register.IsSignInfoDisplayed().isDisplayed());
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2,description = "Verify that all the field validations are working fine")
 	public void ValidationTest() {
 		List<WebElement> required=register.required();
 		register.ClickCreatebtn();
@@ -51,7 +51,7 @@ public class RegistrationPageTest extends BaseClass{
 		Assert.assertEquals(error.size(),required.size());
 	}
 	
-	@Test(priority=3)
+	@Test(priority=3,description = "Verify that the password strength meter option is working fine")
 	public void PasswordMeterTest() {
 		String InitialStrength=register.getPasswordStrength();
 		register.enterpassword(getProperty("password"));
@@ -60,7 +60,7 @@ public class RegistrationPageTest extends BaseClass{
 		register.clear();
 	}
 	
-	@Test(priority=4)
+	@Test(priority=4,description = "Verify that all the password toggle option is working fine")
 	public void PasswordToggleTest() {
 		register.enterpassword(getProperty("password"));
 		register.enterconfirmpassword(getProperty("password"));

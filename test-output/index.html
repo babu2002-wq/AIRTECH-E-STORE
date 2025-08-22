@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Cybrain Software\AppData\Local\Temp\testng-eclipse--910405504\testng-customsuite.xml</span>
+                    <span>C:\Users\Cybrain Software\AppData\Local\Temp\testng-eclipse--1749490703\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,45 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">15 methods,   15 passed</span>
+                    <span class="method-stats">9 methods, 1 failed,  3 skipped,  5 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProfilePageTest" class="method navigator-link" hash-for-method="IsRecentOrdersDisplayed">IsRecentOrdersDisplayed</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods skipped suite-Default_suite"> (hide)</a> <!-- hide-methods skipped suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods skipped suite-Default_suite"> (show)</a> <!-- show-methods skipped suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Default_suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProfilePageTest" class="method navigator-link" hash-for-method="AllOrdersTest">AllOrdersTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProfilePageTest" class="method navigator-link" hash-for-method="ReOrderTest">ReOrderTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProfilePageTest" class="method navigator-link" hash-for-method="ViewOrdersTest">ViewOrdersTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,77 +141,27 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="CartPageTest">CartPageTest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProfilePageTest" class="method navigator-link" hash-for-method="ChangePassTest">ChangePassTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="CloseCartTest">CloseCartTest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProfilePageTest" class="method navigator-link" hash-for-method="IsEditPassDisplayed">IsEditPassDisplayed</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="IsCategoryDisplayed">IsCategoryDisplayed</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProfilePageTest" class="method navigator-link" hash-for-method="ManageAdressTest">ManageAdressTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="IsShowDisplayed">IsShowDisplayed</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProfilePageTest" class="method navigator-link" hash-for-method="MenusDisplayed">MenusDisplayed</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="ProductDetailTest">ProductDetailTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="QuickCheckoutTest">QuickCheckoutTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="QuickShopTest">QuickShopTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="QuickgotoprodTest">QuickgotoprodTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="ShowItemsTest">ShowItemsTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="SortByNameTest">SortByNameTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="SortByPriceTest">SortByPriceTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="SortToggleTest">SortToggleTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="WishListSuccessTest">WishListSuccessTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="checkAllCategoriesTest">checkAllCategoriesTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProductPageTest" class="method navigator-link" hash-for-method="checkAllPriceCategoriesTest">checkAllPriceCategoriesTest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.airtech.qa.testcases.ProfilePageTest" class="method navigator-link" hash-for-method="NewsletterTest">NewsletterTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -188,115 +176,211 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.airtech.qa.testcases.ProductPageTest</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.airtech.qa.testcases.ProfilePageTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="CartPageTest">
-                  </a> <!-- CartPageTest -->
-                  <span class="method-name">CartPageTest</span>
+                  <a name="IsRecentOrdersDisplayed">
+                  </a> <!-- IsRecentOrdersDisplayed -->
+                  <span class="method-name">IsRecentOrdersDisplayed</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//strong[normalize-space()=&apos;Recent Orders&apos;]&quot;}
+  (Session info: chrome=139.0.7258.128)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [55c6e1adaadec4aac08b71619e574fae, findElement {value=//strong[normalize-space()=&apos;Recent Orders&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.128, chrome: {chromedriverVersion: 139.0.7258.138 (884e54ea8d4..., userDataDir: C:\Users\CYBRAI~2\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50955}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50955/devtoo..., se:cdpVersion: 139.0.7258.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 55c6e1adaadec4aac08b71619e574fae
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+	at com.airtech.qa.pages.ProfilePage.IsRecentDisplayed(ProfilePage.java:72)
+	at com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed(ProfilePageTest.java:67)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.airtech.qa.testcases.ProfilePageTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="AllOrdersTest">
+                  </a> <!-- AllOrdersTest -->
+                  <span class="method-name">AllOrdersTest</span>
+                  <div class="stack-trace">java.lang.Throwable: Method com.airtech.qa.testcases.ProfilePageTest.AllOrdersTest() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5 depends on not successfully finished methods 
+[com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="CloseCartTest">
-                  </a> <!-- CloseCartTest -->
-                  <span class="method-name">CloseCartTest</span>
+                  <a name="ReOrderTest">
+                  </a> <!-- ReOrderTest -->
+                  <span class="method-name">ReOrderTest</span>
+                  <div class="stack-trace">java.lang.Throwable: Method com.airtech.qa.testcases.ProfilePageTest.ReOrderTest() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5 depends on not successfully finished methods 
+[com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="IsCategoryDisplayed">
-                  </a> <!-- IsCategoryDisplayed -->
-                  <span class="method-name">IsCategoryDisplayed</span>
+                  <a name="ViewOrdersTest">
+                  </a> <!-- ViewOrdersTest -->
+                  <span class="method-name">ViewOrdersTest</span>
+                  <div class="stack-trace">java.lang.Throwable: Method com.airtech.qa.testcases.ProfilePageTest.ViewOrdersTest() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5 depends on not successfully finished methods 
+[com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.airtech.qa.testcases.ProfilePageTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="ChangePassTest">
+                  </a> <!-- ChangePassTest -->
+                  <span class="method-name">ChangePassTest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="IsShowDisplayed">
-                  </a> <!-- IsShowDisplayed -->
-                  <span class="method-name">IsShowDisplayed</span>
+                  <a name="IsEditPassDisplayed">
+                  </a> <!-- IsEditPassDisplayed -->
+                  <span class="method-name">IsEditPassDisplayed</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="ProductDetailTest">
-                  </a> <!-- ProductDetailTest -->
-                  <span class="method-name">ProductDetailTest</span>
+                  <a name="ManageAdressTest">
+                  </a> <!-- ManageAdressTest -->
+                  <span class="method-name">ManageAdressTest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="QuickCheckoutTest">
-                  </a> <!-- QuickCheckoutTest -->
-                  <span class="method-name">QuickCheckoutTest</span>
+                  <a name="MenusDisplayed">
+                  </a> <!-- MenusDisplayed -->
+                  <span class="method-name">MenusDisplayed</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="QuickShopTest">
-                  </a> <!-- QuickShopTest -->
-                  <span class="method-name">QuickShopTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="QuickgotoprodTest">
-                  </a> <!-- QuickgotoprodTest -->
-                  <span class="method-name">QuickgotoprodTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="ShowItemsTest">
-                  </a> <!-- ShowItemsTest -->
-                  <span class="method-name">ShowItemsTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="SortByNameTest">
-                  </a> <!-- SortByNameTest -->
-                  <span class="method-name">SortByNameTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="SortByPriceTest">
-                  </a> <!-- SortByPriceTest -->
-                  <span class="method-name">SortByPriceTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="SortToggleTest">
-                  </a> <!-- SortToggleTest -->
-                  <span class="method-name">SortToggleTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="WishListSuccessTest">
-                  </a> <!-- WishListSuccessTest -->
-                  <span class="method-name">WishListSuccessTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="checkAllCategoriesTest">
-                  </a> <!-- checkAllCategoriesTest -->
-                  <span class="method-name">checkAllCategoriesTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="checkAllPriceCategoriesTest">
-                  </a> <!-- checkAllPriceCategoriesTest -->
-                  <span class="method-name">checkAllPriceCategoriesTest</span>
+                  <a name="NewsletterTest">
+                  </a> <!-- NewsletterTest -->
+                  <span class="method-name">NewsletterTest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -304,7 +388,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Cybrain Software\AppData\Local\Temp\testng-eclipse--910405504\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Cybrain Software\AppData\Local\Temp\testng-eclipse--1749490703\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -313,7 +397,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.airtech.qa.testcases.ProductPageTest&quot;/&gt;
+      &lt;class name=&quot;com.airtech.qa.testcases.ProfilePageTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -353,72 +437,48 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(15);
+data.addRows(9);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'checkAllCategoriesTest')
-data.setCell(0, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(0, 3, 87901);
+data.setCell(0, 1, 'IsRecentOrdersDisplayed')
+data.setCell(0, 2, 'com.airtech.qa.testcases.ProfilePageTest')
+data.setCell(0, 3, 10056);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'checkAllPriceCategoriesTest')
-data.setCell(1, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(1, 3, 21224);
+data.setCell(1, 1, 'IsEditPassDisplayed')
+data.setCell(1, 2, 'com.airtech.qa.testcases.ProfilePageTest')
+data.setCell(1, 3, 4902);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'WishListSuccessTest')
-data.setCell(2, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(2, 3, 13492);
+data.setCell(2, 1, 'NewsletterTest')
+data.setCell(2, 2, 'com.airtech.qa.testcases.ProfilePageTest')
+data.setCell(2, 3, 3778);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'QuickCheckoutTest')
-data.setCell(3, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(3, 3, 11485);
+data.setCell(3, 1, 'ManageAdressTest')
+data.setCell(3, 2, 'com.airtech.qa.testcases.ProfilePageTest')
+data.setCell(3, 3, 3507);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'QuickgotoprodTest')
-data.setCell(4, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(4, 3, 8005);
+data.setCell(4, 1, 'ChangePassTest')
+data.setCell(4, 2, 'com.airtech.qa.testcases.ProfilePageTest')
+data.setCell(4, 3, 2840);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'QuickShopTest')
-data.setCell(5, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(5, 3, 6415);
+data.setCell(5, 1, 'MenusDisplayed')
+data.setCell(5, 2, 'com.airtech.qa.testcases.ProfilePageTest')
+data.setCell(5, 3, 289);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'ShowItemsTest')
-data.setCell(6, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(6, 3, 5439);
+data.setCell(6, 1, 'AllOrdersTest')
+data.setCell(6, 2, 'com.airtech.qa.testcases.ProfilePageTest')
+data.setCell(6, 3, 0);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'ProductDetailTest')
-data.setCell(7, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(7, 3, 4762);
+data.setCell(7, 1, 'ReOrderTest')
+data.setCell(7, 2, 'com.airtech.qa.testcases.ProfilePageTest')
+data.setCell(7, 3, 0);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'CartPageTest')
-data.setCell(8, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(8, 3, 4194);
-data.setCell(9, 0, 9)
-data.setCell(9, 1, 'SortByPriceTest')
-data.setCell(9, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(9, 3, 2113);
-data.setCell(10, 0, 10)
-data.setCell(10, 1, 'SortByNameTest')
-data.setCell(10, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(10, 3, 2083);
-data.setCell(11, 0, 11)
-data.setCell(11, 1, 'IsCategoryDisplayed')
-data.setCell(11, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(11, 3, 985);
-data.setCell(12, 0, 12)
-data.setCell(12, 1, 'CloseCartTest')
-data.setCell(12, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(12, 3, 277);
-data.setCell(13, 0, 13)
-data.setCell(13, 1, 'SortToggleTest')
-data.setCell(13, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(13, 3, 196);
-data.setCell(14, 0, 14)
-data.setCell(14, 1, 'IsShowDisplayed')
-data.setCell(14, 2, 'com.airtech.qa.testcases.ProductPageTest')
-data.setCell(14, 3, 66);
+data.setCell(8, 1, 'ViewOrdersTest')
+data.setCell(8, 2, 'com.airtech.qa.testcases.ProfilePageTest')
+data.setCell(8, 3, 0);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 25 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -444,74 +504,52 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.airtech.qa.testcases.ProductPageTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.airtech.qa.testcases.ProfilePageTest</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">setup</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">CartPageTest</span>
-                <span class="method-start">11324 ms</span>
+                <span class="method-name">ChangePassTest</span>
+                <span class="method-start">11026 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">CloseCartTest</span>
-                <span class="method-start">15712 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">IsRecentOrdersDisplayed</span>
+                <span class="method-start">14060 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">ProductDetailTest</span>
-                <span class="method-start">15998 ms</span>
+                <span class="method-name">AllOrdersTest</span>
+                <span class="method-start">24137 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">SortToggleTest</span>
-                <span class="method-start">20767 ms</span>
+                <span class="method-name">MenusDisplayed</span>
+                <span class="method-start">24147 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">IsCategoryDisplayed</span>
-                <span class="method-start">20987 ms</span>
+                <span class="method-name">ReOrderTest</span>
+                <span class="method-start">24441 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">IsShowDisplayed</span>
-                <span class="method-start">21982 ms</span>
+                <span class="method-name">ViewOrdersTest</span>
+                <span class="method-start">24457 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">SortByPriceTest</span>
-                <span class="method-start">22053 ms</span>
+                <span class="method-name">IsEditPassDisplayed</span>
+                <span class="method-start">24477 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">SortByNameTest</span>
-                <span class="method-start">24170 ms</span>
+                <span class="method-name">ManageAdressTest</span>
+                <span class="method-start">29385 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">ShowItemsTest</span>
-                <span class="method-start">26264 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">QuickgotoprodTest</span>
-                <span class="method-start">31714 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">QuickShopTest</span>
-                <span class="method-start">39728 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">QuickCheckoutTest</span>
-                <span class="method-start">46157 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">checkAllCategoriesTest</span>
-                <span class="method-start">57649 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">checkAllPriceCategoriesTest</span>
-                <span class="method-start">145556 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">WishListSuccessTest</span>
-                <span class="method-start">166786 ms</span>
+                <span class="method-name">NewsletterTest</span>
+                <span class="method-start">32902 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">teardown</span>
-                <span class="method-start">180288 ms</span>
+                <span class="method-start">36690 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

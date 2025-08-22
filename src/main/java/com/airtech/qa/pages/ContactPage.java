@@ -12,7 +12,7 @@ public class ContactPage extends BasePage {
 		super(driver);
 	}
 	
-	By contactbtn=By.xpath("//a[@title='Contact']");
+	By contactbtn=By.xpath("//span[normalize-space()='Contact']");
 	By contacttext=By.xpath("//span[@class='base']");
 	By name=By.xpath("//input[@id='name']");
 	By email=By.xpath("//form[@id='contact-form']//input[@id='email']");

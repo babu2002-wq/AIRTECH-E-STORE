@@ -22,7 +22,7 @@ public class LoginPage extends BasePage {
 	By registerbtn=By.xpath("//span[normalize-space()='Register']");
 	By forgotpasswordbtn=By.xpath("//fieldset[@class='fieldset']//span[contains(text(),'Forgot Your Password?')]");
 	By togglebtn=By.xpath("//i[@class='porto-icon-eye toggle-password']");
-	By reqfields=By.xpath("//input[@aria-required='true'] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
+	By reqfields=By.xpath("//input[@aria-required='true' and not(@autocomplete='off')] | //textarea[@aria-required='true'] | //select[@aria-required='true']");
 	By errormsg=By.xpath("//div[@class='mage-error']");
 	By customerlog=By.xpath("//span[@class='base' and contains(text(),'Customer')]");
 	

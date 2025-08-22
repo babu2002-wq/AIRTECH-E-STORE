@@ -53,7 +53,7 @@ public class ProductPageTest extends BaseClass{
 
 	
  
-	@Test(priority=1)
+	@Test(priority=1,description = "Verify that all the sidebar sections are present")
 	public void IsCategoryDisplayed() {
 		Assert.assertTrue(product.IsCategoryDisplayed().isDisplayed());
 		Assert.assertTrue(product.IsPriceDisplayed().isDisplayed());
@@ -65,7 +65,7 @@ public class ProductPageTest extends BaseClass{
 	}
 	
 	
-	@Test(priority=7)
+	@Test(priority=7,description = "Verify that price sorting option is working fine")
 	public void SortByPriceTest() {
 		product.selectSortOption("price");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
@@ -74,7 +74,7 @@ public class ProductPageTest extends BaseClass{
 	    Assert.assertEquals(displayedPrices, sortedPrices);
 	}
 	
-	@Test(priority=8)
+	@Test(priority=8,description = "Verify that product name sorting option is working fine")
 	public void SortByNameTest() {
 		product.selectSortOption("name");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
@@ -90,7 +90,7 @@ public class ProductPageTest extends BaseClass{
 	}
 	
 	
-	@Test(priority=9)
+	@Test(priority=9,description = "Verify that the no. of product dropdown menu is working fine")
 	public void ShowItemsTest() {
 		List<String> ShowValues = product.getShowDropdownValues();
 	    for (String value : ShowValues) {
@@ -104,25 +104,25 @@ public class ProductPageTest extends BaseClass{
 	}
 	
 
-	@Test
+	@Test(description = "Verify that sorting toggle option is working fine")
 	public void SortToggleTest() {
 		product.SortOrderToggleTest();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 	}
 	
-	@Test(priority=10)
+	@Test(priority=10,description = "Verify that go to product option in the quickview section is working fine")
 	public void QuickgotoprodTest() {
 		detail=product.quickgotoproduct();
 		product.navigateback();
 	}
 	
-	@Test(priority=12)
+	@Test(priority=12,description = "Verify that add to cart option in the quickview section is working fine")
 	public void QuickCheckoutTest() {
 		cart=product.quickviewAddCart();
 		product.navigateback();
 	}
 	
-	@Test(priority=11)
+	@Test(priority=11,description = "Verify that continue shopping option in the quickview section is working fine")
 	public void QuickShopTest() {
 		product=product.quickcontinueshopping();
 		product.navigateback();
@@ -148,7 +148,7 @@ public class ProductPageTest extends BaseClass{
 	}
 	
 
-	@Test(priority=30)
+	@Test(priority=30,description = "Verify that all the products are displayed properly as per their categories")
 	public void checkAllCategoriesTest() throws TimeoutException {
 		product.clickCategoryButton();
 	    List<WebElement> originalCategoryElements = product.getAllCategoryElements();
@@ -168,7 +168,7 @@ public class ProductPageTest extends BaseClass{
 	    }
    }
 	
-	@Test(priority = 31)
+	@Test(priority = 31,description = "Verify that all the products are displayed properly as per their prices")
 	public void checkAllPriceCategoriesTest() {
 		product.waitForOverlayToDisappear();
 	    product.clickPriceFilter();
@@ -202,7 +202,7 @@ public class ProductPageTest extends BaseClass{
 
 
 	
-	@Test(priority=90)
+	@Test(priority=90,description = "Verify that add to wishlist functionality in the product page is working fine")
 	public void WishListSuccessTest() {
 		login.Clickuserbtn();
 		login.enteremail(getProperty("username"));

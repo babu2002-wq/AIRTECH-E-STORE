@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.airtech.qa.base.BasePage;
@@ -44,9 +45,9 @@ public class AddressPage extends BasePage{
 	By saveaddressbtn=By.xpath("//button[@title='Save Address']");
 	By errormsg=By.xpath("//div[@class='mage-error'] | //div[@class='field-error']");
 	By editaddtext=By.xpath("//span[.='Vacuum Bagging and Composite Tooling - Edit Address']");
-	By requiredfields=By.xpath("//input[@aria-required='true'] | //select[@aria-required='true' and not(@id='country_id')]");
+	By requiredfields=By.xpath("//input[@aria-required='true' and not(@id='region')] | //select[@aria-required='true' and not(@id='country_id') and not(@id='country')]");
 	By successmsg=By.xpath("//div[@class='message-success success message']");
-	
+	By states=By.xpath("//select[@id='region_id']/option");
 	
 	public void addressbookclick() {
 		driver.findElement(addressbooklink).click();
@@ -171,6 +172,29 @@ public class AddressPage extends BasePage{
 	
 	public WebElement IsSuccessmsgDisplayed() {
 		return driver.findElement(successmsg);
+	}
+	
+	public void SelectCont(String cont) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(country));
+		 WebElement dropdown = driver.findElement(country);
+	     Select select = new Select(dropdown);
+	     select.selectByVisibleText(cont);
+	}
+	
+	public void SelectState() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(state));
+	    WebElement dropdown = driver.findElement(state);
+	    Select select = new Select(dropdown);
+	    select.selectByIndex(0);
+	    //WebElement firstOption = driver.findElement(state);
+	    //return firstOption.toString();	
+	}
+	
+	public String getStates() {
+		List<WebElement> state=driver.findElements(states);
+		return state.get(0).toString();
 	}
 }
 

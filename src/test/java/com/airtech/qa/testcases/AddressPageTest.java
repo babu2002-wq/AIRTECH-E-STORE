@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -27,7 +28,7 @@ public class AddressPageTest extends BaseClass{
 	AddressPage address;
 	
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		loginToApplication();
@@ -67,7 +68,7 @@ public class AddressPageTest extends BaseClass{
 		Assert.assertTrue(address.IsaddionaladdDisplayed().isDisplayed());
 	}
 	
-	@Test(priority=5)
+	//@Test(priority=5)
 	public void NewAddbtnClick() {
 		address.ClicknewAddressbtn();
 		address.clear();
@@ -87,17 +88,21 @@ public class AddressPageTest extends BaseClass{
 	
 	@Test(priority=6)
 	public void AddnewAddressTest() {
-		//address.ClicknewAddressbtn();
-		//address.clear();
+		address.ClicknewAddressbtn();
+		address.clear();
 		List<WebElement> required=address.reqfields();
 		address.Clicksavebtn();
 		List<WebElement> errormsgs=address.errormsgs();
 		Assert.assertEquals(errormsgs.size(),required.size());
 	}
 	
-	@AfterTest
+	
+	
+	
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}
+	
 	
 }

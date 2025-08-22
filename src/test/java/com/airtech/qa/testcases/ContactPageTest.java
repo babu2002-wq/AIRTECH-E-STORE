@@ -21,7 +21,7 @@ public class ContactPageTest extends BaseClass {
 	
 	ContactPage contact;
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		contact=new ContactPage(driver);
@@ -35,7 +35,7 @@ public class ContactPageTest extends BaseClass {
 	}
 	
 	
-	@Test(priority=2)
+	@Test(priority=2,description = "Verify that all field validations are working fine")
 	public void ContactAllNegativeTest() {
 		contact.clear();
 		contact.entersubmit();
@@ -57,7 +57,7 @@ public class ContactPageTest extends BaseClass {
 	}
 	
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

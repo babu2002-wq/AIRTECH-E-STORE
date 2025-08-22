@@ -31,6 +31,11 @@ public class ComparePage extends BasePage {
 	By wishlistfailmsg=By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
 	By frame=By.tagName("iframe");
 	By shadow=By.cssSelector("print-preview-app");
+	By wishlistbtn=By.xpath("(//a[@class='action towishlist'])[1]");
+	By wishlistsuccessbtn=By.xpath("//button[@id='wishlist_checkout']");
+	By productname=By.xpath("(//strong[@class='product-item-name']//a[not(@data-bind)])[1]");
+	
+	
 	
 	public WebElement IsCompareDisplayed() {
 		return driver.findElement(comparetext);
@@ -103,4 +108,16 @@ public class ComparePage extends BasePage {
 	public void navigateback() {
 		driver.navigate().back();
 	}
+	
+	public String getProductName() {
+		return driver.findElement(productname).getText();
+	}
+	
+	public MyWishListPage clickWishlistbtn() {
+		driver.findElement(wishlistbtn).click();
+		driver.findElement(wishlistsuccessbtn).click();
+		return new MyWishListPage(driver);
+	}
+	
+	
 }

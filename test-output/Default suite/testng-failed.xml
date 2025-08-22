@@ -3,14 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.airtech.qa.testcases.ProductPageTest">
+      <class name="com.airtech.qa.testcases.ProfilePageTest">
         <methods>
-          <include name="setup"/>
           <include name="teardown"/>
-          <include name="checkAllCategoriesTest"/>
-          <include name="checkAllPriceCategoriesTest"/>
+          <include name="AllOrdersTest"/>
+          <include name="setup"/>
+          <include name="ViewOrdersTest"/>
+          <include name="ReOrderTest"/>
+          <include name="IsRecentOrdersDisplayed"/>
         </methods>
-      </class> <!-- com.airtech.qa.testcases.ProductPageTest -->
+      </class> <!-- com.airtech.qa.testcases.ProfilePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,81 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="15" passed="15" failed="0" skipped="0">
+<testng-results ignored="0" total="9" passed="5" failed="1" skipped="3">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-09T16:33:08 IST" name="Default suite" finished-at="2025-06-09T16:36:09 IST" duration-ms="180939">
+  <suite started-at="2025-08-22T18:18:25 IST" name="Default suite" finished-at="2025-08-22T18:19:03 IST" duration-ms="37946">
     <groups>
     </groups>
-    <test started-at="2025-06-09T16:33:08 IST" name="Default test" finished-at="2025-06-09T16:36:09 IST" duration-ms="180939">
-      <class name="com.airtech.qa.testcases.ProductPageTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:08 IST" name="setup" finished-at="2025-06-09T16:33:19 IST" duration-ms="11162" status="PASS">
+    <test started-at="2025-08-22T18:18:25 IST" name="Default test" finished-at="2025-08-22T18:19:03 IST" duration-ms="37946">
+      <class name="com.airtech.qa.testcases.ProfilePageTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.airtech.qa.testcases.ProfilePageTest@125290e5]" started-at="2025-08-22T18:18:25 IST" name="setup" finished-at="2025-08-22T18:18:36 IST" duration-ms="10962" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="CartPageTest()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:20 IST" name="CartPageTest" finished-at="2025-06-09T16:33:24 IST" duration-ms="4194" status="PASS">
+        <test-method signature="ChangePassTest()[pri:0, instance:com.airtech.qa.testcases.ProfilePageTest@125290e5]" started-at="2025-08-22T18:18:36 IST" name="ChangePassTest" finished-at="2025-08-22T18:18:39 IST" duration-ms="2840" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CartPageTest -->
-        <test-method signature="CloseCartTest()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:24 IST" name="CloseCartTest" finished-at="2025-06-09T16:33:24 IST" duration-ms="277" status="PASS">
+        </test-method> <!-- ChangePassTest -->
+        <test-method signature="IsRecentOrdersDisplayed()[pri:0, instance:com.airtech.qa.testcases.ProfilePageTest@125290e5]" started-at="2025-08-22T18:18:39 IST" name="IsRecentOrdersDisplayed" finished-at="2025-08-22T18:18:50 IST" duration-ms="10056" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//strong[normalize-space()='Recent Orders']"}
+  (Session info: chrome=139.0.7258.128)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [55c6e1adaadec4aac08b71619e574fae, findElement {value=//strong[normalize-space()='Recent Orders'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.128, chrome: {chromedriverVersion: 139.0.7258.138 (884e54ea8d4..., userDataDir: C:\Users\CYBRAI~2\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50955}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50955/devtoo..., se:cdpVersion: 139.0.7258.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 55c6e1adaadec4aac08b71619e574fae]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//strong[normalize-space()='Recent Orders']"}
+  (Session info: chrome=139.0.7258.128)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [55c6e1adaadec4aac08b71619e574fae, findElement {value=//strong[normalize-space()='Recent Orders'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.128, chrome: {chromedriverVersion: 139.0.7258.138 (884e54ea8d4..., userDataDir: C:\Users\CYBRAI~2\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50955}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50955/devtoo..., se:cdpVersion: 139.0.7258.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 55c6e1adaadec4aac08b71619e574fae
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+at com.airtech.qa.pages.ProfilePage.IsRecentDisplayed(ProfilePage.java:72)
+at com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed(ProfilePageTest.java:67)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CloseCartTest -->
-        <test-method signature="ProductDetailTest()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:24 IST" name="ProductDetailTest" finished-at="2025-06-09T16:33:29 IST" duration-ms="4762" status="PASS">
+        </test-method> <!-- IsRecentOrdersDisplayed -->
+        <test-method signature="AllOrdersTest()[pri:0, instance:com.airtech.qa.testcases.ProfilePageTest@125290e5]" started-at="2025-08-22T18:18:50 IST" name="AllOrdersTest" finished-at="2025-08-22T18:18:50 IST" depends-on-methods="com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method com.airtech.qa.testcases.ProfilePageTest.AllOrdersTest() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5 depends on not successfully finished methods 
+[com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method com.airtech.qa.testcases.ProfilePageTest.AllOrdersTest() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5 depends on not successfully finished methods 
+[com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5]
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ProductDetailTest -->
-        <test-method signature="SortToggleTest()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:29 IST" name="SortToggleTest" finished-at="2025-06-09T16:33:29 IST" duration-ms="196" status="PASS">
+        </test-method> <!-- AllOrdersTest -->
+        <test-method signature="MenusDisplayed()[pri:0, instance:com.airtech.qa.testcases.ProfilePageTest@125290e5]" started-at="2025-08-22T18:18:50 IST" name="MenusDisplayed" finished-at="2025-08-22T18:18:50 IST" duration-ms="289" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SortToggleTest -->
-        <test-method signature="IsCategoryDisplayed()[pri:1, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:29 IST" name="IsCategoryDisplayed" finished-at="2025-06-09T16:33:30 IST" duration-ms="985" status="PASS">
+        </test-method> <!-- MenusDisplayed -->
+        <test-method signature="ReOrderTest()[pri:0, instance:com.airtech.qa.testcases.ProfilePageTest@125290e5]" started-at="2025-08-22T18:18:50 IST" name="ReOrderTest" finished-at="2025-08-22T18:18:50 IST" depends-on-methods="com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method com.airtech.qa.testcases.ProfilePageTest.ReOrderTest() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5 depends on not successfully finished methods 
+[com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method com.airtech.qa.testcases.ProfilePageTest.ReOrderTest() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5 depends on not successfully finished methods 
+[com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5]
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- IsCategoryDisplayed -->
-        <test-method signature="IsShowDisplayed()[pri:6, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:30 IST" name="IsShowDisplayed" finished-at="2025-06-09T16:33:30 IST" duration-ms="66" status="PASS">
+        </test-method> <!-- ReOrderTest -->
+        <test-method signature="ViewOrdersTest()[pri:0, instance:com.airtech.qa.testcases.ProfilePageTest@125290e5]" started-at="2025-08-22T18:18:50 IST" name="ViewOrdersTest" finished-at="2025-08-22T18:18:50 IST" depends-on-methods="com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method com.airtech.qa.testcases.ProfilePageTest.ViewOrdersTest() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5 depends on not successfully finished methods 
+[com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method com.airtech.qa.testcases.ProfilePageTest.ViewOrdersTest() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5 depends on not successfully finished methods 
+[com.airtech.qa.testcases.ProfilePageTest.IsRecentOrdersDisplayed() on instance com.airtech.qa.testcases.ProfilePageTest@125290e5]
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- IsShowDisplayed -->
-        <test-method signature="SortByPriceTest()[pri:7, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:30 IST" name="SortByPriceTest" finished-at="2025-06-09T16:33:32 IST" duration-ms="2113" status="PASS">
+        </test-method> <!-- ViewOrdersTest -->
+        <test-method signature="IsEditPassDisplayed()[pri:0, instance:com.airtech.qa.testcases.ProfilePageTest@125290e5]" started-at="2025-08-22T18:18:50 IST" name="IsEditPassDisplayed" finished-at="2025-08-22T18:18:55 IST" duration-ms="4902" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SortByPriceTest -->
-        <test-method signature="SortByNameTest()[pri:8, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:32 IST" name="SortByNameTest" finished-at="2025-06-09T16:33:35 IST" duration-ms="2083" status="PASS">
+        </test-method> <!-- IsEditPassDisplayed -->
+        <test-method signature="ManageAdressTest()[pri:0, instance:com.airtech.qa.testcases.ProfilePageTest@125290e5]" started-at="2025-08-22T18:18:55 IST" name="ManageAdressTest" finished-at="2025-08-22T18:18:58 IST" duration-ms="3507" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SortByNameTest -->
-        <test-method signature="ShowItemsTest()[pri:9, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:35 IST" name="ShowItemsTest" finished-at="2025-06-09T16:33:40 IST" duration-ms="5439" status="PASS">
+        </test-method> <!-- ManageAdressTest -->
+        <test-method signature="NewsletterTest()[pri:0, instance:com.airtech.qa.testcases.ProfilePageTest@125290e5]" started-at="2025-08-22T18:18:58 IST" name="NewsletterTest" finished-at="2025-08-22T18:19:02 IST" duration-ms="3778" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ShowItemsTest -->
-        <test-method signature="QuickgotoprodTest()[pri:10, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:40 IST" name="QuickgotoprodTest" finished-at="2025-06-09T16:33:48 IST" duration-ms="8005" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- QuickgotoprodTest -->
-        <test-method signature="QuickShopTest()[pri:11, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:48 IST" name="QuickShopTest" finished-at="2025-06-09T16:33:54 IST" duration-ms="6415" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- QuickShopTest -->
-        <test-method signature="QuickCheckoutTest()[pri:12, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:33:54 IST" name="QuickCheckoutTest" finished-at="2025-06-09T16:34:06 IST" duration-ms="11485" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- QuickCheckoutTest -->
-        <test-method signature="checkAllCategoriesTest()[pri:30, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:34:06 IST" name="checkAllCategoriesTest" finished-at="2025-06-09T16:35:34 IST" duration-ms="87901" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkAllCategoriesTest -->
-        <test-method signature="checkAllPriceCategoriesTest()[pri:31, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:35:34 IST" name="checkAllPriceCategoriesTest" finished-at="2025-06-09T16:35:55 IST" duration-ms="21224" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkAllPriceCategoriesTest -->
-        <test-method signature="WishListSuccessTest()[pri:90, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:35:55 IST" name="WishListSuccessTest" finished-at="2025-06-09T16:36:09 IST" duration-ms="13492" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- WishListSuccessTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.airtech.qa.testcases.ProductPageTest@1205bd62]" started-at="2025-06-09T16:36:09 IST" name="teardown" finished-at="2025-06-09T16:36:09 IST" duration-ms="625" status="PASS">
+        </test-method> <!-- NewsletterTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.airtech.qa.testcases.ProfilePageTest@125290e5]" started-at="2025-08-22T18:19:02 IST" name="teardown" finished-at="2025-08-22T18:19:03 IST" duration-ms="1240" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- com.airtech.qa.testcases.ProductPageTest -->
+      </class> <!-- com.airtech.qa.testcases.ProfilePageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

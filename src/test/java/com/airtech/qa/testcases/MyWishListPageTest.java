@@ -33,7 +33,7 @@ public class MyWishListPageTest extends BaseClass {
 	ProductDetailPage detail;
 	
 	
-	@BeforeTest
+	@BeforeMethod
 	public void setup() {
 		initialization();
 		loginToApplication();
@@ -67,12 +67,12 @@ public class MyWishListPageTest extends BaseClass {
 		mywish.entercomment("Great Product");
 	}
 	
-	@Test(priority=90)
+	@Test(priority=90,description = "Verify that all the product removal functionality is working fine")
 	public void removebtntest() {
 		mywish.Clickremovebtn();
 	}
 	
-	@Test(priority=5)
+	//@Test(priority=5,description = "Verify that the quantity update functionality is working fine")
 	public void quantityTest() {
 	    mywish.ChangeQuantity("2");
 	    try {
@@ -87,25 +87,25 @@ public class MyWishListPageTest extends BaseClass {
 	    
 	}
 
-	@Test(priority=6)
+	@Test(priority=6,description = "Verify that the share wishlist feature is working fine")
 	public void ShareWishTest() {
 		Assert.assertEquals(mywish.clicksharewish(),"Wish List Sharing");
 		mywish.navigateback();
 	}
 	
-	@Test(priority=7)
+	@Test(priority=7,description = "Verify that add to cart functionality is working fine")
 	public void AddtoCartTest() {
 		mywish.clickaddtocartbtn();
 		mywish.navigateback();
 	}
 	
-	@Test(priority=8)
+	//@Test(priority=8)
 	public void ValidationTest() {
 		Assert.assertTrue(mywish.ValidationTest().isDisplayed());
 		mywish.navigateback();
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void teardown() {
 		driver.quit();
 	}

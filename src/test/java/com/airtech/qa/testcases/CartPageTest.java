@@ -49,13 +49,13 @@ public class CartPageTest extends BaseClass{
 		Assert.assertTrue(cart.IsTableDisplayed().isDisplayed());
 	}
 	
-	@Test(priority=3)
+	@Test(priority=3,description = "Verify that the quantity update from the product detail page validations are working fine")
 	public void EditTest() {
 		detail=cart.Clickeditbtn();
 		cart.navigateback();
 	}
 	
-	@Test(priority=5)
+	@Test(priority=5,description = "Verify that the product removal functionality is working fine")
 	public void ProdremoveTest() {
 		List<WebElement> prod=cart.getallProducts();
 		int prodno=prod.size();
@@ -69,7 +69,7 @@ public class CartPageTest extends BaseClass{
 		Assert.assertTrue(cart.IsDiscountDisplayed().isDisplayed());
 	}
 	
-	@Test(priority=4)
+	@Test(priority=4,description = "Verify that the quantity update functionality in the cart page is working fine")
 	public void ProductQuantityTest() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    cart.ClickIncreaseQuantity(5);
@@ -101,7 +101,7 @@ public class CartPageTest extends BaseClass{
 	}
 	
 	
-	@Test
+	@Test(description = "Verify that the tax field is displayed in the order summary section")
 	public void IsTaxDisplayed() {
 		Assert.assertTrue(cart.IsTaxDisplayed().isDisplayed());
 	}
